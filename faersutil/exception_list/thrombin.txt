@@ -1,0 +1,6 @@
+	thrombin	CID
+0	antithrombin alfa	146172425
+1	antithrombin iii human	146172549
+2	prothrombin	146172115
+3	thrombin alfa	146171176
+4	thrombin human	146171701
