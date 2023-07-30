@@ -1,0 +1,12 @@
+	coagulation_factor	CID
+0	(1-743)-(1638-2332)-blood-coagulation factor viii (synthetic human) fusion protein with immunoglobulin g1 (synthetic human fc domain fragment), (1444-6^),(1447-9^)-bis(disulfide) with immunoglobulin g1 (synthetic human fc domain fragment)	146171616
+1	coagulation factor ix (recombinant), glycopegylated	146171889
+2	coagulation factor ix human	146171672
+3	coagulation factor ix recombinant human	146172696
+4	coagulation factor vii human	146172305
+5	coagulation factor viia (recombinant)	146171422
+6	coagulation factor viia human	146172183
+7	coagulation factor viia recombinant human	146172152
+8	coagulation factor x human	146171568
+9	coagulation factor xi	146171060
+10	human coagulation factor viii/von willebrand factor complex	146173065

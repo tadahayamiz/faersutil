@@ -27,8 +27,15 @@ from .calculator import Calculator
 from .identifier.name_identifier import Chem
 from .plot import Plot
 
+if os.name == 'nt':
+    SEP = "\\"
+elif os.name == 'posix':
+    SEP = "/"
+else:
+    raise ValueError("!! Something wrong in OS detection !!")
 
 class FAERS():
+    """ all-in-one handler for FAERS data from raw files to results """
     def __init__(self):
         self.__load = XMLoader()
         self.__clean = Cleanser()
@@ -102,7 +109,7 @@ class FAERS():
             raise KeyError("!! Indicate correct format: {}!!".format(self.__load.get_format()))
         if (to_pickle==True) or (to_csv==True):
             if len(fileout)==0:
-                fileout = url + "\\cleansed.pkl"
+                fileout = url + SEP + "cleansed.pkl"
         p = Path(url)
         filelist = list(map(lambda x: x.as_posix(),list(p.glob("*.xml"))))
         print("xml files (total {}):".format(len(filelist)))
@@ -175,7 +182,7 @@ class FAERS():
     def set_identifier(self,data=None,url=""):
         """ set identifier for name identification """
         if len(url)==0:
-            url = __file__.replace("faersutil.py","identifier\\dwh\\identifier.txt")
+            url = __file__.replace("faersutil.py",f"identifier{SEP}dwh{SEP}identifier.txt")
         self.__identify.set_identifier(data,url)
 
 
@@ -275,9 +282,11 @@ class FAERS():
 
 
     ############ visualization ############
-    def forest_plot(self,data=None,figsize=(6,4),color="darkblue",title="Forest Plot",
-                    markersize=15,linewidth=2,fontsize=14,labelsize=14,
-                    fileout="",dpi=100,alpha=0.7,log=False,forced=False,xmin=1e-1,xmax=None):
+    def forest_plot(
+            self, data=None, figsize=(6,4), color="darkblue", title="Forest Plot",
+            markersize=15, linewidth=2, fontsize=14, labelsize=14,
+            fileout="", dpi=100, alpha=0.7, log=False, forced=False, xmin=1e-1, xmax=None
+            ):
         """
         visualize data with forest plot
         
@@ -291,7 +300,44 @@ class FAERS():
             forced=True forcibly visualizes data despite size
             
         """
-        self.__plot.forest_plot(data=data,figsize=figsize,color=color,title=title,
-                    markersize=markersize,linewidth=linewidth,fontsize=fontsize,
-                    labelsize=labelsize,fileout=fileout,dpi=dpi,alpha=alpha,
-                    log=log,forced=forced,xmin=xmin,xmax=xmax)
+        self.__plot.forest_plot(
+            data=data, figsize=figsize, color=color, title=title,
+            markersize=markersize, linewidth=linewidth, fontsize=fontsize,
+            labelsize=labelsize, fileout=fileout, dpi=dpi, alpha=alpha,
+            log=log, forced=forced, xmin=xmin, xmax=xmax
+                    )
+
+def analysis(
+        data:pd.DataFrame, interest:list=[], layer:str="SOC"
+        ):
+    """
+    conduct an analysis with ready-to-use data
+
+    Parameters
+    ----------
+    data: pd.DataFrame
+        ready-to-use data
+        Active Substances and Reactions should be set
+
+    interest: list
+        reactions of interest registered in MedDRA
+
+    layer: str
+        indicates the layer in MedDRA corresponding to interest
+
+    Returns
+    -------
+    result: pd.DataFrame
+    
+    instance: FAERS ojbect
+        the object that has done identify_name(), time-consuming step
+        reuse this from set_rxn() and followed by calc()
+
+    """
+    dat = FAERS()
+    dat.set_data(data=data)
+    # dat.narrow_record()
+    dat.identify_name() # takes a long time ~20 min
+    dat.set_rxn(interest=interest, layer=layer)
+    res = dat.calc()
+    return res, dat

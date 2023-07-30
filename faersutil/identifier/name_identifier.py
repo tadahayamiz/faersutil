@@ -20,6 +20,13 @@ import csv
 from .converter import SynoDict
 from .info_handler.chem_info import Info
 
+if os.name == 'nt':
+    SEP = "\\"
+elif os.name == 'posix':
+    SEP = "/"
+else:
+    raise ValueError("!! Something wrong in OS detection !!")
+
 class Chem():
     def __init__(self):
         self.info = Info()
@@ -185,10 +192,10 @@ class Chem():
 
         # export
         temp1 = pd.DataFrame({"name":key,"CID":val})
-        url1 = __file__.replace("name_identifier.py","dwh\\identifier.txt")
+        url1 = __file__.replace("name_identifier.py","dwh{SEP}identifier.txt")
         temp1.to_csv(url1,sep="\t")
         temp2 = pd.DataFrame({"not_found":list(self.not_found.keys()),"CID":list(self.not_found.values())})
-        url2 = __file__.replace("identifier\\name_identifier.py","exception_list\\not_found.txt")
+        url2 = __file__.replace(f"identifier{SEP}name_identifier.py","exception_list{SEP}not_found.txt")
         temp2.to_csv(url2,sep="\t")
 
 

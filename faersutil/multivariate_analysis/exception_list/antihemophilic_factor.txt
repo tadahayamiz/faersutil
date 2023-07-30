@@ -1,0 +1,7 @@
+	antihemophilic_factor	CID
+0	antihemophilic factor human	146171275
+1	antihemophilic factor porcine, b-domain truncated recombinant	146172648
+2	antihemophilic factor, human recombinant	146171936
+3	antihemophilic factor, human recombinant residues 743-1636 deleted	146171302
+4	antihemophilic factor, pegylated (mw 20000) human sequence recombinant	146172375
+5	cryoprecipitated antihemophilic factor (human)	146172468

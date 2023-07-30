@@ -1,0 +1,5 @@
+	heparin	CID
+0	heparin calcium	146171093
+1	heparin lithium	146172976
+2	heparin sodium	146171762
+3	heparin sodium, bovine	146171111

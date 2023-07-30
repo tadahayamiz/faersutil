@@ -106,17 +106,16 @@ class Cleanser():
 
         self.data = self.data.reset_index(drop=True)
 
-        self.data["Active Substances"] = self.data["Active Substances"].map(lambda x: set(x.split(";")))
-        self.data["Reactions"] = self.data["Reactions"].map(lambda x: set(x.split(";")))
+        self.data.loc[:, "Active Substances"] = self.data.loc[:, "Active Substances"].map(lambda x: set(x.split(";")))
 
-        
+        self.data.loc[:, "Reactions"] = self.data.loc[:, "Reactions"].map(lambda x: set(x.split(";")))
+
         # treat Active Substances with hard coding ("or")
-        self.data["Active Substances"] = self.data["Active Substances"].map(treat_or) # treat only "or"
-        
+        self.data.loc[:, "Active Substances"] = self.data.loc[:, "Active Substances"].map(treat_or) # treat only "or"
         
         # align
         empty_set = {""}
-        self.data["Active Substances"] = self.data["Active Substances"].map(lambda x: x - empty_set)
+        self.data.loc[:, "Active Substances"] = self.data.loc[:, "Active Substances"].map(lambda x: x - empty_set)
         self.data = self.data[self.data["Active Substances"].map(lambda x: len(x) > 0)]
         self.n_record = (n_all,self.data.shape[0])
         
@@ -130,7 +129,7 @@ class Cleanser():
             for v in paths:
                 temp = pd.read_csv(v,sep="\t")
                 fname = v.split("/")[-1].replace(".txt","")
-                self.exception[fname] = set(temp[fname])
+                self.exception[fname] = set(temp[fname].values.tolist())
 
 
     def exclude_exception(self,chem_only=True):

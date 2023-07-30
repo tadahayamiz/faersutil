@@ -1,3 +1,10 @@
+211129
+add ["mesylate"]
+
+211127
+add ["aluminium","calcium","citrate","chlorate","furoate","hydrate","hydrous","hydroxide","ion",
+	"potassium","succinate","trifydrate","trihydrate"]
+
 add DEL_COMP
 
 before 211127
@@ -12,9 +19,3 @@ DEL_COMP = ["acetate","anhydrous",
             "sodium","sulfate","saccharate",
             "trifluoroacetate","trifluoroacetic acid"]
 
-211127
-add ["aluminium","calcium","citrate","chlorate","furoate","hydrate","hydrous","hydroxide","ion",
-	"potassium","succinate","trifydrate","trihydrate"]
-
-211129
-add ["mesylate"]

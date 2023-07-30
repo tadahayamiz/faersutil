@@ -15,13 +15,21 @@ from collections import defaultdict
 import pubchempy as pcp
 from pathlib import Path
 import csv
+import os
+
+if os.name == 'nt':
+    SEP = "\\"
+elif os.name == 'posix':
+    SEP = "/"
+else:
+    raise ValueError("!! Something wrong in OS detection !!")
 
 class InfoLoader():
     """ data loader for Info """
     def __init__(self,url="",extension="txt",key="chemical-info"):
         self.__data = pd.DataFrame()
         if len(url)==0:
-            url = __file__.replace("info_handler\\info_loader.py","dwh")
+            url = __file__.replace(f"info_handler{SEP}info_loader.py","dwh")
         self.stored_path = []
         self.set_stored_path(url,extension,key)
         if len(self.stored_path)==0:
