@@ -103,8 +103,8 @@ def parse_xml():
                 fileout = outdir + SEP + f"parsed_{key}_{i}.txt"
                 try:
                     df = dat.load_xml(path, fileout=fileout, to_csv=True, sep="\t")
-                except:
-                    print("!! An Error Ocurred !!")
+                except Exception as e:
+                    print(f"!! An Error Ocurred: {e} !!")
                     print(path)
         else:
             pass
