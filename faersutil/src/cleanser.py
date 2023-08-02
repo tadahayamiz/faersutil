@@ -142,7 +142,7 @@ class Cleanser():
         p = Path(__file__.replace("cleanser.py", "exception_list"))
         paths = glob.glob(__file__.replace("cleanser.py", f"exception_list{SEP}*.txt"))
 
-
+        print(__file__.replace("cleanser.py", "exception_list"))
         print(paths)
         # paths = list(map(lambda x: x.as_posix(),list(p.glob("*.txt"))))
         if len(paths) > 0:
