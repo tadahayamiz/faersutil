@@ -1,9 +1,0 @@
-graft tests
-graft docs
-graft faersutil/identifier/dwh
-graft faersutil/exception_list
-
-global-exclude *.pyc
-global-exclude __pycache__
-
-prune .git

@@ -1,23 +1,33 @@
-# faersutil
-a package for handling FDA-FAERS data.  
+## cli_package
+a template repository for developing CLI package  
 
-# Dependency  
-* python 3.6  
-* requirements: numpy, pandas, scipy, tqdm, enan  
-    
-# Usage  
-see samplecode.ipynb  
-   
-# Licence  
-This software is released under the MIT License.  
+## Install
+- ``` pip install git+{URL OF THIS GITHUB REPOSITORY} ```  
+- In the development stage, it may be helpful to add ``` --force-reinstall ``` option  
 
-# Authors  
-Iori Azuma, Katsuhisa Morita, and Tadahaya Mizuno  
+## Organization
+------------  
 
-# References  
-* [FDA-FAERS data source](https://fis.fda.gov/extensions/FPD-QDE-FAERS/FPD-QDE-FAERS.html)  
+    ├── LICENSE  
+    ├── README.md           <- The top-level README for developers using this project  
+    │
+    ├── requirements.txt    <- The requirements file for reproducing the analysis environment, e.g.
+    │                         generated with `pip freeze > requirements.txt`
+    │
+    ├── setup.py            <- makes project pip installable (pip install -e .) so src can be imported
+    │
+    └── module              <- Source code for use in this project.
+        ├── __init__.py     <- Makes src a Python module
+        │
+        └── core.py         <- main src for this module
 
-# Bug Report  
-If you would like to report any bugs about this package, don't hesitate to create an issue on github here, or email me:  
-* tadahaya@gmail.com  
-* tadahaya@mol.f.u-tokyo.ac.jp  
+------------
+
+## Authors
+[Tadahaya Mizuno](https://github.com/tadahayamiz)  
+
+## References
+[cookiecutter](https://github.com/cookiecutter/cookiecutter)  
+
+## Contact
+- tadahaya[at]gmail.com  

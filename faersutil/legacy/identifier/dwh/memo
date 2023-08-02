@@ -1,0 +1,21 @@
+211129
+add ["mesylate"]
+
+211127
+add ["aluminium","calcium","citrate","chlorate","furoate","hydrate","hydrous","hydroxide","ion",
+	"potassium","succinate","trifydrate","trihydrate"]
+
+add DEL_COMP
+
+before 211127
+DEL_COMP = ["acetate","anhydrous",
+            "benzonate","benzoate",
+            "carbonate","chloride",
+            "dihydrate","dihydrochloride","dimer",
+            "fumarate",
+            "hemifumarate","hydrobromide","hydrochloride",
+            "maleate","magnesium","methanesulfonate","mesylates",
+            "pottasium",
+            "sodium","sulfate","saccharate",
+            "trifluoroacetate","trifluoroacetic acid"]
+

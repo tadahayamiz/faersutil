@@ -1,0 +1,5 @@
+	epoetin	CID
+0	darbepoetin alfa	146171908
+1	epoetin alfa-epbx	146172541
+2	epoetin delta	146172018
+3	pegzerepoetin alfa	146172233

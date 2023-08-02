@@ -1,0 +1,2141 @@
+	not_found	CID
+0		146170996
+1	diphtheria and tetanus toxoids and pertussis vaccine and haemophilus b and hepatitis b virus vaccine	146170997
+2	hypromelloses	146170998
+3	pegargiminase	146170999
+4	carya tomentosa pollen	146171000
+5	protein c	146171001
+6	methylephedrine hydrochloride, (+/-)-	146171002
+7	dextran 40	146171003
+8	kallidinogenase	146171004
+9	influenza b virus b/phuket/3073/2013 antigen (forma	146171005
+10	angiotensin	146171006
+11	aloe	146171007
+12	dihydroergocryptine mesylate	146171008
+13	ivuxolimab	146171009
+14	rabies vaccine	146171010
+15	crizanlizumab-tmca	146171011
+16	onion	146171012
+17	magnesium alginate	146171013
+18	bos taurus skin	146171014
+19	paeonia lactiflora root	146171015
+20	hyaluronic acid	146171016
+21	incobotulinumtoxina	146171017
+22	salvia miltiorrhiza root	146171018
+23	lactic acid, dl-	146171019
+24	orthosiphon aristatus leaf	146171020
+25	atriplex lentiformis pollen	146171021
+26	alternaria altern	146171022
+27	cladosporium cladosporioides	146171023
+28	mepolizumab	146171024
+29	streptokinase-streptodornase	146171025
+30	aspergillus nidulans	146171026
+31	platelet concentrate human	146171027
+32	trastuzumab-dttb	146171028
+33	canis lupus familiaris dander	146171029
+34	halibut liver oil	146171030
+35	escherichia coli	146171031
+36	factor ix complex	146171032
+37	lisocabtagene maraleucel	146171033
+38	alemtuzumab	146171034
+39	glucosamine sulfate	146171035
+40	diphtheria and tetanus toxoids and acellular pertussis adsorbed, inactivated poliovirus and haemophilus b conjugate (mpc) and hepatitis b virus vaccine	146171036
+41	shark liver oil	146171037
+42	 dolichovespula maculata venom protein	146171038
+43	fucus vesiculosus	146171039
+44	sodium heparan sulfate (porcine	146171040
+45	sodium cl	146171041
+46	somatrem	146171042
+47	peru balsam	146171043
+48	hops	146171044
+49	alnus serrulata pollen	146171045
+50	st. john^s wort	146171046
+51	human rho(d) immune globulin	146171047
+52	azithromycin anhydrous	146171048
+53	grapefruit	146171049
+54	sporisorium cruentum	146171050
+55	probiotics nos	146171051
+56	danaparoid sodium	146171052
+57	basil	146171053
+58	tetanus toxoids	146171054
+59	cochliobolus sativ	146171055
+60	parnaparin sodium	146171056
+61	bacillus calmette-guerin substrain moreau rdj live antigen	146171057
+62	panax notoginseng root extract	146171058
+63	icrucumab	146171059
+64	abciximab	146171060
+65	allergenic extract- alternaria	146171061
+66	influenza a virus a/california/7/2009 x-181 (h1n1) antigen (formaldehyde inactivated)	146171062
+67	borage seed oil	146171063
+68	belladonna	146171064
+69	estrogens, conjugated synthetic b	146171065
+70	taraxacum officinale pollen	146171066
+71	hyoscyamine	146171067
+72	chelidonium majus	146171068
+73	betula papyrifera pollen	146171069
+74	blattella germanica	146171070
+75	rituximab-pvvr	146171071
+76	 menaquinone 6	146171072
+77	hypericum perforatum whole	146171073
+78	catumaxomab	146171074
+79	trastuzumab deruxtecan	146171075
+80	fludrocortisone	146171076
+81	insulin nos	146171077
+82	pidilizumab	146171078
+83	emu oil	146171079
+84	alnus rhombifolia pollen	146171080
+85	infliximab-abda	146171081
+86	quercus salicina stem	146171082
+87	dtrmwxhs-12	146171083
+88	bococizumab	146171084
+89	cemiplimab-rwlc	146171085
+90	senega extract	146171086
+91	ferroglycine sulfate	146171087
+92	chondroitin sulfate (bovine)	146171088
+93	quercus palustris pollen	146171089
+94	atlantic salmon oil	146171090
+95	influenza a virus a/hong kong/4801/2014 x-263b (h3n2) antigen (formaldehyde inactivated)	146171091
+96	antihemophilic factor human	146171092
+97	apple cider vinegar	146171093
+98	sodium stibogluconate anhydrous	146171094
+99	duligotuzumab	146171095
+100	racementhol	146171096
+101	e. coli vaccines	146171097
+102	opium	146171098
+103	ferric oxide red	146171099
+104	human blood vessel	146171100
+105	influenza b virus b/phuket/3073/2013 antigen (propiolactone inactivated)	146171101
+106	pinus ponderosa pollen	146171102
+107	corn oil, oxidized	146171103
+108	ferrous sulfate, dried	146171104
+109	hypericum perforatum extract	146171105
+110	mometasone	146171106
+111	liquid petroleum	146171107
+112	rumex acetosa leaf	146171108
+113	meningococcal polysaccharide vaccine c	146171109
+114	gadopentetic acid	146171110
+115	aglatimagene besadenovec	146171111
+116	poliovirus sabin type 1 live antigen	146171112
+117	pembrolizumab	146171113
+118	gotu kola	146171114
+119	poliovirus sabin type 2 live antigen	146171115
+120	galphimia glauca flowering top	146171116
+121	bosentan anhydrous	146171117
+122	poliovirus type 1 antigen (formaldehyde inactivated)	146171118
+123	holcus lanatus pollen	146171119
+124	ganitumab	146171120
+125	influenza b virus b/hubei-wujiagang/158/2009 bx-39 antigen (propiolactone inactivated)	146171121
+126	anise oil	146171122
+127	.alpha.-tocopherol calcium succinate, d-	146171123
+128	dactylis glomerata pollen	146171124
+129	soybean oil	146171125
+130	parachlorophenol camphorated	146171126
+131	ferumoxides non-stoichiometric magnetite	146171127
+132	iodophor	146171128
+133	romiplostim	146171129
+134	argan oil	146171130
+135	ferrous asparto glycinate	146171131
+136	phenylmercury borate	146171132
+137	lolium perenne pollen	146171133
+138	margarine	146171134
+139	incadronate disodium	146171135
+140	inolimomab	146171136
+141	corn	146171137
+142	gonadotrophin, chorionic	146171138
+143	anguilla rostrata blood serum	146171139
+144	avocado	146171140
+145	istiratumab	146171141
+146	claviceps purpurea sclerotium	146171142
+147	thrombopoietin	146171143
+148	colestipol hydrochloride	146171144
+149	andecaliximab	146171145
+150	viscum album leaf	146171146
+151	pegpleranib	146171147
+152	peanut	146171148
+153	acutobin	146171149
+154	codeine phosphate anhydrous	146171150
+155	streptodornase	146171151
+156	pimpinella anisum whole	146171152
+157	calcium silicate	146171153
+158	hyaluronate sodium	146171154
+159	influenza b virus b/phuket/3073/2013 recombinant hemagglutinin antigen	146171155
+160	talimogene laherparepvec	146171156
+161	alfalfa	146171157
+162	arginine-gamma-hydroxybutyrate	146171158
+163	trastuzumab	146171159
+164	tagraxofusp-erzs	146171160
+165	human rotavirus a type g6p1a(8) strain wi79 live antigen	146171161
+166	onabotulinumtoxina	146171162
+167	cannabis sativa subsp. indica top	146171163
+168	botulinum toxin nos	146171164
+169	glucose oxidase	146171165
+170	polyaminopropyl biguanide	146171166
+171	luteinizing hormone	146171167
+172	ontuxizumab	146171168
+173	red yeast	146171169
+174	estrogens	146171170
+175	isatis tinctoria root	146171171
+176	betula nigra pollen	146171172
+177	streptococcus pyogenes	146171173
+178	rumex acetosella pollen	146171174
+179	allergenic extract- cockroach periplaneta americana	146171175
+180	conatumumab	146171176
+181	clostridium butyricum spores strain m-55	146171177
+182	rosemary	146171178
+183	calfactant	146171179
+184	micafungin	146171180
+185	cemiplimab	146171181
+186	solifenacin	146171182
+187	candida alb	146171183
+188	isothiazolinone	146171184
+189	sage	146171185
+190	human papillomavirus type 18 l1 capsid protein residues 2-472 antigen	146171186
+191	resorcinol and sulfur	146171187
+192	echinacea, unspecified	146171188
+193	lolium perenne	146171189
+194	carbasalate	146171190
+195	alcuronium	146171191
+196	cinnamon bark oil	146171192
+197	neisseria meningitidis serogroup b recombinant lp2086 b01 protein variant antigen	146171193
+198	tanezumab	146171194
+199	taraxacum officinale root	146171195
+200	codrituzumab	146171196
+201	high density polyethylene	146171197
+202	cat^s claw	146171198
+203	vanutide cridificar	146171199
+204	pegfilgrastim-bmez	146171200
+205	vopratelimab	146171201
+206	diannexin	146171202
+207	collagenase clostridium histolyticum	146171203
+208	tamarind	146171204
+209	melaleuca quinquenervia pollen	146171205
+210	thyme	146171206
+211	brentuximab vedotin	146171207
+212	curcuma xanthorrhiza root extract	146171208
+213	betula pendula pollen	146171209
+214	 dihydrocodeine phosphate 	146171210
+215	 metamizole sodium	146171211
+216	cadexomer iodine	146171212
+217	clove	146171213
+218	crotalidae polyvalent immune fab (ovine)	146171214
+219	belladonna leaf	146171215
+220	eschscholzia californica	146171216
+221	salsola kali pollen	146171217
+222	onasemnogene abeparvovec	146171218
+223	burosumab-twza	146171219
+224	tilia americana pollen	146171220
+225	cresol	146171221
+226	vanucizumab	146171222
+227	mucor plumb	146171223
+228	resin	146171224
+229	human c1-esterase inhibitor	146171225
+230	serenoa repens whole	146171226
+231	insulin purified pork	146171227
+232	liposyn (r) intravenous fat emulsion	146171228
+233	selicrelumab	146171229
+234	pancrelipase amylase	146171230
+235	iodine solution, strong	146171231
+236	ferric polysaccharide complex	146171232
+237	device	146171233
+238	interferon alfa-n1	146171234
+239	ibritumomab tiuxetan	146171235
+240	carboprost	146171236
+241	bismuth oxide	146171237
+242	infliximab-dyyb	146171238
+243	tenecteplase	146171239
+244	viburnum opulus bark	146171240
+245	parathyroid hormone	146171241
+246	necitumumab	146171242
+247	magnesium aspartate anhydrous	146171243
+248	emactuzumab	146171244
+249	licorice root extract	146171245
+250	mucor plumbeus	146171246
+251	influenza b virus b/brisbane/60/2008 antigen (propiolactone inactivated)	146171247
+252	hemoglobin glutamer-250 (bovine)	146171248
+253	insulin beef	146171249
+254	alteplase	146171250
+255	recombinant varicella zoster virus (vzv) glycoprotein e	146171251
+256	bentonite	146171252
+257	influenza b virus b/brisbane/60/2008 live(attenuated) antigen	146171253
+258	diphtheria and tetanus toxoids and acellular pertussis vaccine adsorbed	146171254
+259	hepatitis b virus subtype adw hbsag surface protein antigen	146171255
+260	english walnut	146171256
+261	reteplase	146171257
+262	dextranomer	146171258
+263	nimotuzumab	146171259
+264	poliovirus vaccine live oral trivalent	146171260
+265	cannabis sativa whole	146171261
+266	wild cherry bark	146171262
+267	neisseria meningitidis group c capsular polysaccharide antigen	146171263
+268	influenza b virus b/phuket/30	146171264
+269	drotrecogin alfa (activated)	146171265
+270	stevia rebaudiuna leaf	146171266
+271	lapine t-lymphocyte immune globulin	146171267
+272	measles-rubella virus vaccine, live	146171268
+273	hydrogenated soybean oil	146171269
+274	elastase	146171270
+275	risankizumab-rzaa	146171271
+276	sterols	146171272
+277	monteplase	146171273
+278	rosemary oil	146171274
+279	lowbush blueberry	146171275
+280	corticosteroid nos	146171276
+281	humulus lupulus whole	146171277
+282	opium, powdered	146171278
+283	bismuth subgallate	146171279
+284	calcium phosphate, monobasic, anhydrous	146171280
+285	influenza b virus b/phuket/3073/201	146171281
+286	herbs	146171282
+287	platycodon grandiflorus whole	146171283
+288	molgramostim	146171284
+289	interferon beta-1b	146171285
+290	parabens	146171286
+291	geranium	146171287
+292	cirmtuzumab	146171288
+293	thyroid, unspecified	146171289
+294	measles-mumps-rubella virus vaccine, live	146171290
+295	meningococcal polysaccharide vaccine, groups a, c, y,w135 combined	146171291
+296	magnesium carbonate hydroxide	146171292
+297	4-chloro-2,5-dimethoxy-n-(2-methoxybenzyl)phenethylamine	146171293
+298	25-hydroxyergocalciferol-	146171294
+299	magnesium peroxide	146171295
+300	cocoa	146171296
+301	sotatercept	146171297
+302	influenza b virus b/phuket/3073/2013 ant	146171298
+303	cranberry concentrate	146171299
+304	dermatophagoides farinae	146171300
+305	norepinephrine hydrochloride-c 11	146171301
+306	thyroglobulin	146171302
+307	conium maculatum flowering top	146171303
+308	radium ra-223 dichloride	146171304
+309	ravulizumab	146171305
+310	lipoprotein outer surface a borrelia burgdorferi antigen	146171306
+311	ixekizumab	146171307
+312	borage oil	146171308
+313	alcohol, x-ray exposed (1000 rad)	146171309
+314	eleuthero	146171310
+315	faricimab	146171311
+316	black currant	146171312
+317	capsicum oleoresin	146171313
+318	amatuximab	146171314
+319	thymus vulgaris whole	146171315
+320	adalimumab-fkjp	146171316
+321	noni fruit	146171317
+322	juglans nigra pollen	146171318
+323	sucralfate	146171319
+324	ovine digoxin immune fab	146171320
+325	lanoteplase	146171321
+326	camphor (synthetic)	146171322
+327	cultivated mushroom	146171323
+328	oprelvekin	146171324
+329	levothyroxine sodium	146171325
+330	klebsiella pneumoniae	146171326
+331	chlorella vulgaris	146171327
+332	ambrosia psilostachya pollen	146171328
+333	abituzumab	146171329
+334	technetium tc-99m tilmanocept	146171330
+335	bordetella pertussis fimbriae 2/3 antigen	146171331
+336	albumin macroaggregated human serum	146171332
+337	isoflavones soy	146171333
+338	semuloparin sodium	146171334
+339	heme iron polypeptide	146171335
+340	viagenpumatucel-l	146171336
+341	tisagenlecleucel-t	146171337
+342	bcg vaccine	146171338
+343	bifidobacterium spp.	146171339
+344	horseradish	146171340
+345	lirilumab	146171341
+346	emicizumab	146171342
+347	intrauterine device	146171343
+348	interleukin 15, recombinant non-glycosylated	146171344
+349	ustilago cynodontis	146171345
+350	calcium cl	146171346
+351	pyrilamine tannate	146171347
+352	bismuth subsalicylate	146171348
+353	rumex crispus pollen	146171349
+354	bacillus anthracis immunoserum rabbit	146171350
+355	polylactide, l-	146171351
+356	amaranthus hybridus pollen	146171352
+357	aluminum hydroxide 	146171353
+358	influenza b virus b/massachusetts/2/2012 bx-51	146171354
+359	plantago major	146171355
+360	tuberculin, tine test	146171356
+361	ulocuplumab	146171357
+362	phleum pratense	146171358
+363	levorphanol tartrate	146171359
+364	heparin sodium	146171360
+365	isatuximab	146171361
+366	penicillium camemberti	146171362
+367	influenza b virus b/wisconsin/1/2010) antigen (mdck cell derived, propiolactone inactivated)	146171363
+368	moxetumomab pasudotox-tdfk	146171364
+369	. alpha.-tocopherol acetate, d-	146171365
+370	fibrinogen human	146171366
+371	immune globulin antivenin nos	146171367
+372	isotretinoin	146171368
+373	indometacin meglumine	146171369
+374	ambrosia acanthicarpa pollen	146171370
+375	sodium metabisulfite	146171371
+376	11-nor-9-carboxy-.delta-9-tetrahydrocannabinol	146171372
+377	lysozyme	146171373
+378	human cord blood hematopoietic progenitor cell	146171374
+379	ambrosia bidentata pollen	146171375
+380	human rotavirus a type g3p7(5) strain wi78 live antigen	146171376
+381	grapefruit seed extract	146171377
+382	influenza a virus a/california/7/2009(h1n1)-like hemagglutinin antigen (propiolactone inactivated)	146171378
+383	niaouli oil	146171379
+384	riboflavin 5^-phosphate sodium anhydrous	146171380
+385	dextran sulfate sodium salt	146171381
+386	sodium escinate	146171382
+387	polysorbate	146171383
+388	interferon beta	146171384
+389	enfortumab vedotin	146171385
+390	gallus gallus feather	146171386
+391	linseed oil	146171387
+392	tositumomab	146171388
+393	methylprednisolone (eshap)	146171389
+394	givosiran sodium	146171390
+395	eucerin	146171391
+396	linoleic acid, conjugated	146171392
+397	.alpha.-tocopherol, dl-	146171393
+398	chenopodium album pollen	146171394
+399	dihydroxyaluminum aminoacetate anhydrous	146171395
+400	esomeprazole	146171396
+401	mucor racemosus	146171397
+402	somatrogon	146171398
+403	grape fruit	146171399
+404	roots	146171400
+405	wine grape	146171401
+406	aureobasidium pullulans var. p	146171402
+407	antihemophilic factor, human recombinant residues 743-1636 deleted	146171403
+408	factor ix nos	146171404
+409	panax notoginseng root	146171405
+410	shrimp, unspecified	146171406
+411	oregano leaf oil	146171407
+412	houttuynia cordata whole	146171408
+413	antihemophilic factor, pegylated (mw 20000) human sequence recombinant	146171409
+414	kerosene	146171410
+415	gasoline	146171411
+416	tildrakizumab	146171412
+417	peginterferon beta-1a	146171413
+418	echinacea purpurea whole	146171414
+419	interleukin-10	146171415
+420	ferrous chloride	146171416
+421	follitropin	146171417
+422	betula pendula wood extract	146171418
+423	thrombin human	146171419
+424	barley	146171420
+425	dimethicone 410	146171421
+426	granulocytes	146171422
+427	ligelizumab	146171423
+428	influenza b virus b/massachusetts/2/2012 live (attenuated) antigen	146171424
+429	turoctocog alfa pegol	146171425
+430	phellinus linteus mycelium	146171426
+431	baltaleucel-t	146171427
+432	batroxobin	146171428
+433	polyethylene glycol 400	146171429
+434	coconut	146171430
+435	panitumumab	146171431
+436	bacopa monnieri whole	146171432
+437	rasburicase	146171433
+438	scutellaria lateriflora	146171434
+439	buserelin	146171435
+440	echinacea extract	146171436
+441	opioid agonist	146171437
+442	ferumoxsil	146171438
+443	protein hydrolysate	146171439
+444	beta vulgaris whole	146171440
+445	fraxinus americana pollen	146171441
+446	lanadelumab-flyo	146171442
+447	homeopathics	146171443
+448	grindelia hirsutula flowering top	146171444
+449	albumin bovine	146171445
+450	teprasiran	146171446
+451	polyethylene glycol 3500	146171447
+452	echinacea	146171448
+453	parsley	146171449
+454	natalizumab	146171450
+455	savin	146171451
+456	4-hydroxy-3-methoxybenzenesulfonic	146171452
+457	rabies immune globulin (human)	146171453
+458	thymocyte immune globulin nos	146171454
+459	human hematopoietic progenitor cells	146171455
+460	tafasitamab	146171456
+461	streptococcus faecais	146171457
+462	calcium polycarbophil	146171458
+463	granulocyte-macrophage colony-stimulating factor	146171459
+464	tribasic calcium phosphate	146171460
+465	metylprednisolone	146171461
+466	capreomycin sulfate	146171462
+467	granulocyte colony-stimulating factor nos	146171463
+468	 fish oil	146171464
+469	powdered cellulose	146171465
+470	diphtheria and tetanus toxoids adsorbed	146171466
+471	vonicog alfa	146171467
+472	tebentafusp	146171468
+473	sar-439459	146171469
+474	prabotulinumtoxina-xvfs	146171470
+475	povidone k29/32	146171471
+476	hypromellose 2208 (100 mpa.s)	146171472
+477	sambucus nigra flowering top	146171473
+478	rubella virus strain wistar ra 27/3 live antigen	146171474
+479	acetic acid	146171475
+480	influenza a virus a/perth/16/2009 (h3n2) live(attenuated) antigen	146171476
+481	influenza a virus a/singapore/infimh-16-0019/2016 nib-104 (h3n2) antigen (formaldehyde inactivated)	146171477
+482	mitiglinide	146171478
+483	artemisia ludoviciana pollen	146171479
+484	bergamot oil	146171480
+485	technetium tc-99m arcitumomab	146171481
+486	 polyethylene glycol 400	146171482
+487	ringer^s solution	146171483
+488	succinylated gelatin	146171484
+489	red wine	146171485
+490	dihydroxyaluminum sodium carbonate	146171486
+491	bos taurus thymus	146171487
+492	tilsotolimod sodium	146171488
+493	ipecac	146171489
+494	hyaluronidase	146171490
+495	epoetin alfa-epbx	146171491
+496	mumps virus strain b level jeryl lynn live antigen	146171492
+497	technetium tc-99m red blood cells	146171493
+498	samalizumab	146171494
+499	laminaria japonica	146171495
+500	agalsidase alfa	146171496
+501	romosozumab	146171497
+502	rituximab-abbs	146171498
+503	sebelipase alfa	146171499
+504	natural latex rubber	146171500
+505	crangon shrimp	146171501
+506	larrea tridentata top	146171502
+507	aluminum zirconium tetrachlorohydrex gly	146171503
+508	vespula pensylvanica venom protein	146171504
+509	ocriplasmin	146171505
+510	chaetomium glob	146171506
+511	penicillium italicum	146171507
+512	cochliobolus spicifer	146171508
+513	lactase	146171509
+514	influenza b virus b/phuket/3073/2013 recombinant hemagglutin	146171510
+515	symphytum officinale whole	146171511
+516	ginger	146171512
+517	chloramine-t anhydrous	146171513
+518	iboctadekin	146171514
+519	depatuxizumab	146171515
+520	rauwolfia	146171516
+521	rumex crispus root	146171517
+522	human immunoglobulin m	146171518
+523	pork liver	146171519
+524	glucosamine hydrochloride	146171520
+525	poliovirus vaccine, inactivated	146171521
+526	d+c yellow no. 8	146171522
+527	influenza virus vaccine trivalent type a+b	146171523
+528	teprotumumab-trbw	146171524
+529	poa pratensis	146171525
+530	citrus x paradisi	146171526
+531	ramucirumab	146171527
+532	ro-7082859	146171528
+533	senna fruit extract	146171529
+534	denosumab	146171530
+535	poppy seed	146171531
+536	influenza a virus a/singapore/infimh-16-0019/2016 ivr-186 (h3n2) antigen (uv, formaldehyde inactivated)	146171532
+537	xanthium sibiricum root	146171533
+538	clonostachys rosea f. rosea	146171534
+539	vitis vinifera root	146171535
+540	golimumab	146171536
+541	turpentine	146171537
+542	hamamelis virginiana root bark/stem bark	146171538
+543	quercus virginiana pollen	146171539
+544	romosozumab-aqqg	146171540
+545	hyaluronidase-fihj	146171541
+546	toxicodendron radicans leaf	146171542
+547	phospholipid	146171543
+548	triglycerides,unspecified length	146171544
+549	rubia tincture	146171545
+550	lysozyme hydrochloride	146171546
+551	bos taurus gallstone	146171547
+552	bifidobacterium animalis lactis	146171548
+553	bos taurus hair	146171549
+554	corynebacterium diphtheriae toxoid antigen (formaldehyde inactivated)	146171550
+555	urokinase	146171551
+556	measles virus antigen	146171552
+557	respiratory syncytial virus immune globulin intravenous (human)	146171553
+558	unapproved	146171554
+559	toripalimab	146171555
+560	taliglucerase alfa	146171556
+561	atropa belladonna	146171557
+562	hyaluronidase (human recombinant)	146171558
+563	idursulfase	146171559
+564	propolis wax	146171560
+565	conestat alfa	146171561
+566	sodium phosphate, monobasic, monohydrate	146171562
+567	felis catus hair	146171563
+568	 lactobacillus plantarum	146171564
+569	peppermint	146171565
+570	bismuth tribromophenate	146171566
+571	hirudin	146171567
+572	impatiens glandulifera flower	146171568
+573	mecasermin rinfabate	146171569
+574	antithrombin iii human	146171570
+575	selenicereus grandiflorus stem	146171571
+576	trichophyton mentagrophytes	146171572
+577	human immunoglobulin a	146171573
+578	colchicum autumnale flower	146171574
+579	poliovirus type 2 antigen (formaldehyde inactivated)	146171575
+580	influenza a virus a/california/7/2009 x-179a (h1n1) hemagglutinin antigen (formaldehyde inactivated)	146171576
+581	anas platyrhynchos feather	146171577
+582	human papillomavirus type 16 l1 capsid protein residues 2-471 antigen	146171578
+583	yttrium oxodotreotide y-90	146171579
+584	cannabinoid, synthetic (nos)	146171580
+585	wheat germ	146171581
+586	influenza a virus a/singapore/infimh-16-0019/2016 (h3n2) recombinant hemagglutinin antigen	146171582
+587	vitis vinifera seed	146171583
+588	tremelimumab	146171584
+589	haemophilus influenzae type b	146171585
+590	hemp	146171586
+591	cosmetics	146171587
+592	matricaria chamomilla	146171588
+593	hemin	146171589
+594	equus caballus skin	146171590
+595	carya illinoinensis pollen	146171591
+596	salix nigra pollen	146171592
+597	passiflora incarnata flowering top	146171593
+598	eftozanermin alfa	146171594
+599	equisetum arvense top	146171595
+600	wheat gluten	146171596
+601	heparin lithium	146171597
+602	quercus macrocarpa pollen	146171598
+603	boswellia serrata resin extract	146171599
+604	bacillus calmette-guerin substrain connaught live antigen	146171600
+605	tralokinumab	146171601
+606	influenza a virus a/texas/50/2012 (h3n2) live (attenuated) antigen	146171602
+607	fig fruit oil	146171603
+608	cannabis sativa seed oil	146171604
+609	plantago lanceolata leaf	146171605
+610	influenza a virus a/switzerland/9715293/2013 nib-88 (h3n2) antigen (formaldehyde inactivated)	146171606
+611	xanthan gum	146171607
+612	ulmus crassifolia pollen	146171608
+613	pepsin	146171609
+614	citrus bioflavonoid complex	146171610
+615	eculizumab	146171611
+616	bordetella pertussis pertactin antigen	146171612
+617	herbals	146171613
+618	vaccinia virus strain new york city board of health live antigen	146171614
+619	shark cartilage	146171615
+620	human papillomavirus type 11 l1 capsid protein antigen	146171616
+621	tolu balsam	146171617
+622	human papillomavirus type 18 l1 capsid protein antigen	146171618
+623	datura stramonium	146171619
+624	saccharomyces cerevisiae	146171620
+625	ichthammol	146171621
+626	clostridium botulinum	146171622
+627	dimethicone copolyol	146171623
+628	eurotium amstelodami	146171624
+629	pomegranate	146171625
+630	melissa officinalis leaf	146171626
+631	human blood cells	146171627
+632	technetium tc-99m albumin aggregated	146171628
+633	bimagrumab	146171629
+634	vitis vinifera leaf	146171630
+635	penicillium digitatum	146171631
+636	infliximab	146171632
+637	meningococcal group b vaccine	146171633
+638	.alpha.-lipoic acid, (+/-)-	146171634
+639	aminosalicylate calcium aluminium	146171635
+640	1,2-dipalmitoyl-sn-glycero-3-phospho-(1^-rac-glycerol), sodium salt	146171636
+641	tetanus toxoid, reduced diphtheria toxoid and acellular pertussis vaccine adsorbed, tdap	146171637
+642	measles virus strain enders^ attenuated edmonston live antigen	146171638
+643	etanercept-szzs	146171639
+644	imetelstat	146171640
+645	yucca schidigera	146171641
+646	flucloxacillin sodium anhydrous	146171642
+647	corn oil	146171643
+648	spartalizumab	146171644
+649	ginseng extract	146171645
+650	aflibercept	146171646
+651	adalimumab	146171647
+652	tomato	146171648
+653	allergenic extract- tomato	146171649
+654	fd+c red no. 40	146171650
+655	primrose extract	146171651
+656	colesevelam hydrochloride	146171652
+657	hypromellose 2906 (4000 mpa.s)	146171653
+658	tarextumab	146171654
+659	influenza a virus a/victoria/210/2009 x-187 (h3n2) antigen (propiolactone inactivated)	146171655
+660	polatuzumab vedotin	146171656
+661	trastuzumab-pkrb	146171657
+662	influenza b virus b/wisconsin/1/2010 recombinant hemagglutinin antigen	146171658
+663	ipilimumab	146171659
+664	squash	146171660
+665	concord grape	146171661
+666	flax seeds	146171662
+667	fish oil, hydrogenated	146171663
+668	fibrin sealant (human)	146171664
+669	enoxaparin sodium	146171665
+670	andexanet alfa	146171666
+671	marsdenia condurango bark	146171667
+672	piperazine	146171668
+673	amaranthus spinosus pollen	146171669
+674	poliovirus vaccine inactivated monkey kidney cell	146171670
+675	anser anser feather	146171671
+676	quinine benzoate	146171672
+677	bacillus calmette-guerin substrain danish 1331 live antigen	146171673
+678	necuparanib	146171674
+679	northern white shrimp	146171675
+680	wine	146171676
+681	chromic chloride	146171677
+682	iron isomaltoside 1000	146171678
+683	influenza a virus a/california/7/2009(h1n1)-like antigen (formaldehyde inactivated)	146171679
+684	sus scrofa placenta	146171680
+685	human adenovirus b serotype 7 strain 55142	146171681
+686	velaglucerase alfa	146171682
+687	.alpha.-tocopherol, d-	146171683
+688	soy sterol	146171684
+689	pine needle oil (pinus mugo)	146171685
+690	olea europaea leaf	146171686
+691	attapulgite	146171687
+692	camomile extract	146171688
+693	cupric oxide	146171689
+694	ublituximab	146171690
+695	autologous cultured chondrocytes	146171691
+696	piper methysticum root	146171692
+697	lactobacillus plantarum	146171693
+698	influenza b virus b/brisbane/60/2008 antigen (uv, formaldehyde inactivated)	146171694
+699	brolucizumab	146171695
+700	chondroitin sulfate (chicken)	146171696
+701	orange	146171697
+702	valerian	146171698
+703	albumin (human)	146171699
+704	abobotulinumtoxina	146171700
+705	walnut oil	146171701
+706	human herpesvirus 1, 1716 (icp 34.5 deletion)	146171702
+707	galsulfase	146171703
+708	influenza a virus a/kansas/14/2017 x-327 (h3n2) antigen (formaldehyde inactivated)	146171704
+709	zolbetuximab	146171705
+710	metreleptin	146171706
+711	turpentine oil	146171707
+712	human rotavirus a	146171708
+713	hair keratin amino acids gold complex	146171709
+714	epicoccum nig	146171710
+715	green tea leaf	146171711
+716	carboxypolymethylene	146171712
+717	passiflora incarnata top	146171713
+718	measles-mumps-rubella virus vaccine	146171714
+719	allergen patch test	146171715
+720	festuca pratensis	146171716
+721	bassia scoparia pollen	146171717
+722	enterococcus faecium	146171718
+723	fagus grandifolia	146171719
+724	benzalkonium chloride	146171720
+725	grindelia hirsutula whole	146171721
+726	human platelet, allogenic	146171722
+727	zea mays pollen	146171723
+728	haemophilus influenzae type b strain 20,752 capsular polysaccharide tetanus toxoid conjugate antigen	146171724
+729	echinacea purpurea	146171725
+730	cerliponase alfa	146171726
+731	adenovirus vaccine	146171727
+732	liquidambar styraciflua pollen	146171728
+733	protein	146171729
+734	influenza b virus b/brisbane/60/2008 recombinant hemagglutinin antigen	146171730
+735	lobster, unspecified	146171731
+736	anti-inhibitor coagulant complex	146171732
+737	mint	146171733
+738	hyaluronidase recombinant human	146171734
+739	inclisiran	146171735
+740	oatmeal	146171736
+741	influenza b virus b/phuket/3073/2013 antigen (f	146171737
+742	interleukin nos	146171738
+743	pinus strobus pollen	146171739
+744	stem cells	146171740
+745	salvia pratensis leaf	146171741
+746	northern brown shrimp	146171742
+747	prothrombin	146171743
+748	plasma protein fraction (human)	146171744
+749	agalsidase beta	146171745
+750	n-acetylglucosamine	146171746
+751	gadolinium zeolite	146171747
+752	etanercept	146171748
+753	influenza b virus b/massachusetts/2/2012 antigen (formalde	146171749
+754	hypromellose 2910 (3 mpa.s)	146171750
+755	maitake	146171751
+756	coxsackievirus a21	146171752
+757	kidney bean	146171753
+758	geotrichum candidum	146171754
+759	pneumococcal 13-valent conjugate vaccine	146171755
+760	brodalumab	146171756
+761	emicizumab-kxwh	146171757
+762	tirzepatide	146171758
+763	coltuximab ravtansine	146171759
+764	juniperus communis whole	146171760
+765	safflower	146171761
+766	ailanthus altissima pollen	146171762
+767	indusatumab vedotin	146171763
+768	typhoid vaccine antigens	146171764
+769	 lactobacillus rhamnosus	146171765
+770	horse chestnut	146171766
+771	ephedra sinica stem	146171767
+772	dextran 1	146171768
+773	mag hydroxide	146171769
+774	pelargonium sidoides root	146171770
+775	camrelizumab	146171771
+776	serplulimab	146171772
+777	calcium magnesium carbonate	146171773
+778	 lysozyme hydrochloride	146171774
+779	fibrinolysin	146171775
+780	ustekinumab	146171776
+781	camphor (natural)	146171777
+782	pegbelfermin	146171778
+783	keratin	146171779
+784	interferon alfa-2a	146171780
+785	adhesive tape	146171781
+786	clove oil	146171782
+787	fianlimab	146171783
+788	pinus monticola pollen	146171784
+789	coffea arabica fruit	146171785
+790	phosphatidyl s	146171786
+791	dolichovespula maculata venom protein	146171787
+792	carbo animalis	146171788
+793	artemisia vulgaris pollen	146171789
+794	myeloperoxidase	146171790
+795	proteus mirabilis	146171791
+796	fagus grandifolia pollen	146171792
+797	balsam peru oil	146171793
+798	coagulation factor x human	146171794
+799	antacids nos	146171795
+800	hypromellose 2910 (15 mpa.s)	146171796
+801	lactobacillus reuteri	146171797
+802	allergenic extract- mold	146171798
+803	plantago major leaf	146171799
+804	lycopodium clavatum spore	146171800
+805	hiltonol	146171801
+806	pridinol mesilate	146171802
+807	teriparatide acetate	146171803
+808	kallikrein	146171804
+809	human rotavirus a type g1p7(5) strain wi79 live antigen	146171805
+810	oenothera biennis	146171806
+811	cibisatamab	146171807
+812	coconut oil	146171808
+813	bilberry	146171809
+814	populus deltoides subsp. monilifera pollen	146171810
+815	bleselumab	146171811
+816	ziv-aflibercept	146171812
+817	agrostis gigantea pollen	146171813
+818	apricot kernel	146171814
+819	larix decidua wood	146171815
+820	edible rock crab	146171816
+821	cladosporium herbarum	146171817
+822	tragacanth	146171818
+823	terminalia chebula fruit	146171819
+824	basiliximab	146171820
+825	clostridium tetani	146171821
+826	laronidase	146171822
+827	saccharin sodium dihydrate	146171823
+828	ferritin	146171824
+829	simlukafusp alfa	146171825
+830	antimony potassium tartrate	146171826
+831	atacicept	146171827
+832	betula lenta pollen	146171828
+833	pamrevlumab	146171829
+834	magnesium phosphate, tribasic, pentahydrate	146171830
+835	.alpha.-acetyldigoxin	146171831
+836	xanthium strumarium pollen	146171832
+837	cannabis sativa seed	146171833
+838	trichophyton rubrum	146171834
+839	black pepper	146171835
+840	probiotics	146171836
+841	zanolimumab	146171837
+842	ceftaroline	146171838
+843	sage oil	146171839
+844	thiamine	146171840
+845	luspatercept-aamt	146171841
+846	prunus serotina bark	146171842
+847	aloe arborescens leaf	146171843
+848	influenza virus vaccine	146171844
+849	heparin calcium	146171845
+850	peginterferon lambda-1a	146171846
+851	epidermophyton floccosum	146171847
+852	influenza b virus b/maryland/15/2016 bx-69a antigen (uv, formaldehyde inactivated)	146171848
+853	alnus rubra pollen	146171849
+854	coagulation factor ix recombinant human	146171850
+855	phyllanthus amarus fruit	146171851
+856	corynebacterium diphtheriae	146171852
+857	crizanlizumab	146171853
+858	influenza b virus b/phuket/3073/2013 antig	146171854
+859	yeast	146171855
+860	clobetasol	146171856
+861	tuna, unspecified	146171857
+862	denenicokin	146171858
+863	genetically-modified autologous t cells nos	146171859
+864	urtica dioica	146171860
+865	cajuput oil	146171861
+866	polygala tenuifolia root	146171862
+867	human blood cells, packed	146171863
+868	guselkumab	146171864
+869	hydrogen peroxide	146171865
+870	colistin sulfate	146171866
+871	fraxinus latifolia pollen	146171867
+872	ergoloid mesylates	146171868
+873	lachesis muta venom	146171869
+874	aluminum zirconium trichlorohydrex gly	146171870
+875	needles	146171871
+876	emibetuzumab	146171872
+877	vitamin d nos	146171873
+878	vita	146171874
+879	influenza a virus a/hong kong/4801/2014 x-263b (h3n2) antigen (uv, formaldehyde inactivated)	146171875
+880	rilonacept	146171876
+881	haemophilus b conjugate vaccine (tetanus toxoid conjugate)	146171877
+882	pascopyrum smithii pollen	146171878
+883	belatacept	146171879
+884	cod liver oil	146171880
+885	influenza b virus b/massachusetts/2/2012 bx-51b antigen (propiolactone inactivated)	146171881
+886	dorgenmeltucel-l	146171882
+887	lenograstim	146171883
+888	felzartamab	146171884
+889	calcium sulfide	146171885
+890	polygeline	146171886
+891	bevacizumab-bvzr	146171887
+892	pancrelipase lipase	146171888
+893	citicoline	146171889
+894	dostarlimab	146171890
+895	rituximab	146171891
+896	plantago seed	146171892
+897	carrot	146171893
+898	carya glabra pollen	146171894
+899	thyrotropin	146171895
+900	stemphylium solani	146171896
+901	sepia officinalis juice	146171897
+902	polistes fuscatus venom protein	146171898
+903	albumin aggregated	146171899
+904	equus caballus dander	146171900
+905	peumus boldus whole	146171901
+906	bombyx mori fiber	146171902
+907	methylated spirits	146171903
+908	indian frankincense	146171904
+909	opicinumab	146171905
+910	arsenic trioxide	146171906
+911	sodium chlori	146171907
+912	ribonucleic acid	146171908
+913	siltuximab	146171909
+914	paullinia cupana seed	146171910
+915	beractant	146171911
+916	sod ascorbate	146171912
+917	tno-155 monosuccinate hemihydrate	146171913
+918	influenza a virus a/victoria/361/2011 (h3n2) recombinant hemagglutinin antigen	146171914
+919	gadopentetate dimeglumine	146171915
+920	immune globulin nos	146171916
+921	iodized oil	146171917
+922	spigelia anthelmia	146171918
+923	influenza a virus a/california/7/2009 x-179a (h1n1) antigen (formaldehyde inactivated)	146171919
+924	cetuximab	146171920
+925	ibalizumab	146171921
+926	equus caballus hair	146171922
+927	blood, bovine	146171923
+928	pea	146171924
+929	diphtheria and tetanus toxoids and pertussis vaccine adsorbed and haemophilus b conjugate vaccine	146171925
+930	akebia quinata fruit	146171926
+931	cenegermin-bkbj	146171927
+932	adalimumab-adaz	146171928
+933	matricaria recutita	146171929
+934	flounder, unspecified	146171930
+935	oyster, unspecified	146171931
+936	protease	146171932
+937	feverfew	146171933
+938	wheat	146171934
+939	artemisia absinthium pollen	146171935
+940	antihemophilic factor porcine, b-domain truncated recombinant	146171936
+941	mecasermin	146171937
+942	ofranergene obadenovec	146171938
+943	edrecolomab	146171939
+944	iodinated casein	146171940
+945	erenumab	146171941
+946	chymotrypsin	146171942
+947	ampicillin trihydrate 	146171943
+948	silybum marianum whole	146171944
+949	belimumab	146171945
+950	festuca pratensis pollen	146171946
+951	plantago ovata leaf	146171947
+952	solcoseryl	146171948
+953	polysaccharide-k	146171949
+954	carotuximab	146171950
+955	guaifenesin and	146171951
+956	pneumococcal vaccine polyvalent	146171952
+957	varlilumab	146171953
+958	pitolisant	146171954
+959	arctostaphylos uva-ursi leaf	146171955
+960	trastuzumab-qyyp	146171956
+961	cytomegalovirus immune globulin human	146171957
+962	sesame seed	146171958
+963	 vespula maculifrons venom protein	146171959
+964	apis mellifera venom	146171960
+965	iva axillaris pollen	146171961
+966	bismuth oxychloride	146171962
+967	maltodextrin	146171963
+968	coagulation factor viia (recombinant)	146171964
+969	crospovidone	146171965
+970	liquidambar styraciflua resin	146171966
+971	muskmelon	146171967
+972	nadroparin calcium	146171968
+973	solenopsis richteri	146171969
+974	butylated hydroxyanisole	146171970
+975	yttrium y-90 ibritumomab tiuxetan	146171971
+976	helianthus annuus pollen	146171972
+977	ro-6874281	146171973
+978	golodirsen	146171974
+979	cream base	146171975
+980	thymus	146171976
+981	polysaccharides	146171977
+982	lactobacillus delbrueckii subsp. bulgaricus	146171978
+983	ravulizumab-cwvz	146171979
+984	inavolisib	146171980
+985	influenza a virus a/switzerland/9715293/2013 nib-88 (h3n2) antigen (uv, formaldehyde inactivated)	146171981
+986	pleospora betae	146171982
+987	interferon	146171983
+988	thioguanine anhydrous	146171984
+989	ustilago tritici	146171985
+990	pork	146171986
+991	konjac mannan	146171987
+992	spongia officinalis skeleton, roasted	146171988
+993	indium in-111 capromab pendetide	146171989
+994	voretigene neparvovec	146171990
+995	essential oils	146171991
+996	vipivotide tetraxetan lutetium lu-177	146171992
+997	neisseria meningitidis group c capsular polysaccharide diphtheria toxoid conjugate antigen	146171993
+998	brown rice	146171994
+999	carboxymethylcellulose sodium	146171995
+1000	soy protein	146171996
+1001	rinucumab	146171997
+1002	elosulfase alfa	146171998
+1003	black walnut	146171999
+1004	dactylis glomerata	146172000
+1005	tiger snake (notechis scutatus) immune globulin antivenin (equine)	146172001
+1006	magniesium chloride	146172002
+1007	ademetionine sulfate tosilate	146172003
+1008	cranberry juice	146172004
+1009	green olive	146172005
+1010	olaratumab	146172006
+1011	antihistamines nos	146172007
+1012	populus balsamifera leaf bud	146172008
+1013	hepatitis a vaccine, inactivated	146172009
+1014	influenza a virus a/texas/50/2012 x-223 (h3n2) antigen (propiolactone inactivated)	146172010
+1015	ambrosia trifida pollen	146172011
+1016	lyme disease vaccine recombinant ospa	146172012
+1017	polistes metricus venom protein	146172013
+1018	citrus aurantium fruit rind	146172014
+1019	poractant alfa	146172015
+1020	allergenic extract- 7 grass mix	146172016
+1021	bacitracin	146172017
+1022	aspergillus brasiliensis	146172018
+1023	filgrastim-aafi	146172019
+1024	choriogonadotropin alfa	146172020
+1025	dill	146172021
+1026	aldesleukin	146172022
+1027	palivizumab	146172023
+1028	glycyrrhiza glabra	146172024
+1029	plantago lanceolata pollen	146172025
+1030	mentha piperita	146172026
+1031	amylase	146172027
+1032	silver protein, mild	146172028
+1033	human papillomavirus quadrivalent (types 6, 11, 16, and 18) vaccine, recombinant	146172029
+1034	ringer^s injection, lactated	146172030
+1035	thyrotropin alfa	146172031
+1036	tetanus toxoid, reduced diphtheria toxoid and acellular pertussis vaccine, adsorbed antigens	146172032
+1037	neisseria meningitidis group y capsular polysaccharide antigen	146172033
+1038	penicillium chrysogenum var. chrysogenum	146172034
+1039	filgrastim (neupogen)	146172035
+1040	perilla frutescens leaf	146172036
+1041	baptisia tinctoria	146172037
+1042	opium alkaloids, hydrochlorides	146172038
+1043	equisetum arvense extract	146172039
+1044	acremonium strictum	146172040
+1045	inotuzumab ozogamicin	146172041
+1046	durvalumab	146172042
+1047	sus scrofa collagen	146172043
+1048	?triamcinolone	146172044
+1049	peginesatide	146172045
+1050	leptin human	146172046
+1051	dextran sulfate sodium	146172047
+1052	ostrea edulis shell	146172048
+1053	danaparoid	146172049
+1054	selenium sulfide	146172050
+1055	carya cordiformis pollen	146172051
+1056	cannabis sativa subsp. sativa flowering top	146172052
+1057	electrolytes nos	146172053
+1058	achillea millefolium	146172054
+1059	shark, unspecified	146172055
+1060	populus tremuloides whole	146172056
+1061	dupilumab	146172057
+1062	soy extract	146172058
+1063	aloe vera flower	146172059
+1064	juniperus ashei pollen	146172060
+1065	oak bark extract	146172061
+1066	platanus occidentalis pollen	146172062
+1067	iva annua pollen	146172063
+1068	cynodon dactylon	146172064
+1069	oat	146172065
+1070	fraxinus pennsylvanica pollen	146172066
+1071	lemon juice	146172067
+1072	coffee bean	146172068
+1073	goldenseal	146172069
+1074	ornithogalum umbellatum	146172070
+1075	amino acids	146172071
+1076	cells, nos	146172072
+1077	avocado oil	146172073
+1078	cocoa butter	146172074
+1079	dihydroxyaluminum aminoacetate	146172075
+1080	hydroquinidine	146172076
+1081	pf-06928316 (847b ds)	146172077
+1082	crenezumab	146172078
+1083	pentosan polysulfate sodium	146172079
+1084	oxiconazole	146172080
+1085	sarsaparilla	146172081
+1086	matuzumab	146172082
+1087	quercus velutina pollen	146172083
+1088	covid-19 convalescent plasma	146172084
+1089	daclizumab	146172085
+1090	whey protein enriched in cystine bovine	146172086
+1091	romilkimab	146172087
+1092	influenza virus vaccine trivalent type a+b afluria	146172088
+1093	tanacetum parthenium	146172089
+1094	human rabies virus immune globulin	146172090
+1095	dextrose, unspecified form	146172091
+1096	interferon alfa-1b	146172092
+1097	lymphocytes	146172093
+1098	poliovirus sabin type 3 live antigen	146172094
+1099	peumus boldus leaf	146172095
+1100	ustilago maydis	146172096
+1101	radiation therapy	146172097
+1102	 lactobacillus casei	146172098
+1103	cherry	146172099
+1104	tislelizumab	146172100
+1105	fish	146172101
+1106	clostridium tetani toxoid antigen (formaldehyde inactivated)	146172102
+1107	relatlimab	146172103
+1108	sinecatechins	146172104
+1109	ophiocordyceps sinensis	146172105
+1110	ado-trastuzumab emtansine	146172106
+1111	denileukin diftitox	146172107
+1112	reviparin sodium	146172108
+1113	carlumab	146172109
+1114	eftrenonacog alfa	146172110
+1115	sodium phosphate,dib	146172111
+1116	 populus deltoides pollen	146172112
+1117	potassium alum anhydrous	146172113
+1118	populus trichocarpa pollen	146172114
+1119	allergenic extract- pollen	146172115
+1120	human papillomavirus vaccine	146172116
+1121	influenza virus vaccine, swine	146172117
+1122	mesocricetus auratus skin	146172118
+1123	glycosaminoglycans	146172119
+1124	myrcludex b	146172120
+1125	ringer^s solution, lactated	146172121
+1126	pseudoephedrine hydrous	146172122
+1127	anthoxanthum odoratum	146172123
+1128	ficlatuzumab	146172124
+1129	escargot	146172125
+1130	urelumab	146172126
+1131	minerals	146172127
+1132	ulmus americana pollen	146172128
+1133	metamizol sodium	146172129
+1134	carotenoids	146172130
+1135	vay-736	146172131
+1136	human plasma	146172132
+1137	vespula maculifrons venom protein	146172133
+1138	galcanezumab	146172134
+1139	tezepelumab	146172135
+1140	dalteparin sodium	146172136
+1141	cabbage	146172137
+1142	fremanezumab-vfrm	146172138
+1143	eteplirsen	146172139
+1144	herpes simplex vaccine	146172140
+1145	bacillus coagulans	146172141
+1146	populus deltoides subsp. deltoides pollen	146172142
+1147	periplaneta americana	146172143
+1148	obinutuzumab	146172144
+1149	fosfructose	146172145
+1150	nitroprusside	146172146
+1151	vestronidase alfa-vjbk	146172147
+1152	shellfish, unspecified	146172148
+1153	silver oxide	146172149
+1154	dextran 70	146172150
+1155	chondroitin sulfate - iron colloid	146172151
+1156	chlorpheniramine maleat	146172152
+1157	aducanumab	146172153
+1158	phoma exigua var. exigua	146172154
+1159	ginger oil	146172155
+1160	influenza a virus a/texas/50/2012 x-223a (h3n2) antigen (uv, formaldehyde inactivated)	146172156
+1161	cardamom	146172157
+1162	polycarbophil	146172158
+1163	mitiglinide calcium anhydrous	146172159
+1164	corynebacte	146172160
+1165	mentha arvensis leaf	146172161
+1166	pertuzumab	146172162
+1167	salmonella typhi ty2 vi polysaccharide antigen	146172163
+1168	sipuleucel-t	146172164
+1169	omalizumab	146172165
+1170	oleclumab	146172166
+1171	tiotropium bromide anhydrous	146172167
+1172	hedera helix flowering twig	146172168
+1173	crofelemer	146172169
+1174	artemisia tridentata pollen	146172170
+1175	neisseria meningitidis group w-135 capsular oligosaccharide diphtheria crm197 protein conjugate anti	146172171
+1176	urtica dioica whole	146172172
+1177	bevacizumab-awwb	146172173
+1178	lactobacillus acidophilus	146172174
+1179	amphetamine aspartate	146172175
+1180	vestronidase alfa	146172176
+1181	somatropin	146172177
+1182	atractylodes macrocephala root	146172178
+1183	oryctolagus cuniculus skin	146172179
+1184	dextromethorphan and	146172180
+1185	influenza a virus a/singapore/gp1908/2015 ivr-180 (h1n1) antigen (formaldehyde inactivated)	146172181
+1186	eucalyptus gum	146172182
+1187	ethiodized oil	146172183
+1188	picolamine salicylate	146172184
+1189	.alpha.-tocopherol acetate, d-	146172185
+1190	bryonia alba root	146172186
+1191	comfrey root	146172187
+1192	camphor oil	146172188
+1193	ulmus pumila pollen	146172189
+1194	bms-986249	146172190
+1195	mung bean	146172191
+1196	bacillus calmette-guerin antigen, unspecified substrain	146172192
+1197	prosopis juliflora pollen	146172193
+1198	coagulation factor ix (recombinant), glycopegylated	146172194
+1199	aspergillus repens	146172195
+1200	deoxyribonucliec acid	146172196
+1201	haemophilus b conjugate vaccine	146172197
+1202	peptone, dried	146172198
+1203	citrus bioflavonoids	146172199
+1204	soy isoflavones	146172200
+1205	brazikumab	146172201
+1206	hepatitis a virus strain cr 326f antigen (formaldehyde inactivated)	146172202
+1207	aminolevulinic acid	146172203
+1208	neisseria meningitidis group a capsular polysaccharide antigen	146172204
+1209	potassium iod	146172205
+1210	lutropin alfa	146172206
+1211	defibrotide (bovine)	146172207
+1212	ambrosia artemisiifolia pollen	146172208
+1213	cochliobolus sativus	146172209
+1214	salmon, unspecified	146172210
+1215	cranberry	146172211
+1216	poa pratensis pollen	146172212
+1217	bovine type i collagen	146172213
+1218	betula alleghaniensis pollen	146172214
+1219	corifollitropin alfa	146172215
+1220	summer squash	146172216
+1221	calcifediol	146172217
+1222	tar	146172218
+1223	gibberella zeae	146172219
+1224	artemisia argyi leaf	146172220
+1225	phosphatidyl serine	146172221
+1226	enadenotucirev	146172222
+1227	pacific halibut	146172223
+1228	gymnema sylvestre leaf extract	146172224
+1229	filipendula ulmaria whole	146172225
+1230	buckwheat	146172226
+1231	cladosporium sphaerospermum	146172227
+1232	hypromellose phthalate	146172228
+1233	betula occidentalis pollen	146172229
+1234	plantago ovata seed coat	146172230
+1235	bifidobacterium longum subsp. infantis	146172231
+1236	cherry extract	146172232
+1237	lactobacillus casei	146172233
+1238	bapineuzumab	146172234
+1239	aspergillus flavus	146172235
+1240	risankizumab	146172236
+1241	haemophilus influenzae type b strain 1482 capsular polysaccharide tetanus toxoid conjugate antigen	146172237
+1242	acer saccharum pollen	146172238
+1243	bacillus anthracis strain v770-np1-r antigens	146172239
+1244	infliximab-qbtx	146172240
+1245	plantago ovata seed	146172241
+1246	atlantic cod	146172242
+1247	solidago canadensis pollen	146172243
+1248	scopolam	146172244
+1249	pinus echinata pollen	146172245
+1250	bioflavonoids	146172246
+1251	vasopressin	146172247
+1252	trifolium pratense flower	146172248
+1253	d+c black no. 2	146172249
+1254	astragalus propinquus root	146172250
+1255	beef liver	146172251
+1256	honey	146172252
+1257	botrytis cine	146172253
+1258	angelica sinensis root	146172254
+1259	red clover	146172255
+1260	fasinumab	146172256
+1261	oleamides	146172257
+1262	atriplex polycarpa pollen	146172258
+1263	panax quinquefolius whole	146172259
+1264	influenza b virus b/massachusetts/2/2012 antigen (formaldehyde inactivated)	146172260
+1265	 pancrelipase lipase	146172261
+1266	influenza a virus a/victoria/361/2011 ivr-165 (h3n2) antigen (mdck cell derived, propiolactone inactivated)	146172262
+1267	tetanus antitoxin	146172263
+1268	hyoscyamus niger leaf	146172264
+1269	tobacco leaf	146172265
+1270	lumretuzumab	146172266
+1271	caplacizumab	146172267
+1272	quercus muehlenbergii pollen	146172268
+1273	orange juice	146172269
+1274	coagulation factor xi	146172270
+1275	oliveoil	146172271
+1276	vespula squamosa venom protein	146172272
+1277	ustilago avenae	146172273
+1278	axicabtagene ciloleucel	146172274
+1279	juglans nigra p	146172275
+1280	ranibizumab	146172276
+1281	pineapple	146172277
+1282	birch bark	146172278
+1283	fecal microbiota	146172279
+1284	calcium lactate gluconate anhydrous	146172280
+1285	dolichovespula arenaria venom protein	146172281
+1286	ganoderma lucidum stem	146172282
+1287	sesame oil	146172283
+1288	royal jelly	146172284
+1289	alfalfa whole	146172285
+1290	salix alba (willow) bark extract	146172286
+1291	corydalis ambigua tuber	146172287
+1292	luspatercept	146172288
+1293	.alpha.-amylase (aspergillus oryzae)	146172289
+1294	carob	146172290
+1295	ubidecar	146172291
+1296	tositumomab i-131	146172292
+1297	canerpaturev	146172293
+1298	diphenhydramine and	146172294
+1299	nutmeg	146172295
+1300	bos taurus bile	146172296
+1301	convallaria majalis	146172297
+1302	potassium sulfide	146172298
+1303	light mineral oil	146172299
+1304	typhoid vaccine	146172300
+1305	haematonectria haematococca	146172301
+1306	nattokinase	146172302
+1307	broussonetia papyrifera pollen	146172303
+1308	(1-743)-(1638-2332)-blood-coagulation factor viii (synthetic human) fusion protein with immunoglobulin g1 (synthetic human fc domain fragment), (1444-6^),(1447-9^)-bis(disulfide) with immunoglobulin g1 (synthetic human fc domain fragment)	146172304
+1309	temocapril	146172305
+1310	serrapeptase	146172306
+1311	epratuzumab	146172307
+1312	okra	146172308
+1313	sirukumab	146172309
+1314	euphorbia resinifera resin	146172310
+1315	anti-human t lymphocyte porcine immunoglobulin	146172311
+1316	tick-borne encephalitis vaccine	146172312
+1317	investigational biosimilars	146172313
+1318	interferon alfa-1a	146172314
+1319	salix lasiolepis pollen	146172315
+1320	pancrelipase protease	146172316
+1321	pancreas preparation	146172317
+1322	idarucizumab	146172318
+1323	hamamelis virginiana leaf	146172319
+1324	potassium creosotesulfonate	146172320
+1325	senna leaf	146172321
+1326	sarracenia purpurea	146172322
+1327	interferon gamma	146172323
+1328	wax, emulsifying	146172324
+1329	turoctocog alfa	146172325
+1330	glycyrrhiza extract	146172326
+1331	influenza a virus a/victoria/210/2009 x-187 (h3n2) antigen (formaldehyde inactivated)	146172327
+1332	raxibacumab	146172328
+1333	magnesium cl	146172329
+1334	allergenic extract- insect venom protein	146172330
+1335	secukinumab	146172331
+1336	bempegaldesleukin	146172332
+1337	pumpkin	146172333
+1338	briobacept	146172334
+1339	dibotermin alfa	146172335
+1340	dextromethorphan hbr/guaifenesin/methylephedrine hcl	146172336
+1341	ocrelizumab	146172337
+1342	galiximab	146172338
+1343	dalotuzumab	146172339
+1344	human hepatitis b virus immune globulin	146172340
+1345	polistes annularis venom protein	146172341
+1346	influenza b virus	146172342
+1347	interferon alfa-n3	146172343
+1348	gentamicin sulfate	146172344
+1349	allergenic extract- 8 tree mix	146172345
+1350	cebpa-51 free acid	146172346
+1351	phenylmercuric nitrate	146172347
+1352	pleospora tarda	146172348
+1353	shea butter	146172349
+1354	tuberculin purified protein derivative	146172350
+1355	equine botulinum neurotoxin a/b/c/d/e/f/g immune fab2	146172351
+1356	filipendula ulmaria root	146172352
+1357	influenza a virus a/switzerland/9715293/2013 nib-88 (h3n2) antigen (propiolactone inactivated)	146172353
+1358	nicardipine	146172354
+1359	datura stramonium leaf	146172355
+1360	rhizopus arrhizus var. arrhizus	146172356
+1361	viscum album fruiting top	146172357
+1362	miriplatin	146172358
+1363	diphtheria and tetanus toxoids and acellular pertussis adsorbed and inactivated poliovirus vaccine	146172359
+1364	elymus repens pollen	146172360
+1365	monalizumab	146172361
+1366	drimia maritima bulb	146172362
+1367	haemophilus influenzae type b capsular polysaccharide meningococcal outer membrane protein conjugate antigen	146172363
+1368	reishi	146172364
+1369	dalteparin	146172365
+1370	hydrocarbon	146172366
+1371	selenocysteine	146172367
+1372	allergenic extract- ragweed, ambrosia spp	146172368
+1373	fenugreek leaf	146172369
+1374	otlertuzumab	146172370
+1375	ocuguard	146172371
+1376	white pine oil	146172372
+1377	harpagophytum procumbens root	146172373
+1378	influenza a virus a/brisbane/02/2018 ivr-190 (h1n1) antigen (formaldehyde inactivated)	146172374
+1379	succinic acid	146172375
+1380	iris germanica var. florentina root	146172376
+1381	juniperus osteosperma pollen	146172377
+1382	 sulfogaiacol	146172378
+1383	rhamnus purshiana bark extract	146172379
+1384	influenza a virus a/si%	146172380
+1385	figitumumab	146172381
+1386	spirulina	146172382
+1387	senna occidentalis	146172383
+1388	reslizumab	146172384
+1389	artichoke	146172385
+1390	populus tremuloides	146172386
+1391	plantago indica whole	146172387
+1392	northern pink shrimp	146172388
+1393	sacrosidase	146172389
+1394	eupatorium capillifolium pollen	146172390
+1395	allergenic extract- tree	146172391
+1396	ligustrum vulgare pollen	146172392
+1397	xylene	146172393
+1398	luffa operculata fruit	146172394
+1399	crab leg, unspecified	146172395
+1400	simtuzumab	146172396
+1401	belladonna alkaloids	146172397
+1402	bromelains	146172398
+1403	human thymus	146172399
+1404	cholera vaccine	146172400
+1405	dietary supplement	146172401
+1406	cinnamon	146172402
+1407	lime (calcium oxide)	146172403
+1408	nivolumab	146172404
+1409	quinagolide	146172405
+1410	sodium phosphate, monobasic, unspecified form	146172406
+1411	rabies virus strain pm-1503-3m antigen (propiolactone inactivated)	146172407
+1412	belantamab mafodotin	146172408
+1413	danvatirsen	146172409
+1414	tiragolumab	146172410
+1415	c1 esterase inhibitor (human)	146172411
+1416	etrolizumab	146172412
+1417	influenza a virus a/california/7/2009 (h1n1) recombinant hemagglutinin antigen	146172413
+1418	enterococcus faecalis	146172414
+1419	potassium cresolsulfonate	146172415
+1420	gibberella fujik	146172416
+1421	sus scrofa bone	146172417
+1422	hepatitis b virus vaccine	146172418
+1423	cyclachaena xanthifolia pollen	146172419
+1424	papain	146172420
+1425	magnolia grandiflora flower	146172421
+1426	belagenpumatucel-l	146172422
+1427	influenza a virus a/christchurch/16/2010 nib-74xp (h1n1) antigen (formaldehyde inactivated)	146172423
+1428	aldioxa	146172424
+1429	telisotuzumab vedotin	146172425
+1430	raspberry	146172426
+1431	chondroitin sulfate sodium (bovine)	146172427
+1432	diphtheria and tetanus toxoids and acellular pertussis adsorbed, inactivated poliovirus and haemophilus b conjugate and hepatitis b virus vaccine	146172428
+1433	human albumin microspheres	146172429
+1434	ferumoxytol	146172430
+1435	penicillium chrysogenum var. chrys	146172431
+1436	egg	146172432
+1437	oyster shell calcium carbonate, crude	146172433
+1438	onasemnogene abeparvovec-xioi	146172434
+1439	centella asiatica whole	146172435
+1440	dextroamphetamine saccharate	146172436
+1441	elotuzumab	146172437
+1442	aloe vera leaf	146172438
+1443	influenza b virus b/maryland/15/2016 recombinant hemagglutinin antigen	146172439
+1444	lifileucel	146172440
+1445	amaranthus tuberculatus pollen	146172441
+1446	trastuzumab-dkst	146172442
+1447	methylcellulose (4000 cps)	146172443
+1448	emapalumab-lzsg	146172444
+1449	interleukin-1.alpha.	146172445
+1450	human rotavirus a type g1p(8) strain rix4414 live antigen	146172446
+1451	peginterferon alfa-2b	146172447
+1452	passiflora incarnata flower	146172448
+1453	oregovomab	146172449
+1454	botulism antitoxin	146172450
+1455	pancrelipase	146172451
+1456	influenza a virus a/california/7/2009(h1n1)-like antigen (propiolactone inactivated)	146172452
+1457	solenopsis invicta	146172453
+1458	cixutumumab	146172454
+1459	pegaptanib sodium	146172455
+1460	cryoprecipitated antihemophilic factor (human)	146172456
+1461	antihemophilic factor, human recombinant	146172457
+1462	.alpha.1-proteinase inhibitor human	146172458
+1463	cetrelimab	146172459
+1464	perfluorohexyloctane	146172460
+1465	vitamins	146172461
+1466	apis mellifera	146172462
+1467	frankincense oil	146172463
+1468	peanut oil	146172464
+1469	trastuzumab-anns	146172465
+1470	taxus baccata fruit	146172466
+1471	pneumococcal vaccine, polyvalent 23	146172467
+1472	poliomyelitis vaccine	146172468
+1473	sarocladium stric	146172469
+1474	chimaphila umbellata	146172470
+1475	coix lacryma-jobi var. ma-yuen seed	146172471
+1476	avelumab	146172472
+1477	cannabis sativa flowering top	146172473
+1478	balugrastim	146172474
+1479	iron protein succinylate	146172475
+1480	potassium metabisulfite	146172476
+1481	bezlotoxumab	146172477
+1482	hyaluronidase, ovine	146172478
+1483	sorghum halepense pollen	146172479
+1484	mogamulizumab-kpkc	146172480
+1485	bacillus calmette-guerin substrain tokyo 172-1 live antigen	146172481
+1486	rabbit	146172482
+1487	interferon beta-1a	146172483
+1488	pinus contorta pollen	146172484
+1489	ergoloids	146172485
+1490	ranpirnase	146172486
+1491	fremanezumab	146172487
+1492	valerian extract	146172488
+1493	influenza b virus b/maryland/15/2016 bx-69a antigen (formaldehyde inactivated)	146172489
+1494	cefditoren	146172490
+1495	escin	146172491
+1496	influenza a virus a/california/7/2009 (h1n1) live(attenuated) antigen	146172492
+1497	hypericum perforatum	146172493
+1498	acai	146172494
+1499	lima bean	146172495
+1500	hydrophilic petrolatum	146172496
+1501	peptichemio	146172497
+1502	hypromellose 2906 (50 mpa.s)	146172498
+1503	galinpepimut-s	146172499
+1504	human serum, normal	146172500
+1505	keyhole limpet hemocyanin	146172501
+1506	felis catus dander	146172502
+1507	blue crab	146172503
+1508	adalimumab-adbm	146172504
+1509	neisseria meningitidis group w-135 capsular polysaccharide diphtheria toxoid conjugate antigen	146172505
+1510	influenza a virus a/singapore/gp1908/2015 ivr-180 (h1n1) antigen (mdck cell derived, propiolactone inactivated)	146172506
+1511	tinzaparin sodium	146172507
+1512	tisagenlecleucel	146172508
+1513	lysozyme, chicken egg white	146172509
+1514	crataegus laevigata leaf	146172510
+1515	magrolimab	146172511
+1516	soybean	146172512
+1517	equine thymocyte immune globulin	146172513
+1518	teclistamab	146172514
+1519	protamine hydrochloride	146172515
+1520	emapalumab	146172516
+1521	yellow wax	146172517
+1522	populus deltoides pollen	146172518
+1523	canis lupus familiaris hair	146172519
+1524	micronomicin hemipentasulfate	146172520
+1525	varicella-zoster virus strain oka/merck live antigen	146172521
+1526	rhizopus stol	146172522
+1527	methionine	146172523
+1528	aspergillus flavus var. oryzae	146172524
+1529	daratumumab	146172525
+1530	 5500 mw)	146172526
+1531	tuberculin purified protein derivative (mantoux)	146172527
+1532	paraffin	146172528
+1533	benzoin tincture, compound	146172529
+1534	human botulinum neurotoxin a/b immune globulin	146172530
+1535	pecan	146172531
+1536	protamine	146172532
+1537	abatacept	146172533
+1538	ramatercept	146172534
+1539	pemlimogene merolisbac	146172535
+1540	bismuth camphocarbonate, d-	146172536
+1541	influenza b virus b/brisbane/60/2008 antigen (formaldehyde inactivated)	146172537
+1542	yellow fever virus strain 17d-204 live antigen	146172538
+1543	alefacept	146172539
+1544	cergutuzumab amunaleukin	146172540
+1545	cavia porcellus skin	146172541
+1546	fish oil	146172542
+1547	carya ovata pollen	146172543
+1548	patritumab	146172544
+1549	cerebrolysin	146172545
+1550	amitriptyline	146172546
+1551	rumex crispus	146172547
+1552	sus scrofa cerebral cortex	146172548
+1553	wheat bran	146172549
+1554	canakinumab	146172550
+1555	saruplase	146172551
+1556	influenza a virus a/texas/50/2012 x-223a (h3n2) antigen (formaldehyde inactivated)	146172552
+1557	pentastarch	146172553
+1558	adalimumab-atto	146172554
+1559	aluminum silicate	146172555
+1560	polyethylene glycol 4000 	146172556
+1561	teceleukin	146172557
+1562	anistreplase	146172558
+1563	yttrium silicate colloidal, y-90	146172559
+1564	custirsen	146172560
+1565	ginkgo	146172561
+1566	croscarmellose sodium	146172562
+1567	quercus stellata pollen	146172563
+1568	sodium lact	146172564
+1569	tildrakizumab-asmn	146172565
+1570	melissa officinalis	146172566
+1571	pumpkin seed	146172567
+1572	ferrous iodide	146172568
+1573	myrrh tincture	146172569
+1574	juglans regia pollen	146172570
+1575	teprotumumab	146172571
+1576	pegilodecakin	146172572
+1577	krill oil	146172573
+1578	hydroxypropyl cellulose	146172574
+1579	mineral oil	146172575
+1580	human adenovirus e serotype 4 strain cl-68578	146172576
+1581	rimabotulinumtoxinb	146172577
+1582	human immunoglobulin g	146172578
+1583	dextriferron	146172579
+1584	ivy extract	146172580
+1585	aluminum chlorohydrate	146172581
+1586	dinutuximab	146172582
+1587	quercus rubra pollen	146172583
+1588	aspergillus terreus	146172584
+1589	technetium tc-99m methylene diphosphonate	146172585
+1590	investigational product	146172586
+1591	pegaspargase	146172587
+1592	crataegus laevigata fruit	146172588
+1593	prune	146172589
+1594	juniperus virginiana pollen	146172590
+1595	lavender oil	146172591
+1596	rhizopus stolonifer	146172592
+1597	neisseria meningitidis group b nhba fusion protein antigen	146172593
+1598	human papillomavirus type 16 l1 capsid protein antigen	146172594
+1599	allergenic extract- wasp	146172595
+1600	efmoroctocog alfa	146172596
+1601	ofatumumab	146172597
+1602	populus tremuloides pollen	146172598
+1603	serine/threonine-protein kinase 19	146172599
+1604	dalbavancin hydrochloride	146172600
+1605	helminthosporium solani	146172601
+1606	allogenic stem cell	146172602
+1607	polypeptides	146172603
+1608	eptinezumab-jjmr	146172604
+1609	voretigene neparvovec-rzyl	146172605
+1610	alglucosidase alfa	146172606
+1611	lanabecestat	146172607
+1612	prostate	146172608
+1613	imalumab	146172609
+1614	spearmint	146172610
+1615	dextromethorphan	146172611
+1616	tesidolumab	146172612
+1617	subtilisin bpn^	146172613
+1618	dornase alfa	146172614
+1619	bemiparin sodium	146172615
+1620	gentiana lutea root	146172616
+1621	ferric hydroxide	146172617
+1622	curvularia inaequalis	146172618
+1623	tribulus terrestris root	146172619
+1624	budigalimab	146172620
+1625	erenumab-aooe	146172621
+1626	aspergillus niger var. niger	146172622
+1627	tilsotolimod	146172623
+1628	mirimostim	146172624
+1629	muromonab-cd3	146172625
+1630	fumaric acid	146172626
+1631	olive oil	146172627
+1632	taxodium distichum pollen	146172628
+1633	 icosapent	146172629
+1634	clematis vitalba flower	146172630
+1635	iron pentacarbonyl	146172631
+1636	neurospora intermedia	146172632
+1637	american ginseng	146172633
+1638	black widow spider (latrodectus mactans) immune globulin antivenin (equine)	146172634
+1639	dendryphiella vinosa	146172635
+1640	mucor circinelloides f. lusitanicus	146172636
+1641	pimitespib	146172637
+1642	myrrh	146172638
+1643	neisseria meningitidis serogroup b recombinant lp2086 a05 protein variant antigen	146172639
+1644	rotavirus vaccine, live, oral, tetravalent	146172640
+1645	garcinia cambogia fruit	146172641
+1646	trastuzumab and hyaluronidase-oysk	146172642
+1647	senna alexandrina whole	146172643
+1648	fludarabine	146172644
+1649	tea leaf	146172645
+1650	rabies virus strain flury lep antigen (propiolactone inactivated)	146172646
+1651	alirocumab	146172647
+1652	thuja occidentalis leafy twig	146172648
+1653	human clostridium tetani toxoid immune globulin	146172649
+1654	gemtuzumab ozogamicin	146172650
+1655	blinatumomab	146172651
+1656	amaranthus palmeri pollen	146172652
+1657	rindopepimut	146172653
+1658	hedera helix leaf	146172654
+1659	human vaccinia virus immune globulin	146172655
+1660	cantaloupe	146172656
+1661	botrytis cinerea	146172657
+1662	botulinum toxin type a	146172658
+1663	aconitum napellus	146172659
+1664	brolucizumab-dbll	146172660
+1665	influenza a virus a/california/7/2009 x-179a (h1n1) antigen (uv, formaldehyde inactivated)	146172661
+1666	olmesartan medoxomil	146172662
+1667	ephedra	146172663
+1668	human papillomavirus type 31 l1 capsid protein antigen	146172664
+1669	quercus alba pollen	146172665
+1670	magnesium	146172666
+1671	allergenic extract- mite	146172667
+1672	morus alba pollen	146172668
+1673	domagrozumab	146172669
+1674	fennel seed	146172670
+1675	placebo	146172671
+1676	dacetuzumab	146172672
+1677	sodium magnesium silicate	146172673
+1678	efalizumab	146172674
+1679	human papillomavirus type 33 l1 capsid protein antigen	146172675
+1680	influenza a virus a/michigan/45/2015 (h1n1) recombinant hemagglutinin antigen	146172676
+1681	neisseria meningitidis	146172677
+1682	plasminogen	146172678
+1683	human rotavirus a type g4p7(5) strain brb live antigen	146172679
+1684	sanguinari	146172680
+1685	allergenic extract- weeds	146172681
+1686	trastuzumab duocarmazine	146172682
+1687	protamine sulfate	146172683
+1688	dendranthema indicum flower	146172684
+1689	interferon gamma-1a	146172685
+1690	polymethacrylate	146172686
+1691	egg phospholipids	146172687
+1692	palifermin	146172688
+1693	rilimogene galvacirepvec	146172689
+1694	diastase	146172690
+1695	enoblituzumab	146172691
+1696	karaya gum	146172692
+1697	trolamine polypeptide oleate condensate	146172693
+1698	acetaminophen and	146172694
+1699	aspergillus niger .alpha.-galactosidase	146172695
+1700	influenza a virus a/hong kong/4801/2014 (h3n2) recombinant hemagglutinin antigen	146172696
+1701	poliovirus type 3 antigen (formaldehyde inactivated)	146172697
+1702	tribulus terrestris	146172698
+1703	tavolixizumab	146172699
+1704	rumex acetosella whole	146172700
+1705	lacnotuzumab	146172701
+1706	hepatitis b virus subtype adw2 hbsag surface protein antigen	146172702
+1707	amaranthus retroflexus pollen	146172703
+1708	myrtillus	146172704
+1709	trebananib	146172705
+1710	patisiran sodium	146172706
+1711	dimethylaminodiphenylbutene hydrochloride	146172707
+1712	naxitamab	146172708
+1713	cytomegalovirus immune globulin intravenous (human)	146172709
+1714	codeine 	146172710
+1715	avena sativa flowering top	146172711
+1716	factor xiii concentrate (human)	146172712
+1717	 omega-3 fatty acids	146172713
+1718	isatuximab-irfc	146172714
+1719	polatuzumab vedotin-piiq	146172715
+1720	leptospira interrogans	146172716
+1721	epoetin delta	146172717
+1722	taraxacum officinale	146172718
+1723	tengonermin	146172719
+1724	strychnos nux-vomica seed	146172720
+1725	filgrastim-sndz	146172721
+1726	pdr-001	146172722
+1727	aluminum hydroxide - magnesium carbonate, co-dried gel	146172723
+1728	pneumococcal 7-valent conjugate vaccine (diphtheria crm197 protein)	146172724
+1729	capsicum	146172725
+1730	arnica montana flower	146172726
+1731	ustilago nuda hordei	146172727
+1732	acer negundo pollen	146172728
+1733	asparagus	146172729
+1734	influenza a virus a/california/7/2009 x-179a (h1n1) neuraminidase antigen (formaldehyde inactivated)	146172730
+1735	glycine max whole	146172731
+1736	cucumber	146172732
+1737	pinus taeda pollen	146172733
+1738	echinacea angustifolia	146172734
+1739	allergenic extract- peanut arachis hypogaea	146172735
+1740	neisseria meningitidis group b strain nz98/254 outer membrane vesicle	146172736
+1741	methylphenidate acid	146172737
+1742	sodium chloride/sodium hydroxide/succinylated gelatin	146172738
+1743	hepatitis b virus hbsag surface protein antigen	146172739
+1744	senna concentrate	146172740
+1745	pegvisomant	146172741
+1746	pegfilgrastim-jmdb	146172742
+1747	glucagon hydrochloride	146172743
+1748	clikstar	146172744
+1749	ruscus aculeatus root	146172745
+1750	cordyceps sinensis extract	146172746
+1751	magnolia officinalis bark	146172747
+1752	utomilumab	146172748
+1753	indatuximab ravtansine	146172749
+1754	measles-mumps-rubella-varicella virus vaccine, live	146172750
+1755	black cohosh	146172751
+1756	english lavender oil	146172752
+1757	rice	146172753
+1758	trichophyton menta	146172754
+1759	methylcellulose (4000 mpa.s)	146172755
+1760	polistes exclamans venom protein	146172756
+1761	sodium starch glycolate type a potato	146172757
+1762	gonadotropin, serum	146172758
+1763	fatty acids	146172759
+1764	allergenic extract- grass	146172760
+1765	plectranthus barbatus root	146172761
+1766	bevacizumab	146172762
+1767	passiflora edulis flower	146172763
+1768	pepinemab	146172764
+1769	proteus morganii	146172765
+1770	diphtheria and tetanus toxoids and pertussis vaccine	146172766
+1771	gelsemium sempervirens root	146172767
+1772	melissa oil	146172768
+1773	noni fruit juice	146172769
+1774	elezanumab	146172770
+1775	pegademase bovine	146172771
+1776	sunflower oil	146172772
+1777	eucalyptus globulus pollen	146172773
+1778	tbo-filgrastim	146172774
+1779	allergenic extracts	146172775
+1780	albumin human	146172776
+1781	atractylodes lancea root	146172777
+1782	egg white	146172778
+1783	hypromellose 2208 (15000 mpa.s)	146172779
+1784	benralizumab	146172780
+1785	opilio crab	146172781
+1786	collagen complex, marine	146172782
+1787	emollients	146172783
+1788	imiglucerase	146172784
+1789	hawthorn leaf with flower	146172785
+1790	cynodon dactylon pollen	146172786
+1791	arnica montana	146172787
+1792	sasanlimab	146172788
+1793	influenza a virus a/christchurch/16/2010 nib-74 (h1n1) antigen (propiolactone inactivated)	146172789
+1794	glucose, liquid	146172790
+1795	peppermint extract	146172791
+1796	cyclodextrins	146172792
+1797	vespula germanica venom protein	146172793
+1798	cladosporium sphaerosperm	146172794
+1799	diphtheria and tetanus toxoids and poliovirus vaccine antigens	146172795
+1800	pertussis vaccine	146172796
+1801	ro-7198457	146172797
+1802	iscalimab	146172798
+1803	monosialotetrahexosylganglioside	146172799
+1804	immune globulin, anti-human	146172800
+1805	epoprostenol	146172801
+1806	evening primrose oil	146172802
+1807	japanese encephalitis virus strain nakayama-nih antigen (formaldehyde inactivated)	146172803
+1808	 lactobacillus acidophilus	146172804
+1809	interleukin-12 human recombinant	146172805
+1810	aconite tincture	146172806
+1811	hemicellulase	146172807
+1812	sodium zirconium cyclosilicate	146172808
+1813	tanacetum parthenium whole	146172809
+1814	zuclopenthixol hydrochloride	146172810
+1815	almond oil	146172811
+1816	cumin	146172812
+1817	chlorine dioxide	146172813
+1818	diphtheria and tetanus toxoids and acellular pertussis adsorbed, inactivated poliovirus and haemophilus b conjugate (tetanus toxoid conjugate) vaccine	146172814
+1819	whole blood	146172815
+1820	medium-chain triglycerides	146172816
+1821	sulfogaiacol	146172817
+1822	lanadelumab	146172818
+1823	felis catus skin	146172819
+1824	ruta graveolens flowering top	146172820
+1825	cellulose, oxidized	146172821
+1826	bitter orange extract	146172822
+1827	acer rubrum pollen	146172823
+1828	chlordiazepam	146172824
+1829	iodine povacrylex	146172825
+1830	penicillin g 2-amino-4-methylpyrimidine	146172826
+1831	paspalum notatum pollen	146172827
+1832	asparaginase	146172828
+1833	flax seed	146172829
+1834	peg-8 caprylic/capric glycerides	146172830
+1835	crotalus horridus horridus venom	146172831
+1836	human coagulation factor viii/von willebrand factor complex	146172832
+1837	vedolizumab	146172833
+1838	drosera rotundifolia	146172834
+1839	onartuzumab	146172835
+1840	influenza virus vaccine quadrivalent type a+b	146172836
+1841	trout, unspecified	146172837
+1842	asparaginase erwinia chrysanthemi	146172838
+1843	bordetella pertussis toxoid antigen (glutaraldehyde inactivated)	146172839
+1844	fenugreek seed	146172840
+1845	interferon gamma-1b	146172841
+1846	anthoxanthum odoratum pollen	146172842
+1847	carya laciniosa pollen	146172843
+1848	capsella bursa-pastoris	146172844
+1849	syagrus romanzoffiana pollen	146172845
+1850	interleukin-7 human recombinant	146172846
+1851	petroleum distillates	146172847
+1852	sus scrofa ovary	146172848
+1853	sintilimab	146172849
+1854	ginkgo biloba leaf extract	146172850
+1855	nesvacumab	146172851
+1856	dermatophagoides pteronyssinus	146172852
+1857	vespula flavopilosa venom protein	146172853
+1858	helianthemum nummularium flower	146172854
+1859	safflower oil	146172855
+1860	hyaluronidase-oysk	146172856
+1861	conium maculatum root extract	146172857
+1862	almond	146172858
+1863	crypthecodinium cohnii dha oil	146172859
+1864	diphtheria and tetanus toxoids and acellular pertussis and hepatitis b and inactivated poliovirus vaccine combined	146172860
+1865	desmetramadol	146172861
+1866	mineral oil emulsion	146172862
+1867	gadoterate meglumine	146172863
+1868	mercurialis perennis	146172864
+1869	vitis vinifera flowering top	146172865
+1870	human colostrum	146172866
+1871	pegteograstim	146172867
+1872	influenza a virus a/victoria/361/2011 ivr-165 (h3n2) antigen (propiolactone inactivated)	146172868
+1873	morus rubra pollen	146172869
+1874	eupatorium perfoliatum flowering top	146172870
+1875	panax ginseng root extract	146172871
+1876	influenza a virus a/brisbane/10/2010 (h1n1) antigen (mdck cell derived, propiolactone inactivated)	146172872
+1877	triticum aestivum pollen	146172873
+1878	fibrin sealant	146172874
+1879	demcizumab	146172875
+1880	saw palmetto	146172876
+1881	meningococcal polysaccharide vaccine a	146172877
+1882	blatella germanica	146172878
+1883	atriplex canescens pollen	146172879
+1884	polyoxyl 35 castor oil	146172880
+1885	crataegus douglasii fruit	146172881
+1886	prunus cerasifera flower	146172882
+1887	human papillomavirus type	146172883
+1888	pramlintide acetate	146172884
+1889	senna pods	146172885
+1890	cairina moschata heart/liver autolysate	146172886
+1891	opium tincture	146172887
+1892	polidocano	146172888
+1893	bacillus calmette-guerin substrain tice live antigen	146172889
+1894	wheat germ oil	146172890
+1895	thrombin alfa	146172891
+1896	quercus garryana pollen	146172892
+1897	sargramostim	146172893
+1898	cold cream	146172894
+1899	neisseria meningitidis group b nada protein antigen	146172895
+1900	cinrebafusp alfa	146172896
+1901	coagulation factor viia recombinant human	146172897
+1902	glofitamab	146172898
+1903	sodium acetate 	146172899
+1904	betaine citrate	146172900
+1905	carthamus tinctorius flower bud	146172901
+1906	loteprednol	146172902
+1907	dexamethasone	146172903
+1908	epicoccum nigrum	146172904
+1909	interferon alfacon-1	146172905
+1910	sarilumab	146172906
+1911	coal tar	146172907
+1912	antithrombin alfa	146172908
+1913	lytta vesicatoria	146172909
+1914	hepatitis a virus strain hm175 antigen (formaldehyde inactivated)	146172910
+1915	azadirachta indica seed oil	146172911
+1916	human varicella-zoster immune globulin	146172912
+1917	lactobacillus rhamnosus	146172913
+1918	digitalis	146172914
+1919	neisseria meningitidis serogroup b fhbp fusion protein antig	146172915
+1920	sutimlimab	146172916
+1921	acer saccharinum pollen	146172917
+1922	salmonella typhi ty21a live antigen	146172918
+1923	galcanezumab-gnlm	146172919
+1924	certolizumab	146172920
+1925	polihexanide hydrochloride	146172921
+1926	diphtheria and tetanus toxoids	146172922
+1927	frangula purshiana bark	146172923
+1928	insulin beef/pork	146172924
+1929	calendula officinalis flowering top	146172925
+1930	evolocumab	146172926
+1931	magnesium sulfate, unspecified form	146172927
+1932	evinacumab	146172928
+1933	lecithin	146172929
+1934	neurotropin	146172930
+1935	pulsatilla vulgaris	146172931
+1936	collodion	146172932
+1937	moxetumomab pasudotox	146172933
+1938	neisseria meningitidis group c capsular oligosaccharide diphtheria crm197 protein conjugate antigen	146172934
+1939	enfortumab vedotin-ejfv	146172935
+1940	rosehip	146172936
+1941	bacillus cereus	146172937
+1942	amino acids, source unspecified	146172938
+1943	jojoba oil	146172939
+1944	albinterferon alfa-2b	146172940
+1945	alglucerase	146172941
+1946	aspergillus fumigatus	146172942
+1947	gonadorelin	146172943
+1948	 aspergillus niger var. niger	146172944
+1949	iodine i-131	146172945
+1950	octinox	146172946
+1951	arabica coffee bean	146172947
+1952	euphrasia stricta	146172948
+1953	rilotumumab	146172949
+1954	dulaglutide	146172950
+1955	fusarium oxysporum vasinfectum	146172951
+1956	peginterferon alfa-2a	146172952
+1957	oregano	146172953
+1958	d+c yellow no. 10	146172954
+1959	rasdegafusp alfa	146172955
+1960	sisymbrium officinale whole	146172956
+1961	tabalumab	146172957
+1962	solanezumab	146172958
+1963	darbepoetin alfa	146172959
+1964	certoparin sodium	146172960
+1965	avena sativa pollen	146172961
+1966	recombinant vesicular stomatitis virus pseudotyped with ebola zaire glycoprotein	146172962
+1967	asfotase alfa	146172963
+1968	coagulation factor vii human	146172964
+1969	eucalyptus globulus leaf	146172965
+1970	moringa oleifera leaf	146172966
+1971	ascorbic acid/ chromium/ selenium/vanadyl sulfate	146172967
+1972	canola oil	146172968
+1973	yttrium y-90 clivatuzumab tetraxetan	146172969
+1974	streptokinase	146172970
+1975	human cytomegalovirus immune globulin	146172971
+1976	morella cerifera pollen	146172972
+1977	frangula alnus bark	146172973
+1978	atezolizumab	146172974
+1979	strychnos ignatii seed	146172975
+1980	cyclobarbital aminophenazone	146172976
+1981	aconitum napellus root	146172977
+1982	collagen	146172978
+1983	bordetella pertussis filamentous hemagglutinin antigen (formaldehyde inactivated)	146172979
+1984	coral snake (micrurus fulvius) immune globulin antivenin (equine)	146172980
+1985	gibberella fujikuroi	146172981
+1986	pelareorep	146172982
+1987	megestrol	146172983
+1988	mogamulizumab	146172984
+1989	populus nigra pollen	146172985
+1990	benzalkonium	146172986
+1991	pegloticase	146172987
+1992	bfcr-4350a	146172988
+1993	betula populifolia pollen	146172989
+1994	 sulfamethoxazole	146172990
+1995	hamamelis virginiana bark	146172991
+1996	broccoli	146172992
+1997	ibalizumab-uiyk	146172993
+1998	neisseria meningitidis group a capsular polysaccharide diphtheria toxoid conjugate antigen	146172994
+1999	grapefruit juice	146172995
+2000	cocillana	146172996
+2001	haemophilus influenzae type b strain 20752 capsular polysaccharide tetanus toxoid conjugate antigen	146172997
+2002	aureobasidium pullulans var. pullutans	146172998
+2003	house dust	146172999
+2004	melilotus officinalis top	146173000
+2005	burosumab	146173001
+2006	chondroitin sulfate sodium nos	146173002
+2007	tears naturale ii	146173003
+2008	haemophilus b polysaccharide vaccine	146173004
+2009	certolizumab pegol	146173005
+2010	insulin pork	146173006
+2011	neisseria meningitidis group b fhbp fusion protein antigen	146173007
+2012	north american coral snake antivenin (micrurus fulvius) (equine)	146173008
+2013	aspergillus niger v	146173009
+2014	prolactin	146173010
+2015	lebrikizumab	146173011
+2016	candida albicans	146173012
+2017	caplacizumab-yhdp	146173013
+2018	candida tropicalis	146173014
+2019	lambrolizumab	146173015
+2020	sodium bicar	146173016
+2021	aluminum zirconium octachlorohydrex gly	146173017
+2022	urtica dioica pollen	146173018
+2023	sennosides a and b calcium	146173019
+2024	von willebrand factor human	146173020
+2025	calcitonin porcine	146173021
+2026	cabiralizumab	146173022
+2027	human rotavirus a type g2p7(5) strain sc2 live antigen	146173023
+2028	ubiquinol	146173024
+2029	hypromellose 2910 (4000 mpa.s)	146173025
+2030	acrylylfentanyl	146173026
+2031	methylcelluloses	146173027
+2032	codonopsis pilosula root	146173028
+2033	coagulation factor viia human	146173029
+2034	bee pollen	146173030
+2035	bifidobacterium animalis subsp. lactis	146173031
+2036	allergenic extract- epicoccum nigrum	146173032
+2037	vaccinia immune globulin human	146173033
+2038	cedar leaf oil	146173034
+2039	unspecified ingredient	146173035
+2040	cow milk	146173036
+2041	matricaria chamomilla whole	146173037
+2042	tocopherol	146173038
+2043	influenza a virus a/singapore/gp1908/2015 ivr-180 (h1n1) antigen (uv, formaldehyde inactivated)	146173039
+2044	sunflower seed	146173040
+2045	phenylephrine and	146173041
+2046	lonicera caprifolium flower	146173042
+2047	ascophyllum nodosum	146173043
+2048	erythroxylum coca leaf	146173044
+2049	varicella-zoster vaccine	146173045
+2050	heparin sodium, bovine	146173046
+2051	cashew	146173047
+2052	bromus secalinus pollen	146173048
+2053	petrolatum	146173049
+2054	vespula vulgaris venom protein	146173050
+2055	pegfilgrastim-cbqv	146173051
+2056	basic fibroblast growth factor	146173052
+2057	cisplatin	146173053
+2058	smilax china root	146173054
+2059	mahonia aquifolium root bark	146173055
+2060	celtis occidentalis pollen	146173056
+2061	gevokizumab	146173057
+2062	grape	146173058
+2063	chondrus crispus	146173059
+2064	ritodrine	146173060
+2065	soap	146173061
+2066	filgrastim	146173062
+2067	protein s human	146173063
+2068	penicillium chrysogenum var	146173064
+2069	penicillium expansum	146173065
+2070	coagulation factor ix human	146173066
+2071	allergenic extract- candida	146173067
+2072	rinfabate	146173068
+2073	chamomile flower oil	146173069
+2074	sod cl	146173070
+2075	menotropins	146173071
+2076	pit viper (crotalinae) immune globulin antivenin (equine)	146173072
+2077	losartan potassium	146173073
+2078	carpinus caroliniana pollen	146173074
+2079	sedum roseum root	146173075
+2080	alternaria alternata	146173076
+2081	adenosine cyclic phosphate meglumine	146173077
+2082	thrombomodulin alfa	146173078
+2083	white wax	146173079
+2084	cottonseed oil	146173080
+2085	bimekizumab	146173081
+2086	diphtheria and tetanus toxoids and acellular pertussis vaccine adsorbed pf	146173082
+2087	serum, horse	146173083
+2088	asian ginseng	146173084
+2089	eptaplatin	146173085
+2090	penicillium roqueforti	146173086
+2091	phleum pratense pollen	146173087
+2092	 nevirapine 	146173088
+2093	blueberry	146173089
+2094	mammal liver	146173090
+2095	fraxinus velutina pollen	146173091
+2096	dinutuximab beta	146173092
+2097	elaeagnus angustifolia pollen	146173093
+2098	alclometasone	146173094
+2099	canis lupus familiaris skin	146173095
+2100	becaplermin	146173096
+2101	peumus boldus	146173097
+2102	hydrophilic ointment	146173098
+2103	pantoprazole sodium anhydrous	146173099
+2104	algeldrate	146173100
+2105	lentil	146173101
+2106	oenothera biennis (evening primrose) seed extract	146173102
+2107	veratrum album root	146173103
+2108	pegzerepoetin alfa	146173104
+2109	farletuzumab	146173105
+2110	human red blood cell	146173106
+2111	mag carbonate	146173107
+2112	bacillus anthracis strain v770-np1-r antigen	146173108
+2113	rehmannia glutinosa root	146173109
+2114	mus musculus skin	146173110
+2115	patiromer	146173111
+2116	populus alba pollen	146173112
+2117	seribantumab	146173113
+2118	ieramilimab	146173114
+2119	carbohydrates	146173115
+2120	bos taurus adrenal cortex corticosteroids	146173116
+2121	bifidobacterium bifidum	146173117
+2122	tocilizumab	146173118
+2123	papaya	146173119
+2124	crataegus fruit	146173120
+2125	polyphenols, tea	146173121
+2126	platelet derived growth factor-bb	146173122
+2127	pygeum	146173123
+2128	balsam peru	146173124
+2129	streptococcus faecalis	146173125
+2130	telbermin	146173126
+2131	vantictumab	146173127
+2132	celery seed	146173128
+2133	carbomer homopolymer type c (allyl pentaerythritol crosslinked)	146173129
+2134	panax ginseng whole	146173130
+2135	plantago afra seed	146173131
+2136	sus scrofa stomach	146173132
+2137	von willebrand factor (recombinant)	146173133
+2138	follicle stimulating hormone beta polypeptide	146173134
+2139	neisseria meningitidis group a capsular oligosaccharide diphtheria crm197 protein conjugate antigen	146173135

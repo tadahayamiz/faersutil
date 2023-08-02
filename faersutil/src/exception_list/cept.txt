@@ -1,0 +1,16 @@
+	cept	CID
+0	abatacept	146171851
+1	aflibercept	146171061
+2	alefacept	146171091
+3	atacicept	146171077
+4	belatacept	146171065
+5	briobacept	146171607
+6	etanercept	146172215
+7	etanercept-szzs	146172059
+8	luspatercept	146171894
+9	luspatercept-aamt	146171488
+10	ramatercept	146172309
+11	rilonacept	146171368
+12	sotatercept	146173134
+13	technetium tc-99m tilmanocept	146172586
+14	ziv-aflibercept	146171961

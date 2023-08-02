@@ -1,0 +1,6 @@
+	insulin	CID
+0	insulin beef	146172500
+1	insulin beef/pork	146171679
+2	insulin nos	146171090
+3	insulin pork	146171880
+4	insulin purified pork	146172780

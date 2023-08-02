@@ -1,5 +1,0 @@
-	lysozyme	CID
-0	 lysozyme hydrochloride	146172659
-1	lysozyme	146171920
-2	lysozyme hydrochloride	146172920
-3	lysozyme, chicken egg white	146171979

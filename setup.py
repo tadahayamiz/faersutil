@@ -1,45 +1,25 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 10 14:30:27 2020
+from setuptools import setup, find_packages
 
-@author: tadahaya
-"""
-from setuptools import setup,find_packages
-from setuptools.command.test import test as TestCommand
-import sys
+with open('requirements.txt') as requirements_file:
+    install_requirements = requirements_file.read().splitlines()
 
-__version__ = "0.0.1" # major.minor[.patch[.sub]] 
-
-sys.path.append('.\\main')
-sys.path.append('.\\tests')
-
-REQUIRED_PKG = ['numpy','scipy','pandas','sklearn','statsmodels','tqdm','xlrd','matplotlib','seaborn','enan']
-
-with open("README.md", "r") as fh:
-    long_description = fh.read()
-
+# modify entry_points to use command line 
+# {COMMAND NAME}={module path}:{function in the module}
 setup(
-    name='faersutil',
-    version=__version__,
-    description="a package for handling FAERS data", # short description
-    long_description=long_description,
-    long_description_content_type='text/markdown',
-    url='https://github.com/mizuno-group',
-    author='tadahaya mizuno',
-    author_email='tadahaya@gmail.com',
-    license='MIT',
-    classifiers=['Development Status :: 5 - Production/Stable'
-                 ,'Environment :: Win32 (MS Windows)'
-                 ,'Framework :: IPython'
-                 ,'Intended Audience :: Science/Research'
-                 ,'Operating System :: Microsoft :: Windows :: Windows 10'
-                 ,'Programming Language :: Python :: 3'
-                 ,'Topic :: Scientific/Engineering :: Bio-Informatics'],
-    keywords=['omics','bioinformatics','transcriptome','chemoinformatics'],
-    install_requires=REQUIRED_PKG,
-    python_requires='>=3.6',
-    include_package_data=True,
-    package_data={'enapy':['*.txt','*.ignore','*.ipynb','*.md']},
-    packages=find_packages(exclude=('tests', 'docs')),
-    zip_safe=False
-    )
+    name="faersutil",
+    version="0.0.1",
+    description="a CLI package for handling FAERS data",
+    author="tadahaya",
+    packages=find_packages(),
+    install_requires=install_requirements,
+    entry_points={
+        "console_scripts": [
+            "faers_preprocess=faersutil.preprocess:main",
+            "make_db=faersutil.make_db:main",
+            "faers_run=faersutil.run:main",
+        ]
+    },
+    classifiers=[
+        'Programming Language :: Python :: 3.9',
+    ]
+)

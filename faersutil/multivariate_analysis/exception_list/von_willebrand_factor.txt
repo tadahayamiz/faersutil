@@ -1,4 +1,0 @@
-	von_willebrand_factor	CID
-0	human coagulation factor viii/von willebrand factor complex	146173065
-1	von willebrand factor (recombinant)	146171589
-2	von willebrand factor human	146171777

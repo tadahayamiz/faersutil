@@ -1,7 +1,0 @@
-	interleukin	CID
-0	interleukin 15, recombinant non-glycosylated	146172945
-1	interleukin nos	146171504
-2	interleukin-1.alpha.	146171080
-3	interleukin-10	146173116
-4	interleukin-12 human recombinant	146171257
-5	interleukin-7 human recombinant	146172385
