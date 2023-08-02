@@ -17,9 +17,8 @@ import glob
 from tqdm.auto import trange, tqdm
 
 # original packages in src
-from src import xml_loader as xm
-from src import cleanser as cl
-from src import db_handler as dh
+from .src import xml_loader as xm
+from .src import cleanser as cl
 
 # setup
 if os.name == 'nt':
