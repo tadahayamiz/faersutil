@@ -17,9 +17,7 @@ import glob
 from tqdm.auto import trange, tqdm
 
 # original packages in src
-from src import xml_loader as xm
-from src import cleanser as cl
-from src import db_handler as dh
+from .src import db_handler as dh
 
 # setup
 if os.name == 'nt':
@@ -41,6 +39,19 @@ parser.add_argument(
     help='whether sql only or not'
     )
 args = parser.parse_args()
+
+### main ###
+def main():
+    """ main function """
+    if args.sql_only:
+        print("=== sql database preparation ===")
+        print("> db preparation only")
+        prep_database()
+        print("> DONE")
+    else:
+        print("=== sql database preparation ===")
+        prep_database()
+        print("> DONE")   
 
 
 ### prepare database ###
@@ -69,12 +80,4 @@ def prep_database():
 
 
 if __name__ == '__main__':
-    if args.sql_only:
-        print("=== sql database preparation ===")
-        print("> db preparation only")
-        prep_database()
-        print("> DONE")
-    else:
-        print("=== sql database preparation ===")
-        prep_database()
-        print("> DONE")        
+    main()     

@@ -45,6 +45,31 @@ parser.add_argument(
     )
 args = parser.parse_args()
 
+### main ###
+
+def main():
+    """ main function """
+    if args.parse_only:
+        print("=== parse xml files ===")
+        print("> parse only")
+        parse_xml()
+        print("> DONE")
+        # print("=== parse sgml files ===")
+        # parse_sgml()
+        # print("> DONE")
+    elif args.clean_only:
+        print("=== clean and merge files ===")
+        print("> cleansing only")
+        clean_and_merge()
+        print("> DONE")
+    else:
+        print("=== parse xml files ===")
+        parse_xml()
+        print("> DONE")
+        print("=== clean and merge files ===")
+        clean_and_merge()
+        print("> DONE")   
+
 ### xml to tsv ###
 
 def parse_xml():
@@ -173,23 +198,4 @@ def _concat(lst:list, gap:str="///"):
 
 
 if __name__ == '__main__':
-    if args.parse_only:
-        print("=== parse xml files ===")
-        print("> parse only")
-        parse_xml()
-        print("> DONE")
-        # print("=== parse sgml files ===")
-        # parse_sgml()
-        # print("> DONE")
-    elif args.clean_only:
-        print("=== clean and merge files ===")
-        print("> cleansing only")
-        clean_and_merge()
-        print("> DONE")
-    else:
-        print("=== parse xml files ===")
-        parse_xml()
-        print("> DONE")
-        print("=== clean and merge files ===")
-        clean_and_merge()
-        print("> DONE")   
+    main()
