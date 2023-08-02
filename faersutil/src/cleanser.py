@@ -12,6 +12,7 @@ import numpy as np
 import os
 from pathlib import Path
 from scipy import stats
+import glob
 import datetime
 import matplotlib.pyplot as plt
 from itertools import chain
@@ -139,11 +140,8 @@ class Cleanser():
         if len(self.n_record)==0:
             self.n_record = (self.data.shape[0],self.data.shape[0])
         p = Path(__file__.replace("cleanser.py", "exception_list"))
-
-        print(p)
-        print(__file__.replace("cleanser.py", "exception_list"))
-
-        paths = list(map(lambda x: x.as_posix(),list(p.glob("*.txt"))))
+        paths = glob.glob(__file__.replace("cleanser.py", f"exception_list{SEP}*.txt"))
+        # paths = list(map(lambda x: x.as_posix(),list(p.glob("*.txt"))))
         if len(paths) > 0:
             for v in paths:
                 temp = pd.read_csv(v,sep="\t")
