@@ -138,7 +138,7 @@ class Cleanser():
         """ load exception lists """
         if len(self.n_record)==0:
             self.n_record = (self.data.shape[0],self.data.shape[0])
-        p = Path(__file__.replace(f"cleanser.py", "exception_list"))
+        p = Path(__file__.replace("cleanser.py", "exception_list"))
         paths = list(map(lambda x: x.as_posix(),list(p.glob("*.txt"))))
         if len(paths) > 0:
             for v in paths:
