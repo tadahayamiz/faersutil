@@ -12,6 +12,7 @@ setup(
     author="tadahaya",
     packages=find_packages(),
     install_requires=install_requirements,
+    include_package_data=True,
     entry_points={
         "console_scripts": [
             "faers_preprocess=faersutil.preprocess:main",

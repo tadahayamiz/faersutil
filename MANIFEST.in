@@ -1,3 +1,1 @@
-recursive-include faersutil/data/drug *
-recursive-include faersutil/data/exception_list *
-recursive-include faersutil/data/reaction *
+recursive-include faersutil/data *
