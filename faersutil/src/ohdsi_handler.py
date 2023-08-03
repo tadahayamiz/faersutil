@@ -13,7 +13,7 @@ https://athena.ohdsi.org/search-terms/start
 import pandas as pd
 import numpy as np
 
-import .pcp_handler as ph
+from . import pcp_handler as ph
 
 class OHDSIhandler():
     def __init__(self):
