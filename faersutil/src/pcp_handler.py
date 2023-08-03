@@ -147,7 +147,7 @@ def main(
     ----------
     chem_list: list
         a list of chemicals of analyzed
-    
+
     key: str
         indicates the column name for the given chemical list in the output
     
@@ -159,6 +159,10 @@ def main(
         name or cid can be indicated
     
     """
+    if len(chem_list) != len(set(chem_list)):
+        raise ValueError(
+            "!! chem_list has duplicated names: remove the duplicates !!"
+            )
     not_yet = chem_list.copy()
     results = []
     i = 0

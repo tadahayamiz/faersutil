@@ -2,7 +2,13 @@
 """
 Created on Tue Jul 23 12:09:08 2019
 
-CLI preprocesser
+make sqlite3 database by integrating FAERS and other data
+
+< How to use >
+- 
+
+< Note >
+- 
 
 @author: tadahaya
 """
@@ -52,6 +58,15 @@ def main():
         print("=== sql database preparation ===")
         prep_database()
         print("> DONE")   
+
+
+
+
+
+
+# 実際のデータをもってきて
+
+
 
 
 ### prepare database ###
