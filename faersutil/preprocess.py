@@ -261,7 +261,7 @@ def curate_drug():
     # curation
     dat = oh.OHDSIhandler()
     dat.set_path(path_list)
-    dat.load_df()
+    dat.set_df()
     dat.extract_ingredient(fileout=fileout0)
     dat.search_pubchem(fileout=fileout1)
     dat.integrate_pubchem(fileout=fileout2)

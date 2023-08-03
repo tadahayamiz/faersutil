@@ -123,7 +123,7 @@ def integrate():
     ohdsi = ohdsi[ohdsi["representative"]==1]
     # load FAERS data
     faers = pd.read_csv(path_faers, sep="=t", index_col=0)
-    fears = set(fears["reactions"].map(lambda x: set(x.splite("///"))))
+    faers = set(faers["reactions"].map(lambda x: set(x.splite("///"))))
     
 
     # 全化合物をencodingしてdbに登録したい

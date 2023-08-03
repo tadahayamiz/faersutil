@@ -37,7 +37,7 @@ class OHDSIhandler():
         return self.pubchem
 
 
-    def load_df(self, df:pd.DataFrame=None):
+    def set_df(self, df:pd.DataFrame=None):
         """ load CONCEPT.csv as a df """
         if df is None:
             self.df = pd.read_csv(self.url, sep="\t", index_col=0)
@@ -45,12 +45,12 @@ class OHDSIhandler():
             self.df = df
 
 
-    def load_pubchem(self, df:pd.DataFrame=None):
+    def set_pubchem(self, df:pd.DataFrame=None):
         """ load PubChem search result a df """
         if df is None:
             raise ValueError("!! Provide PubChem result as a df !!")
         else:
-            self.df = df
+            self.pubchem = df
 
 
     def extract_ingredient(self, fileout:str=""):
