@@ -115,15 +115,14 @@ class OHDSIhandler():
         ## PubChem
         self.df.loc[self.df["CID"] > 0, "category"] = 1
         ## smal molecules
-        self.df.loc[:, "len_SMILES"] = self.df["CanonicalSMILES"].map(lambda x: len(x))
-        self.df.loc[:, "len_MF"] = self.df["MolecularFormula"].map(lambda x: len(x))
-        self.df.loc[
-            (self.df["MolecularWeight"] >= def_small["min_MolecularWeight"]) \
-            & (self.df["MolecularWeight"] <= def_small["max_MolecularWeight"]) \
-            & (self.df["len_SMILES"] > def_small["min_len_SMILES"]) \
-            & (self.df["len_MF"] > def_small["min_len_MolecuarFormula"]), 
-            "cagtegory"
-            ] = 2
-        del self.df["len_SMILES"], self.df["len_MF"]
+        tmp = self.df.copy()
+        tmp.loc[:, "len_SMILES"] = tmp["CanonicalSMILES"].map(lambda x: len(x))
+        tmp.loc[:, "len_MF"] = tmp["MolecularFormula"].map(lambda x: len(x))
+        tmp = tmp[tmp["MolecularWeight"] >= def_small["min_MolecularWeight"]]
+        tmp = tmp[tmp["MolecularWeight"] <= def_small["max_MolecularWeight"]]
+        tmp = tmp[tmp["len_SMILES"] > def_small["min_len_SMILES"]]
+        tmp = tmp[tmp["len_MF"] > def_small["min_len_MolecuarFormula"]]
+        self.df.loc[tmp.index, "category"] = 2
+        del tmp
         if len(fileout) > 0:
             self.df.to_csv(fileout, sep="\t")
