@@ -43,6 +43,7 @@ from tqdm.auto import trange, tqdm
 from .src import xml_loader as xm
 from .src import cleanser as cl
 from .src import ohdsi_handler as oh
+from .src import synodict as sd
 
 # setup
 if os.name == 'nt':
@@ -249,26 +250,19 @@ def curate_drug():
     fileout0 = path_list.replace("CONCEPT.csv", "CONCEPT_ingredient.txt")
     fileout1 = path_list.replace("CONCEPT.csv", "CONCEPT_PubChem.txt")
     fileout2 = path_list.replace("CONCEPT.csv", "Drug_curated.txt")
+    fileout3 = path_list.replace("CONCEPT.csv", "Drug_dict.txt")
     # curation
     dat = oh.OHDSIhandler()
     dat.set_path(path_list)
     dat.load_df()
     dat.extract_ingredient(fileout=fileout0)
-    dat.get_pubchem(fileout=fileout1)
+    dat.search_pubchem(fileout=fileout1)
     dat.integrate_pubchem(fileout=fileout2)
-
-
-# OHDSI CONCEPT to ingredient
-
-# OHDSI pubchempy selection
-## OHDSIのdrug concept (全て)
-## PubChempyのhit
-## PubChempyのうちSMILESが登録されているものなど
-## という段階で分ける
-## ingredientと統合する
-
-# OHDSIとpubchempyに基づいてベースのdict作成
-
+    df = dat.get_df()
+    # prepare dict
+    dat = sd.SynoDict()
+    dat.from_df(df, key="concept_name", value="concept_id", synonym="Synonym")
+    dat.to_csv(fileout3)
 
 
 if __name__ == '__main__':

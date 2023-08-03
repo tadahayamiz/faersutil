@@ -29,6 +29,14 @@ class OHDSIhandler():
         self.url = url
 
 
+    def get_df(self):
+        return self.df
+    
+
+    def get_pubchem(self):
+        return self.pubchem
+
+
     def load_df(self, df:pd.DataFrame=None):
         """ load CONCEPT.csv as a df """
         if df is None:
@@ -55,7 +63,7 @@ class OHDSIhandler():
             self.df.to_csv(fileout, sep="\t")
 
     
-    def get_pubchem(
+    def search_pubchem(
             self, chem_list:list=[], key:str="concept_name", gap:str="///",
             fileout:str="", sep:str="\t", namespace:str="name"
             ):
@@ -120,6 +128,7 @@ class OHDSIhandler():
         self.df.loc[:, "MolecularWeight"] = self.df.loc[:, "MolecularWeight"].astype(float)
         self.df.loc[:, "TPSA"] = self.df.loc[:, "TPSA"].astype(float)
         self.df.loc[:, "XLogP"] = self.df.loc[:, "MolecularWeight"].astype(float)
+        self.df.loc[:, "concept_name"] = self.df.loc[:, "concept_name"].map(lambda x: x.lower())
         # add category
         ## all compounds
         self.df.loc[:, "category"] = 0
