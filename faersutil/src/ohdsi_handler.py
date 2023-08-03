@@ -118,8 +118,15 @@ class OHDSIhandler():
         tmp = self.df.copy()
         tmp.loc[:, "len_SMILES"] = tmp["CanonicalSMILES"].map(lambda x: len(x))
         tmp.loc[:, "len_MF"] = tmp["MolecularFormula"].map(lambda x: len(x))
-        tmp = tmp[tmp["MolecularWeight"] >= def_small["min_MolecularWeight"]]
-        tmp = tmp[tmp["MolecularWeight"] <= def_small["max_MolecularWeight"]]
+
+
+        tmp2 = tmp.copy()
+        tmp2 = tmp2[tmp2["MolecularWeight"].map(lambda x: type(x)!=float)]
+        print(tmp2)
+
+
+        tmp = tmp[tmp["MolecularWeight"].astype(float) >= def_small["min_MolecularWeight"]]
+        tmp = tmp[tmp["MolecularWeight"].astype(float) <= def_small["max_MolecularWeight"]]
         tmp = tmp[tmp["len_SMILES"] > def_small["min_len_SMILES"]]
         tmp = tmp[tmp["len_MF"] > def_small["min_len_MolecuarFormula"]]
         self.df.loc[tmp.index, "category"] = 2
