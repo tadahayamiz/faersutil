@@ -119,13 +119,13 @@ class OHDSIhandler():
         tmp.loc[:, "len_SMILES"] = tmp["CanonicalSMILES"].map(lambda x: len(x))
         tmp.loc[:, "len_MF"] = tmp["MolecularFormula"].map(lambda x: len(x))
 
-        for t in list(tmp["MolecuarWeight"]):
+        for t in list(tmp["MolecularWeight"]):
             print(type(t), t)
 
         tmp = tmp[tmp["MolecularWeight"].astype(float) >= def_small["min_MolecularWeight"]]
         tmp = tmp[tmp["MolecularWeight"].astype(float) <= def_small["max_MolecularWeight"]]
         tmp = tmp[tmp["len_SMILES"] > def_small["min_len_SMILES"]]
-        tmp = tmp[tmp["len_MF"] > def_small["min_len_MolecuarFormula"]]
+        tmp = tmp[tmp["len_MF"] > def_small["min_len_MolecularFormula"]]
         self.df.loc[tmp.index, "category"] = 2
         del tmp
         if len(fileout) > 0:
