@@ -134,7 +134,7 @@ class Cleanser():
         """ load exception lists """
         if len(self.n_record)==0:
             self.n_record = (self.data.shape[0],self.data.shape[0])
-        p = __file__.replace(f"src{SEP}cleanser.py", "data{SEP}exception_list")
+        p = __file__.replace(f"src{SEP}cleanser.py", f"data{SEP}exception_list")
         paths = glob.glob(p + SEP + "*.txt")
 
         print(paths)
