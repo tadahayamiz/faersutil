@@ -109,6 +109,17 @@ class OHDSIhandler():
                 "MolecularFormula":"N", "Synonym":"N"
                 }
             )
+        # align dtypes
+        self.df.loc[:, "concept_name"] = self.df.loc[:, "concept_name"].astype(str)
+        self.df.loc[:, "CanonicalSMILES"] = self.df.loc[:, "CanonicalSMILES"].astype(str)
+        self.df.loc[:, "IUPACName"] = self.df.loc[:, "IUPACName"].astype(str)
+        self.df.loc[:, "MolecularFormula"] = self.df.loc[:, "MolecularFormula"].astype(str)
+        self.df.loc[:, "Synonym"] = self.df.loc[:, "Synonym"].astype(str)
+        self.df.loc[:, "concept_id"] = self.df.loc[:, "concept_id"].astype(int)
+        self.df.loc[:, "CID"] = self.df.loc[:, "CID"].astype(int)
+        self.df.loc[:, "MolecularWeight"] = self.df.loc[:, "MolecularWeight"].astype(float)
+        self.df.loc[:, "TPSA"] = self.df.loc[:, "TPSA"].astype(float)
+        self.df.loc[:, "XLogP"] = self.df.loc[:, "MolecularWeight"].astype(float)
         # add category
         ## all compounds
         self.df.loc[:, "category"] = 0
@@ -122,8 +133,8 @@ class OHDSIhandler():
         for t in list(tmp["MolecularWeight"]):
             print(type(t), t)
 
-        tmp = tmp[tmp["MolecularWeight"].astype(float) >= def_small["min_MolecularWeight"]]
-        tmp = tmp[tmp["MolecularWeight"].astype(float) <= def_small["max_MolecularWeight"]]
+        tmp = tmp[tmp["MolecularWeight"] >= def_small["min_MolecularWeight"]]
+        tmp = tmp[tmp["MolecularWeight"] <= def_small["max_MolecularWeight"]]
         tmp = tmp[tmp["len_SMILES"] > def_small["min_len_SMILES"]]
         tmp = tmp[tmp["len_MF"] > def_small["min_len_MolecularFormula"]]
         self.df.loc[tmp.index, "category"] = 2
