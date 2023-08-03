@@ -10,7 +10,7 @@ FAERSUtil o-- Cleanser
 import pandas as pd
 import numpy as np
 import os
-from pathlib import Path
+import glob
 from itertools import chain
 
 if os.name == 'nt':
@@ -134,8 +134,12 @@ class Cleanser():
         """ load exception lists """
         if len(self.n_record)==0:
             self.n_record = (self.data.shape[0],self.data.shape[0])
-        p = Path(__file__.replace(f"src{SEP}cleanser.py", "data{SEP}exception_list"))
-        paths = list(map(lambda x: x.as_posix(),list(p.glob("*.txt"))))
+        p = __file__.replace(f"src{SEP}cleanser.py", "data{SEP}exception_list")
+        paths = glob.glob(p + SEP + "*.txt")
+
+        print(paths)
+        print(p)
+
         if len(paths) > 0:
             for v in paths:
                 temp = pd.read_csv(v,sep="\t")
