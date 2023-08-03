@@ -22,10 +22,8 @@ import glob
 from tqdm.auto import trange, tqdm
 
 # original packages in src
-from .src import xml_loader as xm
-from .src import cleanser as cl
-from .src import ohdsi_handler as oh
-from .src import synodict as sd
+from .src import synodict as dh
+
 
 ### setup ###
 if os.name == 'nt':
@@ -63,12 +61,47 @@ def main():
     if args.sql_only:
         print("=== sql database preparation ===")
         print("> db preparation only")
-        prep_database()
+        init_database()
         print("> DONE")
     else:
         print("=== sql database preparation ===")
-        prep_database()
+        init_database()
         print("> DONE")   
+
+
+
+### prepare database ###
+
+def init_database():
+    """
+    initialize database from FAERS clean data
+    
+    """
+    # init
+    now = datetime.datetime.now().strftime('%Y%m%d')
+    fileout = args.workdir + SEP + f"sqlite_{now}.db"
+    dat = dh.DBhandler()
+    dat.set_path(fileout)
+    # prepare rxn_table
+    tmp_filein = glob.glob(__file__.replace("make_db.py", f"data{SEP}reaction{SEP}*.txt"))[0]
+    if len(tmp_filein)==0:
+        raise ValueError("!! No MedDRA data: check faersutil/data/reaction !!")
+    else:
+        tmp_filein = sorted(tmp_filein, reverse=True)[0]
+    df = pd.read_csv(tmp_filein, sep="\t", index_col=0)
+    dat.make_rxn_table(df)
+    del df
+    print("> rxn_table is ready")
+    # prepare 
+    tmp_filein = glob.glob(args.workdir + SEP + "clean_*.txt")
+    if len(tmp_filein)==0:
+        raise ValueError("!! No clean FAERS data: use 'preprocess' before this !!")
+    else:
+        tmp_filein = sorted(tmp_filein, reverse=True)[0]
+    df = pd.read_csv(tmp_filein, sep="\t", index_col=0)
+    dat.make_case_table(df)
+    del df
+    print("> case_table is ready")
 
 
 def integrate():
@@ -90,35 +123,15 @@ def integrate():
     ohdsi = ohdsi[ohdsi["representative"]==1]
     # load FAERS data
     faers = pd.read_csv(path_faers, sep="=t", index_col=0)
+    fears = set(fears["reactions"].map(lambda x: set(x.splite("///"))))
+    
 
     # 全化合物をencodingしてdbに登録したい
     # ただし辞書にないものは落とす
-    # record
 
 
 
 
-### prepare database ###
-
-def prep_database():
-    """ prepare database from clean data """
-    # init
-    now = datetime.datetime.now().strftime('%Y%m%d')
-    fileout = args.workdir + SEP + f"sqlite_{now}.db"
-    dat = DBhandler()
-    dat.set_path(fileout)
-    # prepare rxn_table
-    tmp_filein = glob.glob(__file__.replace("cli_preprocess.py", "reaction") + SEP + "*.txt")[0]
-    df = pd.read_csv(tmp_filein, sep="\t", index_col=0)
-    dat.make_rxn_table(df)
-    del df
-    print("> rxn_table is ready")
-    # prepare 
-    tmp_filein = glob.glob(args.workdir + SEP + "clean_*.txt")[0]
-    df = pd.read_csv(tmp_filein, sep="\t", index_col=0)
-    dat.make_case_table(df)
-    del df
-    print("> case_table is ready")
 
 
 if __name__ == '__main__':
