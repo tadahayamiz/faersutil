@@ -16,16 +16,27 @@ __all__ = ["RawEditor", "DeleteEditor", "ReplaceEditor"]
 DEL_CHAR = [",", ";", ":", "-", "\.", "\(", "\)", "\.alpha\.-", "\?"]
 
 DEL_COMP = [
-    "acetate", "anhydrous",
-    "benzonate", "benzoate",
-    "carbonate", "chloride",
-    "dihydrate", "dihydrochloride","dimer",
+    "acetate", "acetonide", "ammonium", "anhydrous",
+    "benzonate", "benzoate", "besylate", "bitartrate", "bromide", 
+    "calcium", "carbonate", "chloride",  
+    "decanoate", "dequalinium", "diacetate", "diammonium", "dihydrate",
+    "dihydrochloride", "dimer", "dipotassium", "dipropionate", "disodium", 
     "fumarate",
-    "hemifumarate", "hydrobromide", "hydrochloride",
-    "maleate", "magnesium", "methanesulfonate", "mesylates",
-    "pottasium",
-    "sodium", "sulfate", "saccharate",
-    "trifluoroacetate", "trifluoroacetic acid"
+    "gadolinium", "gallium",
+    "hemifumarate", "hydrobromide", "hydrochloride", "hydroxide", 
+    "indium", "iodide", 
+    "lactate", "lithium", "lutetium", 
+    "malate", "maleate", "magnesium", "methanesulfonate", "methylbromide",
+    "mesylate", "monohydrate", "monohydrochloride", 
+    "nitrate", 
+    "orotate", "oxalate", "oxide", 
+    "pamoate", "palmitate", "pentahydrate", "phosphate", "pivalate",
+    "pollen", "propionate", "pottasium",
+    "rubidium", 
+    "saccharate", "salicylate", "samarium", "sodium", "strontium", "succinate", "sulfate",
+    "tartrate", "technetium", "tetrasodium", "tosylate", "trifluoroacetate",
+    "trihydrate", "trifluoroacetic acid", "trisodium",
+    "yttrium", 
     ]
 
 RE = [r"\s?\((.*?)\)\s?"]

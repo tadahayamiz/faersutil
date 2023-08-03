@@ -18,6 +18,7 @@ import argparse
 import numpy as np
 import pandas as pd
 import glob
+from itertools import chain
 
 from tqdm.auto import trange, tqdm
 
@@ -123,11 +124,10 @@ def integrate():
     ohdsi = ohdsi[ohdsi["representative"]==1]
     # load FAERS data
     faers = pd.read_csv(path_faers, sep="=t", index_col=0)
-    faers = set(faers["reactions"].map(lambda x: set(x.splite("///"))))
-    
-
-    # 全化合物をencodingしてdbに登録したい
-    # ただし辞書にないものは落とす
+    whole = set(faers["reactions"].map(lambda x: set(x.splite("///"))))
+    whole = set(chain.from_iterable(faers.values.tolist()))
+    ## use chain.from_iterable is much faster than for loop
+    whole = sorted(list(whole))
 
 
 
