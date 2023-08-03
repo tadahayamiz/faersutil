@@ -248,13 +248,14 @@ def curate_drug():
         path_list = path_list[0]
     fileout0 = path_list.replace("CONCEPT.csv", "CONCEPT_ingredient.txt")
     fileout1 = path_list.replace("CONCEPT.csv", "CONCEPT_PubChem.txt")
+    fileout2 = path_list.replace("CONCEPT.csv", "Drug_curated.txt")
     # curation
     dat = oh.OHDSIhandler()
     dat.set_path(path_list)
     dat.load_df()
     dat.extract_ingredient(fileout=fileout0)
-    dat.get_pubchem()
-    dat.integrate_pubchem(fileout=fileout1)
+    dat.get_pubchem(fileout=fileout1)
+    dat.integrate_pubchem(fileout=fileout2)
 
 
 # OHDSI CONCEPT to ingredient
