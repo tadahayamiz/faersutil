@@ -12,7 +12,6 @@ make sqlite3 database by integrating FAERS and other data
 
 @author: tadahaya
 """
-import sys
 import os
 import datetime
 import argparse
@@ -23,9 +22,12 @@ import glob
 from tqdm.auto import trange, tqdm
 
 # original packages in src
-from .src import db_handler as dh
+from .src import xml_loader as xm
+from .src import cleanser as cl
+from .src import ohdsi_handler as oh
+from .src import synodict as sd
 
-# setup
+### setup ###
 if os.name == 'nt':
     SEP = "\\"
 elif os.name == 'posix':
@@ -33,7 +35,7 @@ elif os.name == 'posix':
 else:
     raise ValueError("!! Something wrong in OS detection !!")
 
-parser = argparse.ArgumentParser(description='CLI preprocess')
+parser = argparse.ArgumentParser(description='preprocessing of FAERS raw data')
 parser.add_argument('--note', type=str, help='preprocessing FAERS raw data (xml, sgml)')
 parser.add_argument(
     'workdir',
@@ -41,10 +43,19 @@ parser.add_argument(
     help='working directory that contains unzipped FAERS raw directories'
     )
 parser.add_argument(
-    '-s', '--sql_only', action='store_true',
-    help='whether sql only or not'
+    '-c', '--clean_only', action='store_true',
+    help='whether cleansing only or not'
+    )
+parser.add_argument(
+    '-p', '--parse_only', action='store_true',
+    help='whether parse only or not'
+    )
+parser.add_argument(
+    '-d', '--drug_only', action='store_true',
+    help='whether drug curation only or not'
     )
 args = parser.parse_args()
+
 
 ### main ###
 def main():
@@ -60,11 +71,29 @@ def main():
         print("> DONE")   
 
 
+def integrate():
+    """ integrate FAERS and OHDSI data """
+    # url setting
+    path_faers = glob.glob(args.workdir + SEP + "clean_*.txt")
+    path_ohdsi = glob.glob(args.workdir + SEP + "Drug_dict_*.txt")
+    if len(path_faers)==0:
+        raise ValueError("!! No clean FAERS data: use 'preprocess' before this !!")
+    else:
+        path_faers = sorted(path_faers, reverse=True)[0]
+    if len(path_ohdsi)==0:
+        raise ValueError("!! No Drug_dict from OHDSI data: use 'preprocess' before this !!")
+    else:
+        path_ohdsi = sorted(path_ohdsi, reverse=True)[0]
+    # prep base dict
+    ohdsi = pd.read_csv(path_ohdsi, sep="=t", index_col=0)
+    base_dic = dict(zip(list(ohdsi["key"]), list(ohdsi["value"])))
+    ohdsi = ohdsi[ohdsi["representative"]==1]
+    # load FAERS data
+    faers = pd.read_csv(path_faers, sep="=t", index_col=0)
 
-
-
-
-# 実際のデータをもってきて
+    # 全化合物をencodingしてdbに登録したい
+    # ただし辞書にないものは落とす
+    # record
 
 
 
@@ -73,8 +102,6 @@ def main():
 
 def prep_database():
     """ prepare database from clean data """
-    raise NotImplementedError
-
     # init
     now = datetime.datetime.now().strftime('%Y%m%d')
     fileout = args.workdir + SEP + f"sqlite_{now}.db"

@@ -10,26 +10,28 @@ import pandas as pd
 import numpy as np
 import re
 
-__all__ = ["RawEditor","DeleteEditor","ReplaceEditor"]
+__all__ = ["RawEditor", "DeleteEditor", "ReplaceEditor"]
 
 ### indicate deletion keys
-DEL_CHAR = [",",";",":","-","\.","\(","\)","\.alpha\.-","\?"]
+DEL_CHAR = [",", ";", ":", "-", "\.", "\(", "\)", "\.alpha\.-", "\?"]
 
-DEL_COMP = ["acetate","anhydrous",
-            "benzonate","benzoate",
-            "carbonate","chloride",
-            "dihydrate","dihydrochloride","dimer",
-            "fumarate",
-            "hemifumarate","hydrobromide","hydrochloride",
-            "maleate","magnesium","methanesulfonate","mesylates",
-            "pottasium",
-            "sodium","sulfate","saccharate",
-            "trifluoroacetate","trifluoroacetic acid"]
+DEL_COMP = [
+    "acetate", "anhydrous",
+    "benzonate", "benzoate",
+    "carbonate", "chloride",
+    "dihydrate", "dihydrochloride","dimer",
+    "fumarate",
+    "hemifumarate", "hydrobromide", "hydrochloride",
+    "maleate", "magnesium", "methanesulfonate", "mesylates",
+    "pottasium",
+    "sodium", "sulfate", "saccharate",
+    "trifluoroacetate", "trifluoroacetic acid"
+    ]
 
 RE = [r"\s?\((.*?)\)\s?"]
 
 ### indicate replacement keys
-REPLACE = [".",",",";",":","-"]
+REPLACE = [".", ",", ";", ":", "-"]
 
 
 # abstract class
@@ -38,12 +40,12 @@ class Editor():
         self.__editor = RawEditor()
 
 
-    def edit(self,word):
+    def edit(self, word):
         """ edit the word by the indicated editor """
         return self.__editor.edit(word)
 
 
-    def add(self,lst):
+    def add(self, lst):
         """ additional elements to be tested """
         self.__editor.add(lst)
 
@@ -85,7 +87,7 @@ class DeleteEditor():
             ap(r"\s?{}\s?".format(d))
 
 
-    def edit(self,word):
+    def edit(self, word):
         """ edit the word by deletion """
         w = r'{}'.format(word)
         res = []
@@ -98,7 +100,7 @@ class DeleteEditor():
         return list(set(res))
 
 
-    def add(self,lst):
+    def add(self, lst):
         """ add elements """
         ap = self.re_list.append
         for e in lst:
@@ -113,7 +115,7 @@ class ReplaceEditor():
         self.replace_list += REPLACE
 
 
-    def edit(self,word):
+    def edit(self, word):
         """ edit the word by replacement """
         res = []
         ap = res.append
@@ -124,6 +126,6 @@ class ReplaceEditor():
         return list(set(res))
 
 
-    def add(self,lst):
+    def add(self, lst):
         """ add elements """
         self.replace_list += lst

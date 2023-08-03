@@ -3,8 +3,14 @@
 Created on Tue Jul 23 12:09:08 2019
 
 preprocessor of FAERS and other necessary data
-- FAERS raw data
-- OHDSI CONCEPT.csv data
+
+< Structure >
+- preprocess
+    - xml_loader
+    - cleanser
+    - ohdsi_handler
+        - pcp_handler
+    - synodict
 
 < How to use >
 - prepare working directory that has the following structure:
@@ -29,7 +35,6 @@ preprocessor of FAERS and other necessary data
 
 @author: tadahaya
 """
-import sys
 import os
 import datetime
 import argparse
@@ -45,7 +50,7 @@ from .src import cleanser as cl
 from .src import ohdsi_handler as oh
 from .src import synodict as sd
 
-# setup
+### setup ###
 if os.name == 'nt':
     SEP = "\\"
 elif os.name == 'posix':
@@ -202,8 +207,9 @@ def clean_and_merge():
         dat = cl.Cleanser()
         dat.set_data(data=df)
         dat.data_cleansing()
-        dat.set_exception()
-        dat.exclude_exception()
+        # dat.set_exception()
+        # dat.exclude_exception()
+        # 230803 skip exception handling in this phase, which will be done in the integration phase
         res = dat.get_data()
         res.loc[:, "Stored Year"] = [float(key)] * res.shape[0] # add store date
         results.append(res)
@@ -247,10 +253,11 @@ def curate_drug():
         raise ValueError("!! CONCEPT.csv was not found: check the path !!")
     else:
         path_list = path_list[0]
-    fileout0 = path_list.replace("CONCEPT.csv", "CONCEPT_ingredient.txt")
-    fileout1 = path_list.replace("CONCEPT.csv", "CONCEPT_PubChem.txt")
-    fileout2 = path_list.replace("CONCEPT.csv", "Drug_curated.txt")
-    fileout3 = path_list.replace("CONCEPT.csv", "Drug_dict.txt")
+    now = datetime.datetime.now().strftime('%Y%m%d')
+    fileout0 = path_list.replace("CONCEPT.csv", f"CONCEPT_ingredient_{now}.txt")
+    fileout1 = path_list.replace("CONCEPT.csv", f"CONCEPT_PubChem_{now}.txt")
+    fileout2 = path_list.replace("CONCEPT.csv", f"Drug_curated_{now}.txt")
+    fileout3 = path_list.replace("CONCEPT.csv", f"Drug_dict_{now}.txt")
     # curation
     dat = oh.OHDSIhandler()
     dat.set_path(path_list)
