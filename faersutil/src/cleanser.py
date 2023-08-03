@@ -71,17 +71,20 @@ class Cleanser():
             if len(url)==0:
                 raise ValueError("!! No data: give a data list or a url for the directory containing data !!")
             else:
-                p = Path(url)
                 if from_pickle:
-                    filelist = list(map(lambda x: x.as_posix(),list(p.glob("*.pkl"))))
+                    filelist = glob.glob(url + {SEP} + "*.pkl")
                     if len(filelist)==0:
                         raise ValueError("!! No pickle files: check the inidicated directory !!")
                     data = [pd.read_pickle(v) for v in filelist]
                 elif from_csv:
-                    filelist = list(map(lambda x: x.as_posix(),list(p.glob("*.csv"))))
+                    filelist = glob.glob(url + {SEP} + "*.csv")
+                    sep = "\,"
                     if len(filelist)==0:
-                        raise ValueError("!! No csv files: check the inidicated directory !!")
-                    data = [pd.read_csv(v,index_col=0,low_memory=True,dtype=str) for v in filelist]
+                        filelist = glob.glob(url + {SEP} + "*.txt")
+                        sep = "\t"
+                    if len(filelist)==0:
+                        raise ValueError("!! No csv/txt files: check the inidicated directory !!")
+                    data = [pd.read_csv(v,index_col=0,low_memory=True,dtype=str,sep=sep) for v in filelist]
                 else:
                     raise ValueError("!! Turn on check from_pickle or from_csv !!")
         self.data = pd.concat(data)
@@ -136,10 +139,6 @@ class Cleanser():
             self.n_record = (self.data.shape[0],self.data.shape[0])
         p = __file__.replace(f"src{SEP}cleanser.py", f"data{SEP}exception_list")
         paths = glob.glob(p + SEP + "*.txt")
-
-        print(paths)
-        print(p)
-
         if len(paths) > 0:
             for v in paths:
                 temp = pd.read_csv(v,sep="\t")
