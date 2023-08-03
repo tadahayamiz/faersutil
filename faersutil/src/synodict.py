@@ -125,7 +125,7 @@ class SynoDict():
             })
         # add representative to judge representative or synonyms
         df.loc[:, "representative"] = 0
-        df.loc[list(self.decoder.values()), "representative"] = 1
+        df.loc[df["key"].isin(set(self.decoder.values())), "representative"] = 1
         # dtypes
         df.loc[:, "key"] = df.loc[:, "key"].astype(str)
         df.loc[:, "value"] = df.loc[:, "value"].astype(int)
