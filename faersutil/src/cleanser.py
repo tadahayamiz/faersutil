@@ -11,11 +11,7 @@ import pandas as pd
 import numpy as np
 import os
 from pathlib import Path
-from scipy import stats
-import datetime
-import matplotlib.pyplot as plt
 from itertools import chain
-import statsmodels.stats.multitest as multitest
 
 if os.name == 'nt':
     SEP = "\\"
