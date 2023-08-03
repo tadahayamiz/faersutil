@@ -16,6 +16,7 @@ setup(
     entry_points={
         "console_scripts": [
             "faers_preprocess=faersutil.preprocess:main",
+            "faersutil.preprocess=faersutil.preprocess:main",
             "make_db=faersutil.make_db:main",
             "faers_run=faersutil.run:main",
         ]
