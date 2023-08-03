@@ -11,12 +11,7 @@ import pandas as pd
 import numpy as np
 import os
 from pathlib import Path
-from scipy import stats
-import glob
-import datetime
-import matplotlib.pyplot as plt
 from itertools import chain
-import statsmodels.stats.multitest as multitest
 
 if os.name == 'nt':
     SEP = "\\"
@@ -139,7 +134,7 @@ class Cleanser():
         """ load exception lists """
         if len(self.n_record)==0:
             self.n_record = (self.data.shape[0],self.data.shape[0])
-        p = Path(__file__.replace(f"cleanser.py", "exception_list"))
+        p = Path(__file__.replace(f"src{SEP}cleanser.py", "data{SEP}exception_list"))
         paths = list(map(lambda x: x.as_posix(),list(p.glob("*.txt"))))
         if len(paths) > 0:
             for v in paths:
