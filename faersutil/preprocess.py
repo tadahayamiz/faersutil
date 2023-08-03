@@ -253,6 +253,7 @@ def curate_drug():
     dat.set_path(path_list)
     dat.load_df()
     dat.extract_ingredient(fileout=fileout0)
+    dat.get_pubchem()
     dat.integrate_pubchem(fileout=fileout1)
 
 

@@ -56,11 +56,12 @@ class OHDSIhandler():
 
     
     def get_pubchem(
-            self, chem_list:list, key:str="concept_name", gap:str="///",
+            self, chem_list:list=[], key:str="concept_name", gap:str="///",
             fileout:str="", sep:str="\t", namespace:str="name"
             ):
         """ get pubchem information """
-        chem_list = list(self.df["concept_name"])
+        if len(chem_list)==0:
+            chem_list = list(self.df["concept_name"])
         res, nega = ph.main(
             chem_list=chem_list, key=key, gap=gap, 
             fileout=fileout, sep=sep, namespace=namespace
