@@ -119,11 +119,8 @@ class OHDSIhandler():
         tmp.loc[:, "len_SMILES"] = tmp["CanonicalSMILES"].map(lambda x: len(x))
         tmp.loc[:, "len_MF"] = tmp["MolecularFormula"].map(lambda x: len(x))
 
-
-        tmp2 = tmp.copy()
-        tmp2 = tmp2[tmp2["MolecularWeight"].map(lambda x: type(x)!=float)]
-        print(tmp2)
-
+        for t in list(tmp["MolecuarWeight"]):
+            print(type(t), t)
 
         tmp = tmp[tmp["MolecularWeight"].astype(float) >= def_small["min_MolecularWeight"]]
         tmp = tmp[tmp["MolecularWeight"].astype(float) <= def_small["max_MolecularWeight"]]
