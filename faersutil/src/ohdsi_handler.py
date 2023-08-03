@@ -47,7 +47,7 @@ class OHDSIhandler():
 
     def extract_ingredient(self, fileout:str=""):
         """ extract ingredient from raw CONCEPT.csv """
-        self.df = self.df[self.df["domain_id"=="Drug"]] # restrict Drug domain
+        self.df = self.df[self.df["domain_id"]=="Drug"] # restrict Drug domain
         self.df = self.df[self.df["concept_class_id"]=="Ingredient"]
         self.df = self.df.drop_duplicates(subset=["concept_name"], keep="first")
         self.df = self.df.reset_index(drop=True)

@@ -93,7 +93,7 @@ def main():
     elif args.drug_only:
         print("=== drug curation ===")
         print("> drug curation only")
-        drug_curation()
+        curate_drug()
         print("> DONE")
     else:
         print("=== parse xml files ===")
@@ -101,7 +101,10 @@ def main():
         print("> DONE")
         print("=== clean and merge files ===")
         clean_and_merge()
-        print("> DONE")   
+        print("> DONE")
+        print("=== drug curation ===")
+        curate_drug()
+        print("> DONE")
 
 ### FAERS data handling ###
 
@@ -231,7 +234,7 @@ def _concat(lst:list, gap:str="///"):
 
 ### drug data curation ###
 
-def drug_curation():
+def curate_drug():
     """
     preprocessing OHDSI data
     Note this takes a long time because of traffic in pubchempy use
@@ -264,9 +267,6 @@ def drug_curation():
 
 # OHDSIとpubchempyに基づいてベースのdict作成
 
-
-
-    
 
 
 if __name__ == '__main__':

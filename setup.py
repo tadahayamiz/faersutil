@@ -15,10 +15,12 @@ setup(
     include_package_data=True,
     entry_points={
         "console_scripts": [
-            "faers_preprocess=faersutil.preprocess:main",
             "faersutil.preprocess=faersutil.preprocess:main",
-            "make_db=faersutil.make_db:main",
-            "faers_run=faersutil.run:main",
+            "faersutil.preprocess.parse=faersutil.preprocess:parse_xml",
+            "faersutil.preprocess.clean=faersutil.preprocess:clean_and_merge",
+            "faersutil.preprocess.curate=faersutil.preprocess:curate_drug",
+            "faersutil.make_db=faersutil.make_db:main",
+            "faersutil.run=faersutil.run:main",
         ]
     },
     classifiers=[
