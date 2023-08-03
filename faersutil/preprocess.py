@@ -90,6 +90,11 @@ def main():
         print("> cleansing only")
         clean_and_merge()
         print("> DONE")
+    elif args.drug_only:
+        print("=== drug curation ===")
+        print("> drug curation only")
+        drug_curation()
+        print("> DONE")
     else:
         print("=== parse xml files ===")
         parse_xml()
