@@ -32,7 +32,7 @@ class OHDSIhandler():
     def load_df(self, df:pd.DataFrame=None):
         """ load CONCEPT.csv as a df """
         if df is None:
-            self.df = pd.read_csv(self.url, sep="\t")
+            self.df = pd.read_csv(self.url, sep="\t", index_col=0)
         else:
             self.df = df
 
@@ -67,6 +67,8 @@ class OHDSIhandler():
             fileout=fileout, sep=sep, namespace=namespace
             )
         self.pubchem = res
+        if len(fileout) > 0:
+            self.pubchem.to_csv(fileout, sep="\t")
 
 
     def integrate_pubchem(
@@ -122,5 +124,6 @@ class OHDSIhandler():
             & (self.df["len_MF"] > def_small["min_len_MolecuarFormula"]), 
             "cagtegory"
             ] = 2
+        del self.df["len_SMILES"], self.df["len_MF"]
         if len(fileout) > 0:
             self.df.to_csv(fileout, sep="\t")
