@@ -2,141 +2,161 @@
 """
 Created on Mon Sep 23 13:25:44 2019
 
-Chem o-- Info o-- Editor
+Editor of chemicals with regex
 
 @author: tadahaya
 """
-import pandas as pd
-import numpy as np
 import re
 
-__all__ = ["RawEditor", "DeleteEditor", "ReplaceEditor"]
-
-### indicate deletion keys
-DEL_CHAR = [",", ";", ":", "-", "\.", "\(", "\)", "\.alpha\.-", "\?"]
-
-DEL_COMP = [
-    "acetate", "acetonide", "ammonium", "anhydrous",
-    "benzonate", "benzoate", "besylate", "bitartrate", "bromide", 
-    "calcium", "carbonate", "chloride",  
-    "decanoate", "dequalinium", "diacetate", "diammonium", "dihydrate",
-    "dihydrochloride", "dimer", "dipotassium", "dipropionate", "disodium", 
-    "fumarate",
-    "gadolinium", "gallium",
-    "hemifumarate", "hydrobromide", "hydrochloride", "hydroxide", 
-    "indium", "iodide", 
-    "lactate", "lithium", "lutetium", 
-    "malate", "maleate", "magnesium", "methanesulfonate", "methylbromide",
-    "mesylate", "monohydrate", "monohydrochloride", 
-    "nitrate", 
-    "orotate", "oxalate", "oxide", 
-    "pamoate", "palmitate", "pentahydrate", "phosphate", "pivalate",
-    "pollen", "propionate", "pottasium",
-    "rubidium", 
-    "saccharate", "salicylate", "samarium", "sodium", "strontium", "succinate", "sulfate",
-    "tartrate", "technetium", "tetrasodium", "tosylate", "trifluoroacetate",
-    "trihydrate", "trifluoroacetic acid", "trisodium",
-    "yttrium", 
-    ]
-
-RE = [r"\s?\((.*?)\)\s?"]
-
-### indicate replacement keys
-REPLACE = [".", ",", ";", ":", "-"]
-
-
-# abstract class
-class Editor():
+class ChemEditor():
     def __init__(self):
-        self.__editor = RawEditor()
+        self.pattern = None
+        self.strings = []
+        self._pre_chars = [
+            ".", ",", "?", ":", ";", 
+            "(", ")", "[", "]", "{", "}",
+            "+", "-", "*", "/", "=", "<", ">", 
+            "!", "@", "#", "$", "%", "^", "&", 
+            "_", "`",
+            ]
+
+        self._pre_compounds = [
+            # A
+            "acetate", "acetonide", "ammonium", "anhydrous",
+            # B
+            "benzonate", "benzoate", "besylate", "bitartrate", "bromide", 
+            # C
+            "calcium", "carbonate", "chloride",  
+            # D
+            "decanoate", "dequalinium", "diacetate", "diammonium", "dihydrate",
+            "dihydrochloride", "dimer", "dipotassium", "dipropionate", "disodium", 
+            # E
+            # F
+            "fumarate",
+            # G
+            "gadolinium", "gallium",
+            # H
+            "hemifumarate", "hydrobromide", "hydrochloride", "hydroxide", 
+            # I
+            "indium", "iodide", 
+            # J
+            # K
+            # L
+            "lactate", "lithium", "lutetium", 
+            # M
+            "malate", "maleate", "magnesium", "methanesulfonate", "methylbromide",
+            "mesylate", "monohydrate", "monohydrochloride", 
+            # N
+            "nitrate", 
+            # O
+            "orotate", "oxalate", "oxide", 
+            # P
+            "pamoate", "palmitate", "pentahydrate", "phosphate", "pivalate",
+            "pollen", "propionate", "pottasium",
+            # Q
+            # R
+            "rubidium", 
+            # S
+            "saccharate", "salicylate", "salt", "samarium", "sodium",
+            "strontium", "succinate", "sulfate",
+            # T
+            "tartrate", "technetium", "tetrasodium", "tosylate", "trifluoroacetate",
+            "trihydrate", "trifluoroacetic acid", "trisodium",
+            # U
+            # W
+            # X
+            # Y
+            "yttrium", 
+            # Z
+            ]
+            # 230805 updated
+
+    def set_strings(self, strings:list=[], refresh:bool=True):
+        """
+        set a list of strings to be compiled
+        note these strings are handledsimultaneously
+        
+        Parameters
+        ----------
+        strings: list
+            a list of strings to be edited
+
+        refresh: bool
+            whether to initialize the previous strings or not
+
+        """
+        if refresh:
+            self.strings = []
+        self.strings += strings # to save the previous
+
+    def get_strings(self):
+        return self.strings
+
+    def get_special_char_list(self):
+        return self._pre_chars
+
+    def get_compound_list(self):
+        return self._pre_compounds
+
+    def compile(self, strings:list=[]):
+        """
+        compile a list of strings
+        to handle these strings simultaneously
+        
+        Parameters
+        ----------
+        strings: list
+            a list of strings to be edited
+
+        """
+        if len(strings)==0:
+            strings = self.strings
+        re_strings = r"{}".format('|'.join(map(re.escape, strings)))
+        self.pattern = re.compile(re_strings)
 
 
-    def edit(self, word):
-        """ edit the word by the indicated editor """
-        return self.__editor.edit(word)
+    def delete(self, target:list):
+        """
+        delete all the matched phrases of the words in the given list
+        
+        """
+        return [self.pattern.sub("", w).strip() for w in target]
 
 
-    def add(self, lst):
-        """ additional elements to be tested """
-        self.__editor.add(lst)
+    def replace(self, target:list, rep_char:str=" "):
+        """
+        replace all the matched phrases of the words in the given list
+        with the indicated character
+        
+        """
+        return [self.pattern.sub(rep_char, w).strip() for w in target]
 
 
-    def to_raw(self):
-        self.__editor = RawEditor()
+    def set_special_chars(self, refresh:bool=False):
+        """ set the predefined special characters to be compiled """
+        self.set_strings(self._pre_chars, refresh=refresh)
 
 
-    def to_delete(self):
-        self.__editor = DeleteEditor()
+    def set_compounds(self, refresh:bool=False):
+        """ set the predefined compounds to be compiled """
+        self.set_strings(self._pre_compounds, refresh=refresh)
 
 
-    def to_replace(self):
-        self.__editor = ReplaceEditor()
+    def check_ate(self, target:list):
+        """ check whether -ate or not """
+        pattern = re.compile(r"ate$")
+        return [bool(pattern.search(v)) for v in target]
+    
+    def check_ide(self, target:list):
+        """ check whether -ide or not """
+        pattern = re.compile(r"ide$")
+        return [bool(pattern.search(v)) for v in target]
 
-
-# concrete class
-class RawEditor():
-    def __init__(self):
-        pass
-
-
-    def edit(self,word):
-        """ return the word without any modification """
-        return [word]
-
-
-# concrete class
-class DeleteEditor():
-    def __init__(self):
-        self.re_list = []
-        self.re_list += RE
-        ap = self.re_list.append
-        for d in DEL_CHAR:
-            ap(r"\s?{}\s?(.*)".format(d))
-            ap(r"\s?{}\s?".format(d))
-        for d in DEL_COMP:
-            ap(r"\s?{}\s?(.*)".format(d))
-            ap(r"\s?{}\s?".format(d))
-
-
-    def edit(self, word):
-        """ edit the word by deletion """
-        w = r'{}'.format(word)
-        res = []
-        ap = res.append
-        for r in self.re_list:
-            repat = re.compile(r)
-            temp = repat.sub("",w)
-            if (temp!=w) and (len(temp) > 0):
-                ap(temp)
-        return list(set(res))
-
-
-    def add(self, lst):
-        """ add elements """
-        ap = self.re_list.append
-        for e in lst:
-            ap(r"\s?{}\s?(.*)".format(e))
-            ap(r"\s?{}\s?".format(e))
-
-
-# concrete class
-class ReplaceEditor():
-    def __init__(self):
-        self.replace_list = []
-        self.replace_list += REPLACE
-
-
-    def edit(self, word):
-        """ edit the word by replacement """
-        res = []
-        ap = res.append
-        for r in self.replace_list:
-            temp = word.replace(r," ")
-            if temp!=word:
-                ap(temp)
-        return list(set(res))
-
-
-    def add(self, lst):
-        """ add elements """
-        self.replace_list += lst
+    def check_ium(self, target:list):
+        """
+        check whether -ium or not
+        note this also catches bacterium
+        
+        """
+        pattern = re.compile(r"ium$")
+        return [bool(pattern.search(v)) for v in target]
