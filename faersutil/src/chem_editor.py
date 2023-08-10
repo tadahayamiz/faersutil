@@ -8,6 +8,18 @@ Editor of chemicals with regex
 """
 import re
 
+# deletion
+# restriction: leading word with a trailing space, or trailing word with a preceding space
+HARD_SET = [
+    "hcl", "\, salt",
+]
+
+
+PREFIX_SET = [
+    "dl-", "d-", "l-",
+]
+
+
 class ChemEditor():
     def __init__(self):
         self.pattern = None
@@ -19,55 +31,75 @@ class ChemEditor():
             "!", "@", "#", "$", "%", "^", "&", 
             "_", "`",
             ]
+        self._pre_other = [
+            "alfa", "capsular", 
+        ]
 
         self._pre_compounds = [
             # A
-            "acetate", "acetonide", "ammonium", "anhydrous",
+            "acetate", "aceponate", "acetonide", "adipate", "aluminium",
+            "ammonium", "anhydrous", "aspartate", 
             # B
-            "benzonate", "benzoate", "besylate", "bitartrate", "bromide", 
+            "benzonate", "benzoate", "benzylate", "besilate", "besylate",
+            "bitartrate", "borate", "bromide", "butyrate",
             # C
-            "calcium", "carbonate", "chloride",  
+            "calcium", "camphorsulfonate", "camsylate", "caproate", "carbonate",
+            "chloride", "chromium", "citrate", "condensate", "concentrate",
+            "conjugate", "cypionate", 
             # D
-            "decanoate", "dequalinium", "diacetate", "diammonium", "dihydrate",
-            "dihydrochloride", "dimer", "dipotassium", "dipropionate", "disodium", 
+            "decanoate", "decahydrate", "dequalinium", "diacetate", "diammonium",
+            "dihydrate", "dihydrochloride", "dimalonate", "dimer", "dipotassium",
+            "diphosphonate", "dipropionate", "disodium", "dodecahydrate", 
             # E
+            "edisylate", "embonate", "enantate", "enanthate", "esylate", 
             # F
-            "fumarate",
+            "fumarate", "furoate", 
             # G
-            "gadolinium", "gallium",
+            "gadolinium", "gallium", "gluceptate", "gluconate", "glycolate",
+            "glutamate", "glycinate", 
             # H
-            "hemifumarate", "hydrobromide", "hydrochloride", "hydroxide", 
+            "hemiethanolate", "hemifumarate", "hemihydrate", "heminonahydrate", "heptahydrate",
+            "hexahydrate", "hydrate", "hydrobromide", "hydrochloride", "hydroxide", 
             # I
-            "indium", "iodide", 
+            "indium", "iodide", "isethionate", "isovalerate",
             # J
             # K
             # L
-            "lactate", "lithium", "lutetium", 
+            "lactate", "lactobionate", "lithium", "lutetium", 
             # M
-            "malate", "maleate", "magnesium", "methanesulfonate", "methylbromide",
-            "mesylate", "monohydrate", "monohydrochloride", 
+            "malate", "maleate", "magnesium", "magniesium", "methanesulfonate",
+            "methylbromide", "mesilate", "mesylate", "monohydrate", "monohydrochloride",
+            "monopotassium", "monostearate", 
             # N
             "nitrate", 
             # O
-            "orotate", "oxalate", "oxide", 
+            "octahydrate", "oleate", "orotate", "oxalate", "oxide",
+            "oxoglurate",
             # P
-            "pamoate", "palmitate", "pentahydrate", "phosphate", "pivalate",
-            "pollen", "propionate", "pottasium",
+            "pamoate", "palmitate", "pentahydrate", "pentetate", "phosphate",
+            "phosphide", "pidolate", "pivalate", "pollen", "propionate",
+            "potassium", "pottasium",
             # Q
             # R
-            "rubidium", 
+            "rubidium", "radium", 
             # S
-            "saccharate", "salicylate", "salt", "samarium", "sodium",
-            "strontium", "succinate", "sulfate",
+            "saccharate", "salicylate", "salt", "samarium", "silicate",
+            "sodium", "stearate", "strontium", "succinate", "sulfate",
+            "sulfonate", 
             # T
-            "tartrate", "technetium", "tetrasodium", "tosylate", "trifluoroacetate",
-            "trihydrate", "trifluoroacetic acid", "trisodium",
+            "tartrate", "tannnate", "technetium", "teoclate", "terephthalate",
+            "tetrabutyrate", "tetrahydrate", "tetrasodium", "thiocyanate", "tosilate",
+            "tosylate", "trifluoroacetate", "triflutate", "trihydrate", "trifluoroacetic acid",
+            "trisodium",
             # U
+            # V
+            "valerate", 
             # W
             # X
             # Y
             "yttrium", 
             # Z
+            "zinc", "zirconium",
             ]
             # 230805 updated
 
