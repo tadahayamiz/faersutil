@@ -364,6 +364,7 @@ class ChemEditor():
         if len(self.string[k]) > 0:
             conv += r" {}".format(' | '.join(map(re.escape, self.string[k]))) + r' |'
         # compile
+        conv = conv.rstrip() # delete the end |
         self.pattern = re.compile(conv)
         self.conved = conv
 
