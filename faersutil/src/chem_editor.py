@@ -261,7 +261,6 @@ class ChemEditor():
             whether to initialize the previous strings or not
 
         """
-        print(init, "-------------------------------")
         if init:
             self.init_string()
         try:
