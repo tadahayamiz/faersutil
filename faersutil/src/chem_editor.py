@@ -144,10 +144,10 @@ def del_compounds(target:list=[]):
     dat.set_string(string=SET_HARD + SET_SALT + SET_ANION, method="leading_word")
     dat.set_string(string=SET_HARD + SET_SALT + SET_ANION, method="trailing_word")
     ## numbers and characters
-    dat.set_regex(regex=r"[a-zA-Z]", method="leading_word")
-    dat.set_regex(regex=r"[a-zA-Z]", method="trailing_word")
-    dat.set_regex(regex=r"[0-9]+", method="leading_word")
-    dat.set_regex(regex=r"[0-9]+", method="trailing_word")
+    dat.set_regex(regex=[r"[a-zA-Z]"], method="leading_word")
+    dat.set_regex(regex=[r"[a-zA-Z]"], method="trailing_word")
+    dat.set_regex(regex=[r"[0-9]+"], method="leading_word")
+    dat.set_regex(regex=[r"[0-9]+"], method="trailing_word")
     ## conversion
     dat.compile()
     return dat.delete(target)
@@ -163,8 +163,8 @@ def replace_compounds(target:list=[]):
     dat = ChemEditor()
     dat.set_string(string=SET_HARD + SET_SALT + SET_ANION, method="middle_word")
     ## numbers and characters
-    dat.set_regex(regex=r"[a-zA-Z]", method="middle_word")
-    dat.set_regex(regex=r"[0-9]+", method="middle_word")
+    dat.set_regex(regex=[r"[a-zA-Z]"], method="middle_word")
+    dat.set_regex(regex=[r"[0-9]+"], method="middle_word")
     ## conversion
     dat.compile()
     return dat.replace(target)
@@ -203,7 +203,7 @@ def main(target:list=[]):
     tmp = replace_compounds(tmp)
     result["3rd_rep_comp_mid_word"] = tmp.copy()
     # 4. compound deletion with leading/trailing part restriction
-    tmp = del_parts(target)
+    tmp = del_parts(tmp)
     result["4th_del_comp_lead_trail_part"] = tmp.copy()
     return pd.DataFrame(result)
 
@@ -314,7 +314,7 @@ class ChemEditor():
         tmp = {
             "special_characters":SET_SPECIAL_CHAR,
             "leading_part":SET_LEADING,
-            "tailing_part":SET_TAILING,
+            "tailing_part":SET_TRAILING,
             "hard_coding":SET_HARD,
             "salt":SET_SALT,
             "anion":SET_ANION,
