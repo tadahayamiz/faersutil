@@ -340,19 +340,19 @@ class ChemEditor():
             conv += r"{}".format('|'.join(map(re.escape, self.string[k]))) + r'|' # char needes escape
         k = "leading_word"
         if len(self.regex[k]) > 0:
-            conv += r'^' + r"{}".format(' |^'.join(self.regex[k])) + r' |'
+            conv += r"^{}".format(' |^'.join(self.regex[k])) + r' |'
         if len(self.string[k]) > 0:
-            conv += r'^' + r"{}".format(' |^'.join(map(re.escape, self.string[k]))) + r' |'
+            conv += r"^{}".format(' |^'.join(map(re.escape, self.string[k]))) + r' |'
         k = "trailing_word"
         if len(self.regex[k]) > 0:
-            conv += r' ' + r"{}".format('$| '.join(self.regex[k])) + r'$|'
+            conv += r" {}".format('$| '.join(self.regex[k])) + r'$|'
         if len(self.string[k]) > 0:
-            conv += r' ' + r"{}".format('$| '.join(map(re.escape, self.string[k]))) + r'$|'
+            conv += r" {}".format('$| '.join(map(re.escape, self.string[k]))) + r'$|'
         k = "leading_part"
         if len(self.regex[k]) > 0:
-            conv += r'^' + r"{}".format('|^'.join(self.regex[k])) + r'|'
+            conv += r"^{}".format('|^'.join(self.regex[k])) + r'|'
         if len(self.string[k]) > 0:
-            conv += r'^' + r"{}".format('|^'.join(map(re.escape, self.string[k]))) + r'|'
+            conv += r"^{}".format('|^'.join(map(re.escape, self.string[k]))) + r'|'
         k = "trailing_part"
         if len(self.regex[k]) > 0:
             conv += r"{}".format('$|'.join(self.regex[k])) + r'$|'
@@ -360,9 +360,9 @@ class ChemEditor():
             conv += r"{}".format('$|'.join(map(re.escape, self.string[k]))) + r'$|'
         k = "middle_word"
         if len(self.regex[k]) > 0:
-            conv += r' ' + r"{}".format(' | '.join(self.regex[k])) + r' |'
+            conv += r" {}".format(' | '.join(self.regex[k])) + r' |'
         if len(self.string[k]) > 0:
-            conv += r' ' + r"{}".format(' | '.join(map(re.escape, self.string[k]))) + r' |'
+            conv += r" {}".format(' | '.join(map(re.escape, self.string[k]))) + r' |'
         # compile
         self.pattern = re.compile(conv)
         self.conved = conv
