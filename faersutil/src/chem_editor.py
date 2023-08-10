@@ -243,7 +243,7 @@ class ChemEditor():
 
 
     def set_string(
-            self, string:list=[], method:str="leading_word", init:bool=True
+            self, string:list=[], method:str="leading_word", init:bool=False
             ):
         """
         set a list of strings
@@ -272,7 +272,7 @@ class ChemEditor():
 
 
     def set_regex(
-            self, regex:list=[], method:str="leading_word", init:bool=True
+            self, regex:list=[], method:str="leading_word", init:bool=False
             ):
         """
         set a list of regulalized expressions
