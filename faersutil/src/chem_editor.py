@@ -7,130 +7,322 @@ Editor of chemicals with regex
 @author: tadahaya
 """
 import re
+import numpy as np
+import pandas as pd
 
-# deletion
-# restriction: leading word with a trailing space, or trailing word with a preceding space
-HARD_SET = [
-    "hcl", "\, salt",
+# simple deletion
+## characters that can be unexpectedly included
+SET_SPECIAL_CHAR = [
+    '?', '*', '=', '<', '>', 
+    '!', '@', '#', '$', '%', '^', '&', 
+    '_', '`',
+    ]
+## not used because some of them affect meanings of compoudns
+# SET_ALL_SPECIAL_CHAR = [
+#     '.', ',', '?', ':', ';', 
+#     '(', ')', '[', ']', '{', '}',
+#     '+', '-', '*', '/', '=', '<', '>', 
+#     '!', '@', '#', '$', '%', '^', '&', 
+#     '_', '`',
+#     ]
+
+# deletion with restriction:
+#     a part of leading word
+SET_LEADING = [
+    ".alpha.-", ".beta.-", ".gamma.-", ".delta.-",
+    "d-", "l-", "dl-", 
+    "(+)-", "(-)-", "(+/-)-",
 ]
 
-
-PREFIX_SET = [
-    "dl-", "d-", "l-",
+# deletion with restriction:
+#     a part of trailing word
+SET_TRAILING = [
+    ", d-", ", l-", ", dl-", 
+    ", (+)-", ", (-)-", ", (+/-)-",
+    ", salt", ", sodium salt",
+    ", unspecified",
 ]
+
+# deletion with restriction:
+#     leading word with a trailing space, or trailing word with a preceding space
+SET_HARD = [
+    "anhydrous",
+    "capsular", "concentrate", "condensate", "conjugate", 
+    "monomer", "dimer", 
+    "hcl", "salt", 
+]
+SET_SALT = [
+    "lithium", "sodium", "disodium", "trisodium", "tetrasodium",
+    "magnesium", "magniesium", "aluminium", "aluminum", 
+    "potassium", "monopotassium", "dipotassium", "tripotassium",
+    "calcium", "zinc", "rubidium", "barium", "gadolinium", "gallium",
+    "radium", 
+    "ammonium", "diammonium",
+]
+SET_ANION = [
+    # A
+    "acetate", "aceponate", "acetonide", "adipate", 
+     "aspartate", 
+    # B
+    "benzonate", "benzoate", "benzylate", "besilate", "besylate",
+    "bitartrate", "borate", "bromide", "butyrate",
+    # C
+    "camphorsulfonate", "camsylate", "caproate", "carbonate",
+    "chloride",
+    # D
+    "decanoate", "decahydrate", "diacetate", 
+    "dihydrate", "dihydrochloride", "dimalonate", 
+    "diphosphonate", "dipropionate", "dodecahydrate", 
+    # E
+    "edisylate", "embonate", "enantate", "enanthate", "esylate", 
+    # F
+    "fumarate", "furoate", 
+    # G
+    "gluceptate", "gluconate", "glycolate",
+    "glutamate", "glycinate", 
+    # H
+    "hemiethanolate", "hemifumarate", "hemihydrate", "heminonahydrate", "heptahydrate",
+    "hexahydrate", "hydrate", "hydrobromide", "hydrochloride", "hydroxide", 
+    # I
+    "iodide", "isethionate", "isovalerate",
+    # J
+    # K
+    # L
+    "lactate", "lactobionate", 
+    # M
+    "malate", "maleate", "methanesulfonate",
+    "methylbromide", "mesilate", "mesylate", "monohydrate", "monohydrochloride",
+    "monostearate", 
+    # N
+    "nitrate", 
+    # O
+    "octahydrate", "oleate", "orotate", "oxalate", "oxide",
+    "oxoglurate",
+    # P
+    "pamoate", "palmitate", "pentahydrate", "pentetate", "phosphate",
+    "phosphide", "pidolate", "pivalate", "propionate",    
+    # Q
+    # R
+    # S
+    "saccharate", "salicylate", "samarium", "silicate",
+    "stearate", "strontium", "succinate", "sulfate",
+    "sulfonate", 
+    # T
+    "tartrate", "tannnate", "technetium", "teoclate", "terephthalate",
+    "tetrabutyrate", "tetrahydrate", "thiocyanate", "tosilate",
+    "tosylate", "trifluoroacetate", "triflutate", "trihydrate", "trifluoroacetic acid",
+    # U
+    # V
+    "valerate", 
+    # W
+    # X
+    # Y
+    # Z
+]
+
+def del_characters(target:list=[]):
+    """
+    edit the target compounds by deleting special characters
+    
+    """
+    ## comopunds
+    dat = ChemEditor()
+    dat.set_string(string=SET_SPECIAL_CHAR, method="simple_match")
+    ## conversion
+    dat.compile()
+    return dat.delete(target)
+
+
+def del_compounds(target:list=[]):
+    """
+    delete hard coding set, salt set, and anion set
+    under locational restriction
+    
+    """
+    ## comopunds
+    dat = ChemEditor()
+    dat.set_string(string=SET_HARD + SET_SALT + SET_ANION, method="leading_word")
+    dat.set_string(string=SET_HARD + SET_SALT + SET_ANION, method="trailing_word")
+    ## numbers and characters
+    dat.set_regex(regex=r"[a-zA-Z]", method="leading_word")
+    dat.set_regex(regex=r"[a-zA-Z]", method="trailing_word")
+    dat.set_regex(regex=r"[0-9]+", method="leading_word")
+    dat.set_regex(regex=r"[0-9]+", method="trailing_word")
+    ## conversion
+    dat.compile()
+    return dat.delete(target)
+
+
+def replace_compounds(target:list=[]):
+    """
+    replace hard coding set, salt set, and anion set with a single space
+    in the middle positions of whole words
+
+    """
+    ## comopunds
+    dat = ChemEditor()
+    dat.set_string(string=SET_HARD + SET_SALT + SET_ANION, method="middle_word")
+    ## numbers and characters
+    dat.set_regex(regex=r"[a-zA-Z]", method="middle_word")
+    dat.set_regex(regex=r"[0-9]+", method="middle_word")
+    ## conversion
+    dat.compile()
+    return dat.replace(target)
+
+
+def del_parts(target:list=[]):
+    """
+    delete leading and trailing set
+    under locational restriction
+    
+    """
+    ## comopunds
+    dat = ChemEditor()
+    dat.set_string(string=SET_LEADING, method="leading_part")
+    dat.set_string(string=SET_TRAILING, method="trailing_part")
+    ## conversion
+    dat.compile()
+    return dat.delete(target)
+
+
+def main(target:list=[]):
+    """
+    handle the compounds in the given list
+    with a predefined flow
+    
+    """
+    tmp = target.copy()
+    result = {"Base":tmp}
+    # 1. delete harmless characters
+    tmp = del_characters(tmp)
+    result["1st_del_harmless_chars"] = tmp.copy()
+    # 2. compound deletion with leading/trailing word restriction
+    tmp = del_compounds(tmp)
+    result["2nd_del_comp_lead_trail_word"] = tmp.copy()
+    # 3. compound replacement with middle word restriction
+    tmp = replace_compounds(tmp)
+    result["3rd_rep_comp_mid_word"] = tmp.copy()
+    # 4. compound deletion with leading/trailing part restriction
+    tmp = del_parts(target)
+    result["4th_del_comp_lead_trail_part"] = tmp.copy()
+    return pd.DataFrame(result)
 
 
 class ChemEditor():
     def __init__(self):
         self.pattern = None
-        self.strings = []
-        self._pre_chars = [
-            ".", ",", "?", ":", ";", 
-            "(", ")", "[", "]", "{", "}",
-            "+", "-", "*", "/", "=", "<", ">", 
-            "!", "@", "#", "$", "%", "^", "&", 
-            "_", "`",
-            ]
-        self._pre_other = [
-            "alfa", "capsular", 
-        ]
+        self.conved = ""
+        self.regex = {
+            "simple_match":[], # no restriction
+            "leading_word":[], # restricted to the leading word with a trailing space
+            "trailing_word":[], # restricted to the trailing word with a preceding space
+            "leading_part":[], # restricted to a part of the leading word
+            "trailing_part":[], # restricted to a part of the trailing word
+            "middle_word":[], # restricted to the middle words
+        }
+        self.string = {
+            "simple_match":[], # no restriction
+            "leading_word":[], # restricted to the leading word with a trailing space
+            "trailing_word":[], # restricted to the trailing word with a preceding space
+            "leading_part":[], # restricted to a part of the leading word
+            "trailing_part":[], # restricted to a part of the trailing word
+            "middle_word":[], # restricted to the middle words
+        }
 
-        self._pre_compounds = [
-            # A
-            "acetate", "aceponate", "acetonide", "adipate", "aluminium",
-            "ammonium", "anhydrous", "aspartate", 
-            # B
-            "benzonate", "benzoate", "benzylate", "besilate", "besylate",
-            "bitartrate", "borate", "bromide", "butyrate",
-            # C
-            "calcium", "camphorsulfonate", "camsylate", "caproate", "carbonate",
-            "chloride", "chromium", "citrate", "condensate", "concentrate",
-            "conjugate", "cypionate", 
-            # D
-            "decanoate", "decahydrate", "dequalinium", "diacetate", "diammonium",
-            "dihydrate", "dihydrochloride", "dimalonate", "dimer", "dipotassium",
-            "diphosphonate", "dipropionate", "disodium", "dodecahydrate", 
-            # E
-            "edisylate", "embonate", "enantate", "enanthate", "esylate", 
-            # F
-            "fumarate", "furoate", 
-            # G
-            "gadolinium", "gallium", "gluceptate", "gluconate", "glycolate",
-            "glutamate", "glycinate", 
-            # H
-            "hemiethanolate", "hemifumarate", "hemihydrate", "heminonahydrate", "heptahydrate",
-            "hexahydrate", "hydrate", "hydrobromide", "hydrochloride", "hydroxide", 
-            # I
-            "indium", "iodide", "isethionate", "isovalerate",
-            # J
-            # K
-            # L
-            "lactate", "lactobionate", "lithium", "lutetium", 
-            # M
-            "malate", "maleate", "magnesium", "magniesium", "methanesulfonate",
-            "methylbromide", "mesilate", "mesylate", "monohydrate", "monohydrochloride",
-            "monopotassium", "monostearate", 
-            # N
-            "nitrate", 
-            # O
-            "octahydrate", "oleate", "orotate", "oxalate", "oxide",
-            "oxoglurate",
-            # P
-            "pamoate", "palmitate", "pentahydrate", "pentetate", "phosphate",
-            "phosphide", "pidolate", "pivalate", "pollen", "propionate",
-            "potassium", "pottasium",
-            # Q
-            # R
-            "rubidium", "radium", 
-            # S
-            "saccharate", "salicylate", "salt", "samarium", "silicate",
-            "sodium", "stearate", "strontium", "succinate", "sulfate",
-            "sulfonate", 
-            # T
-            "tartrate", "tannnate", "technetium", "teoclate", "terephthalate",
-            "tetrabutyrate", "tetrahydrate", "tetrasodium", "thiocyanate", "tosilate",
-            "tosylate", "trifluoroacetate", "triflutate", "trihydrate", "trifluoroacetic acid",
-            "trisodium",
-            # U
-            # V
-            "valerate", 
-            # W
-            # X
-            # Y
-            "yttrium", 
-            # Z
-            "zinc", "zirconium",
-            ]
-            # 230805 updated
 
-    def set_strings(self, strings:list=[], refresh:bool=True):
+    def init_regex(self):
+        self.regex = {
+            "simple_match":[], "leading_word":[], "trailing_word":[], "leading_part":[], 
+            "trailing_part":[], "middle_word":[],
+        }
+
+
+    def init_string(self):
+        self.string = {
+            "simple_match":[], "leading_word":[], "trailing_word":[], "leading_part":[], 
+            "trailing_part":[], "middle_word":[],
+        }
+
+
+    def set_string(
+            self, string:list=[], method:str="leading_word", init:bool=True
+            ):
         """
-        set a list of strings to be compiled
-        note these strings are handledsimultaneously
+        set a list of strings
+        note these strings are handled simultaneously based on the indicated method
         
         Parameters
         ----------
         strings: list
             a list of strings to be edited
 
-        refresh: bool
+        method: str
+            indicates how to apply matching
+
+        init: bool
             whether to initialize the previous strings or not
 
         """
-        if refresh:
-            self.strings = []
-        self.strings += strings # to save the previous
+        if init:
+            self.init_string()
+        try:
+            self.string[method] += string
+        except KeyError:
+            raise KeyError(
+                f"!! Wrong method: choose a method from the following {self.string.keys()} !!"
+                )
 
-    def get_strings(self):
-        return self.strings
 
-    def get_special_char_list(self):
-        return self._pre_chars
+    def set_regex(
+            self, regex:list=[], method:str="leading_word", init:bool=True
+            ):
+        """
+        set a list of regulalized expressions
+        note these strings are handled simultaneously based on the indicated method
+        
+        Parameters
+        ----------
+        regex: list
+            a list of strings to be edited
 
-    def get_compound_list(self):
-        return self._pre_compounds
+        method: str
+            indicates how to apply matching
 
-    def compile(self, strings:list=[]):
+        init: bool
+            whether to initialize the previous strings or not
+
+        """
+        if init:
+            self.init_regex()
+        try:
+            self.regex[method] += regex
+        except KeyError:
+            raise KeyError(
+                f"!! Wrong method: choose a method from the following {self.regex.keys()} !!"
+                )
+
+
+    def get_string(self):
+        return self.string
+
+
+    def get_regex(self):
+        return self.regex
+
+
+    def get_predefined_list(self):
+        tmp = {
+            "special_characters":SET_SPECIAL_CHAR,
+            "leading_part":SET_LEADING,
+            "tailing_part":SET_TAILING,
+            "hard_coding":SET_HARD,
+            "salt":SET_SALT,
+            "anion":SET_ANION,
+        }
+        return tmp
+
+
+    def compile(self):
         """
         compile a list of strings
         to handle these strings simultaneously
@@ -141,10 +333,41 @@ class ChemEditor():
             a list of strings to be edited
 
         """
-        if len(strings)==0:
-            strings = self.strings
-        re_strings = r"{}".format('|'.join(map(re.escape, strings)))
-        self.pattern = re.compile(re_strings)
+        # prepared converted expression
+        conv = r""
+        k = "simple_match"
+        if len(self.regex[k]) > 0:
+            conv += r"{}".format('|'.join(self.regex[k])) + r'|' # no escape
+        if len(self.string[k]) > 0:
+            conv += r"{}".format('|'.join(map(re.escape, self.string[k]))) + r'|' # char needes escape
+        k = "leading_word"
+        if len(self.regex[k]) > 0:
+            conv += r'^' + r"{}".format(' |^'.join(self.regex[k])) + r' |'
+        if len(self.string[k]) > 0:
+            conv += r'^' + r"{}".format('|'.join(map(re.escape, self.string[k]))) + r' |'
+        k = "trailing_word"
+        if len(self.regex[k]) > 0:
+            conv += r' ' + r"{}".format('$| '.join(self.regex[k])) + r'$|'
+        if len(self.string[k]) > 0:
+            conv += r' ' + r"{}".format('$| '.join(map(re.escape, self.string[k]))) + r'$|'
+        k = "leading_part"
+        if len(self.regex[k]) > 0:
+            conv += r'^' + r"{}".format('|^'.join(self.regex[k])) + r'|'
+        if len(self.string[k]) > 0:
+            conv += r'^' + r"{}".format('|^'.join(map(re.escape, self.string[k]))) + r'|'
+        k = "trailing_part"
+        if len(self.regex[k]) > 0:
+            conv += r"{}".format('$|'.join(self.regex[k])) + r'$|'
+        if len(self.string[k]) > 0:
+            conv += r"{}".format('$|'.join(map(re.escape, self.string[k]))) + r'$|'
+        k = "middle_word"
+        if len(self.regex[k]) > 0:
+            conv += r' ' + r"{}".format(' | '.join(self.regex[k])) + r' |'
+        if len(self.string[k]) > 0:
+            conv += r' ' + r"{}".format(' | '.join(map(re.escape, self.string[k]))) + r' |'
+        # compile
+        self.pattern = re.compile(conv)
+        self.conved = conv
 
 
     def delete(self, target:list):
@@ -152,6 +375,7 @@ class ChemEditor():
         delete all the matched phrases of the words in the given list
         
         """
+        # strip deletes leading or trailing space
         return [self.pattern.sub("", w).strip() for w in target]
 
 
@@ -164,25 +388,17 @@ class ChemEditor():
         return [self.pattern.sub(rep_char, w).strip() for w in target]
 
 
-    def set_special_chars(self, refresh:bool=False):
-        """ set the predefined special characters to be compiled """
-        self.set_strings(self._pre_chars, refresh=refresh)
-
-
-    def set_compounds(self, refresh:bool=False):
-        """ set the predefined compounds to be compiled """
-        self.set_strings(self._pre_compounds, refresh=refresh)
-
-
     def check_ate(self, target:list):
         """ check whether -ate or not """
         pattern = re.compile(r"ate$")
         return [bool(pattern.search(v)) for v in target]
     
+
     def check_ide(self, target:list):
         """ check whether -ide or not """
         pattern = re.compile(r"ide$")
         return [bool(pattern.search(v)) for v in target]
+
 
     def check_ium(self, target:list):
         """
