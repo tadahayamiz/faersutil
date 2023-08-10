@@ -263,6 +263,7 @@ class ChemEditor():
         """
         if init:
             self.init_string()
+            print("init is true")
         try:
             self.string[method] += string
         except KeyError:
@@ -292,6 +293,7 @@ class ChemEditor():
         """
         if init:
             self.init_regex()
+            print("init is true")
         try:
             self.regex[method] += regex
         except KeyError:
