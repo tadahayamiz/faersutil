@@ -144,10 +144,8 @@ def del_compounds(target:list=[]):
     dat.set_string(string=SET_HARD + SET_SALT + SET_ANION, method="leading_word")
     dat.set_string(string=SET_HARD + SET_SALT + SET_ANION, method="trailing_word")
     ## numbers and characters
-    dat.set_regex(regex=[r"[a-zA-Z]"], method="leading_word")
-    dat.set_regex(regex=[r"[a-zA-Z]"], method="trailing_word")
-    dat.set_regex(regex=[r"[0-9]+"], method="leading_word")
-    dat.set_regex(regex=[r"[0-9]+"], method="trailing_word")
+    dat.set_regex(regex=[r"[a-zA-Z]", r"[0-9]+"], method="leading_word")
+    dat.set_regex(regex=[r"[a-zA-Z]", r"[0-9]+"], method="trailing_word")
     ## conversion
     dat.compile()
     return dat.delete(target)
@@ -344,7 +342,7 @@ class ChemEditor():
         if len(self.regex[k]) > 0:
             conv += r'^' + r"{}".format(' |^'.join(self.regex[k])) + r' |'
         if len(self.string[k]) > 0:
-            conv += r'^' + r"{}".format('|'.join(map(re.escape, self.string[k]))) + r' |'
+            conv += r'^' + r"{}".format(' |^'.join(map(re.escape, self.string[k]))) + r' |'
         k = "trailing_word"
         if len(self.regex[k]) > 0:
             conv += r' ' + r"{}".format('$| '.join(self.regex[k])) + r'$|'
