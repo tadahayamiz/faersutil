@@ -24,6 +24,7 @@ from tqdm.auto import trange, tqdm
 
 # original packages in src
 from .src import synodict as dh
+from .src import chem_editor as ce
 
 
 ### setup ###
@@ -70,7 +71,6 @@ def main():
         print("> DONE")   
 
 
-
 ### prepare database ###
 
 def init_database():
@@ -105,11 +105,11 @@ def init_database():
     print("> case_table is ready")
 
 
-def integrate():
-    """ integrate FAERS and OHDSI data """
-    # url setting
-    path_faers = glob.glob(args.workdir + SEP + "clean_*.txt")
-    path_ohdsi = glob.glob(args.workdir + SEP + "Drug_dict_*.txt")
+def update_drugdict(workdir):
+    """ update drug-dict using name identification with chem_editor """
+    now = datetime.datetime.now().strftime('%Y%m%d')
+    path_faers = glob.glob(workdir + SEP + "clean_*.txt")
+    path_ohdsi = glob.glob(workdir + SEP + "Drug_dict_*.txt")
     if len(path_faers)==0:
         raise ValueError("!! No clean FAERS data: use 'preprocess' before this !!")
     else:
@@ -119,15 +119,39 @@ def integrate():
     else:
         path_ohdsi = sorted(path_ohdsi, reverse=True)[0]
     # prep base dict
-    ohdsi = pd.read_csv(path_ohdsi, sep="=t", index_col=0)
+    ohdsi = pd.read_csv(path_ohdsi, sep="\t", index_col=0)
     base_dic = dict(zip(list(ohdsi["key"]), list(ohdsi["value"])))
-    ohdsi = ohdsi[ohdsi["representative"]==1]
+    rep = list(ohdsi[ohdsi["representative"]==1]["key"])
     # load FAERS data
-    faers = pd.read_csv(path_faers, sep="=t", index_col=0)
-    whole = set(faers["reactions"].map(lambda x: set(x.splite("///"))))
-    whole = set(chain.from_iterable(faers.values.tolist()))
-    ## use chain.from_iterable is much faster than for loop
-    whole = sorted(list(whole))
+    faers = pd.read_csv(path_faers, sep="\t", index_col=0)
+    faers = faers["active_substances"].map(lambda x: set(x.split("///")))
+    faers = set(chain.from_iterable(faers.values.tolist()))
+    # note: chain is much faster than loop
+    # get remaining
+    whole = sorted(list(faers))
+    remain = []
+    for w in tqdm(whole):
+        try:
+            tmp = base_dic[w]
+        except KeyError:
+            remain.append(w)
+    # edit remaining
+    conved, summary = ce.main(remain)
+    summary.to_csv(workdir + SEP + f"whole_drug_conversion_{now}.txt", sep="\t")
+    new_dic = dict()
+    for r, c in zip(remain, conved):
+        if r!=c:
+            try:
+                tmp = base_dic[c]
+                new_dic[r] = tmp
+            except KeyError:
+                pass
+    base_dic.update(new_dic)
+    # export
+    res = pd.DataFrame({"key":base_dic.keys(), "value":base_dic.values()})
+    res.loc[:, "representative"] = 0
+    res.loc[res["key"].isin(rep), "representative"] = 1
+    res.to_csv(workdir + SEP + f"Drug_dict_updated_{now}.txt", sep="\t")
 
 
 
