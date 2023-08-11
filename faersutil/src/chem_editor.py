@@ -187,6 +187,14 @@ def main(target:list=[]):
     """
     handle the compounds in the given list
     with a predefined flow
+
+    Returns
+    -------
+    edited_list: list
+        a list of chemicals that have been edited
+
+    summary: pd.DataFrame
+        a df that summarizes each conversion result
     
     """
     tmp = target.copy()
@@ -203,7 +211,7 @@ def main(target:list=[]):
     # 4. compound deletion with leading/trailing part restriction
     tmp = del_parts(tmp)
     result["4th_del_comp_lead_trail_part"] = tmp.copy()
-    return pd.DataFrame(result)
+    return tmp, pd.DataFrame(result)
 
 
 class ChemEditor():
