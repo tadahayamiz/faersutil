@@ -42,33 +42,18 @@ parser.add_argument(
     type=str,
     help='working directory that contains outputs of preprocess such as cleansed FAERS data'
     )
-parser.add_argument(
-    '-c', '--clean_only', action='store_true',
-    help='whether cleansing only or not'
-    )
-parser.add_argument(
-    '-p', '--parse_only', action='store_true',
-    help='whether parse only or not'
-    )
-parser.add_argument(
-    '-d', '--drug_only', action='store_true',
-    help='whether drug curation only or not'
-    )
 args = parser.parse_args()
-
 
 ### main ###
 def main():
     """ main function """
-    if args.sql_only:
-        print("=== sql database preparation ===")
-        print("> db preparation only")
-        init_database()
-        print("> DONE")
-    else:
-        print("=== sql database preparation ===")
-        init_database()
-        print("> DONE")   
+    # update drug dict
+    update_drugdict()
+    # prepare drug-rxn data
+    prep_drug_rxn()
+    # initialize database
+    init_database()
+    # update dabase
 
 
 ### prepare database ###
