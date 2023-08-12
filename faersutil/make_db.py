@@ -167,7 +167,8 @@ def prep_drug_rxn():
     if not os.path.exists(outdir):
         os.makedirs(outdir)
     # prep reaction dict
-    path_rxn = args.workdir + SEP + "MedDRA_21_1.txt"
+    path_rxn = glob.glob(__file__.replace("make_db.py", f"data{SEP}reaction{SEP}*.txt"))
+    path_rxn = sorted(path_rxn, reverse=True)[0]
     rxns = pd.read_csv(path_rxn, sep="\t", index_col=0)
     for c in rxns.columns:
         rxns.loc[:, c] = rxns.loc[:, c].map(lambda x: x.lower())
