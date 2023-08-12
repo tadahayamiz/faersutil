@@ -163,7 +163,9 @@ def prep_drug_rxn():
     """
     # init
     now = datetime.datetime.now().strftime('%Y%m%d')
-
+    outdir = args.workdir + SEP + "drug_rxn"
+    if not os.path.exists(outdir):
+        os.makedirs(outdir)
     # prep reaction dict
     path_rxn = args.workdir + SEP + "MedDRA_21_1.txt"
     rxns = pd.read_csv(path_rxn, sep="\t", index_col=0)
@@ -171,7 +173,6 @@ def prep_drug_rxn():
         rxns.loc[:, c] = rxns.loc[:, c].map(lambda x: x.lower())
     rxns.loc[:, "rxn_id"] = list(range(rxns.shape[0]))
     dic_rxn = dict(zip(list(rxns["PT"]), list(rxns["rxn_id"])))
-
     # prep drug dict
     path_ohdsi = glob.glob(args.workdir + SEP + "Drug_dict_updated_*.txt")
     if len(path_ohdsi)==0:
@@ -180,7 +181,6 @@ def prep_drug_rxn():
         path_ohdsi = sorted(path_ohdsi, reverse=True)[0]
     ohdsi = pd.read_csv(path_ohdsi, sep="\t", index_col=0)
     dic_drug = dict(zip(list(ohdsi["key"]), list(ohdsi["value"])))
-
     # load FAERS data
     path_faers = glob.glob(args.workdir + SEP + "clean_*.txt")
     if len(path_faers)==0:
@@ -190,7 +190,6 @@ def prep_drug_rxn():
     faers = pd.read_csv(path_faers, sep="\t", index_col=0)[
         ["case_id", "active_substances", "reactions", "stored_year"]
         ]
-
     # expand and convert one by one
     stored_year = list(set(list(faers["stored_year"])))
     for s in stored_year:
@@ -211,7 +210,7 @@ def prep_drug_rxn():
         df_tmp = df_tmp.dropna() # delete not found keys
         df_tmp.loc[:, "stored_year"] = s
         df_tmp = df_tmp.reset_index(drop=True)
-        df_tmp.to_csv(args.workdir + SEP + f"drug_rxn_{s}_{now}.txt", sep="\t")
+        df_tmp.to_csv(outdir + SEP + f"drug_rxn_{s}_{now}.txt", sep="\t")
 
 
 if __name__ == '__main__':
