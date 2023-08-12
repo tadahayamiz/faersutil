@@ -92,6 +92,7 @@ def init_database():
 
 def update_drugdict():
     """ update drug-dict using name identification with chem_editor """
+    print("prepare data", end="...")
     now = datetime.datetime.now().strftime('%Y%m%d')
     path_faers = glob.glob(args.workdir + SEP + "clean_*.txt")
     path_ohdsi = glob.glob(args.workdir + SEP + "Drug_dict_*.txt")
@@ -112,10 +113,12 @@ def update_drugdict():
     faers = faers["active_substances"].map(lambda x: set(x.split("///")))
     faers = set(itertools.chain.from_iterable(faers.values.tolist()))
     # note: chain is much faster than loop
+    print("DONE")
     # get remaining
+    print("editing...")
     whole = sorted(list(faers))
     remain = []
-    for w in tqdm(whole):
+    for w in whole:
         try:
             tmp = base_dic[w]
         except KeyError:
@@ -137,6 +140,7 @@ def update_drugdict():
     res.loc[:, "representative"] = 0
     res.loc[res["key"].isin(rep), "representative"] = 1
     res.to_csv(args.workdir + SEP + f"Drug_dict_updated_{now}.txt", sep="\t")
+    print("> completed")
 
 
 def prep_drug_rxn():
@@ -152,6 +156,7 @@ def prep_drug_rxn():
     if not os.path.exists(outdir):
         os.makedirs(outdir)
     # prep reaction dict
+    print("prepare reaction dict", end="...")
     path_rxn = glob.glob(__file__.replace("make_db.py", f"data{SEP}reaction{SEP}*.txt"))
     path_rxn = sorted(path_rxn, reverse=True)[0]
     rxns = pd.read_csv(path_rxn, sep="\t", index_col=0)
@@ -159,7 +164,9 @@ def prep_drug_rxn():
         rxns.loc[:, c] = rxns.loc[:, c].map(lambda x: x.lower())
     rxns.loc[:, "rxn_id"] = list(range(rxns.shape[0]))
     dic_rxn = dict(zip(list(rxns["PT"]), list(rxns["rxn_id"])))
+    print("DONE")
     # prep drug dict
+    print("prepare drug dict", end="...")
     path_ohdsi = glob.glob(args.workdir + SEP + "Drug_dict_updated_*.txt")
     if len(path_ohdsi)==0:
         raise ValueError("!! No Drug_dict_updated data: use 'update_drugdict' before this !!")
@@ -167,7 +174,9 @@ def prep_drug_rxn():
         path_ohdsi = sorted(path_ohdsi, reverse=True)[0]
     ohdsi = pd.read_csv(path_ohdsi, sep="\t", index_col=0)
     dic_drug = dict(zip(list(ohdsi["key"]), list(ohdsi["value"])))
+    print("DONE")
     # load FAERS data
+    print("prepare FAERS data", end="...")
     path_faers = glob.glob(args.workdir + SEP + "clean_*.txt")
     if len(path_faers)==0:
         raise ValueError("!! No clean FAERS data: use 'preprocess' before this !!")
@@ -176,8 +185,10 @@ def prep_drug_rxn():
     faers = pd.read_csv(path_faers, sep="\t", index_col=0)[
         ["case_id", "active_substances", "reactions", "stored_year"]
         ]
-    # expand and convert one by one
+    print("DONE")
+    # convert and expand records
     stored_year = list(set(list(faers["stored_year"])))
+    print("convert and expand records")
     for s in stored_year:
         print(s)
         arrays = faers[faers["stored_year"]==s].values
@@ -197,6 +208,7 @@ def prep_drug_rxn():
         df_tmp.loc[:, "stored_year"] = s
         df_tmp = df_tmp.reset_index(drop=True)
         df_tmp.to_csv(outdir + SEP + f"drug_rxn_{s}_{now}.txt", sep="\t")
+    print("> completed")
 
 
 if __name__ == '__main__':
