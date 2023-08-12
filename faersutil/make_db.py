@@ -58,38 +58,6 @@ def main():
 
 ### prepare database ###
 
-def init_database():
-    """
-    initialize database from FAERS clean data
-    
-    """
-    # init
-    now = datetime.datetime.now().strftime('%Y%m%d')
-    fileout = args.workdir + SEP + f"sqlite_{now}.db"
-    dat = dh.DBhandler()
-    dat.set_path(fileout)
-    # prepare rxn_table
-    tmp_filein = glob.glob(__file__.replace("make_db.py", f"data{SEP}reaction{SEP}*.txt"))[0]
-    if len(tmp_filein)==0:
-        raise ValueError("!! No MedDRA data: check faersutil/data/reaction !!")
-    else:
-        tmp_filein = sorted(tmp_filein, reverse=True)[0]
-    df = pd.read_csv(tmp_filein, sep="\t", index_col=0)
-    dat.make_rxn_table(df)
-    del df
-    print("> rxn_table is ready")
-    # prepare 
-    tmp_filein = glob.glob(args.workdir + SEP + "clean_*.txt")
-    if len(tmp_filein)==0:
-        raise ValueError("!! No clean FAERS data: use 'preprocess' before this !!")
-    else:
-        tmp_filein = sorted(tmp_filein, reverse=True)[0]
-    df = pd.read_csv(tmp_filein, sep="\t", index_col=0)
-    dat.make_case_table(df)
-    del df
-    print("> case_table is ready")
-
-
 def update_drugdict():
     """ update drug-dict using name identification with chem_editor """
     print("prepare data", end="...")
@@ -189,9 +157,14 @@ def prep_drug_rxn():
     # convert and expand records
     stored_year = list(set(list(faers["stored_year"])))
     print("convert and expand records")
+    record0 = 0
+    record1 = 0
+    relation0 = 0
+    relation1 = 0
     for s in stored_year:
         print(s)
         arrays = faers[faers["stored_year"]==s].values
+        record0 += arrays.shape[0] # num records before NaN treatment
         drug_rxn = []
         ids = []
         for i in trange(arrays.shape[0]):
@@ -204,11 +177,50 @@ def prep_drug_rxn():
             ids += [cid] * len(drugs) * len(rxns)
         df_tmp = pd.DataFrame(drug_rxn, columns=["active_substances", "reactions"])
         df_tmp.loc[:, "case_id"] = ids
+        relation0 += df_tmp.shape[0] # num relation before NaN treatment
         df_tmp = df_tmp.dropna() # delete not found keys
+        record1 += df_tmp["case_id"].nunique()
+        relation1 += df_tmp.shape[0] # num relation after NaN treatment
         df_tmp.loc[:, "stored_year"] = s
         df_tmp = df_tmp.reset_index(drop=True)
         df_tmp.to_csv(outdir + SEP + f"drug_rxn_{s}_{now}.txt", sep="\t")
+    summary = pd.DataFrame(
+        {"count":[record0, record1, relation0, relation1]},
+        index=["n_record_before", "n_record_after", "n_relation_before", "n_relation_after"]
+        )
+    summary.to_csv(outdir + SEP + f"count_drug_rxn_{now}.txt", sep="\t")
     print("> completed")
+
+def init_database():
+    """
+    initialize database from FAERS clean data
+    
+    """
+    # init
+    now = datetime.datetime.now().strftime('%Y%m%d')
+    fileout = args.workdir + SEP + f"sqlite_{now}.db"
+    dat = dh.DBhandler()
+    dat.set_path(fileout)
+    # prepare rxn_table
+    tmp_filein = glob.glob(__file__.replace("make_db.py", f"data{SEP}reaction{SEP}*.txt"))[0]
+    if len(tmp_filein)==0:
+        raise ValueError("!! No MedDRA data: check faersutil/data/reaction !!")
+    else:
+        tmp_filein = sorted(tmp_filein, reverse=True)[0]
+    df = pd.read_csv(tmp_filein, sep="\t", index_col=0)
+    dat.make_rxn_table(df)
+    del df
+    print("> rxn_table is ready")
+    # prepare 
+    tmp_filein = glob.glob(args.workdir + SEP + "clean_*.txt")
+    if len(tmp_filein)==0:
+        raise ValueError("!! No clean FAERS data: use 'preprocess' before this !!")
+    else:
+        tmp_filein = sorted(tmp_filein, reverse=True)[0]
+    df = pd.read_csv(tmp_filein, sep="\t", index_col=0)
+    dat.make_case_table(df)
+    del df
+    print("> case_table is ready")
 
 
 if __name__ == '__main__':
