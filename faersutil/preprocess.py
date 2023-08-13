@@ -244,7 +244,8 @@ def curate_drug():
     Note this takes a long time because of traffic in pubchempy use
     
     """
-    # url setting
+    # init
+    print("Note: time-consuming and traffic intensive process")
     path_list = glob.glob(args.workdir + SEP + "input" + SEP + "CONCEPT.csv")
     if len(path_list)==0:
         raise ValueError("!! CONCEPT.csv was not found: check the file is given in WORKDIR/input/CONCEPT.csv !!")
