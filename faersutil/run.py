@@ -35,8 +35,6 @@ else:
     raise ValueError("!! Something wrong in OS detection !!")
 
 
-
-
 class FAERS():
     def __init__(self):
         self.__load = XMLoader()

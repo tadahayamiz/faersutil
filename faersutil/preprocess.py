@@ -217,12 +217,22 @@ def clean_and_merge():
     # set to str
     results.loc[:,"Active Substances"] = results.loc[:,"Active Substances"].map(list).apply(_concat)
     results.loc[:,"Reactions"] = results.loc[:,"Reactions"].map(list).apply(_concat)
+    # encode qualification
+    dic = {
+        "N":0, "Consumer or non-health proffesional":1, "Lawyer":2,
+        "Other Health Professional":3, "Physician":4, "Pharmacist":5,
+        }
+    results.loc[:, "Qualification"] = results.loc[:, "Qualification"].map(lambda x: dic[x])
+    df_qual = pd.DataFrame(dic, index=["qual_id"]).T
+    df_qual.loc[:, "qual_name"] = df_qual.index
+    df_qual = df_qual.reset_index(drop=True)
+    df_qual.to_csv(args.workdir + SEP + f"quality_table_{now}.txt", sep="\t")
     # care after concatenation
     ## check duplicates
     results = results.drop_duplicates(subset=["Case ID"], keep='first')
     results = results.reset_index(drop=True)    
     # export
-    col = [v.replace(" ", "_").lower() for v in list(results.columns)]
+    col = [v.replace(" ", "_").lower() for v in list(results.columns)] # to lower
     results.columns = col
     results.to_csv(fileout, sep="\t")
 
