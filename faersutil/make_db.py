@@ -28,12 +28,7 @@ from .src import chem_editor as ce
 
 
 ### setup ###
-if os.name == 'nt':
-    SEP = "\\"
-elif os.name == 'posix':
-    SEP = "/"
-else:
-    raise ValueError("!! Something wrong in OS detection !!")
+SEP = os.sep
 
 parser = argparse.ArgumentParser(description='convert FAERS data into a sqlite database')
 parser.add_argument('--note', type=str, help='convert FAERS data into a sqlite database')
@@ -59,11 +54,19 @@ def main():
 ### prepare database ###
 
 def update_drugdict():
-    """ update drug-dict using name identification with chem_editor """
+    """
+    update drug-dict using name identification with chem_editor
+    
+    Returns
+    -------
+    tsv, the updated drug dict
+    
+    """
     print("prepare data", end="...")
     now = datetime.datetime.now().strftime('%Y%m%d')
-    path_faers = glob.glob(args.workdir + SEP + "clean_*.txt")
-    path_ohdsi = glob.glob(args.workdir + SEP + "Drug_dict_*.txt")
+    path_faers = glob.glob(args.workdir + SEP + "clean" + SEP + "clean_*.txt")
+    outdir = args.workdir + SEP + "curated"
+    path_ohdsi = glob.glob(outdir + SEP + "Drug_dict_*.txt")
     if len(path_faers)==0:
         raise ValueError("!! No clean FAERS data: use 'preprocess' before this !!")
     else:
@@ -93,7 +96,7 @@ def update_drugdict():
             remain.append(w)
     # edit remaining
     conved, summary = ce.main(remain)
-    summary.to_csv(args.workdir + SEP + f"whole_drug_conversion_{now}.txt", sep="\t")
+    summary.to_csv(outdir + SEP + f"whole_drug_conversion_{now}.txt", sep="\t")
     new_dic = dict()
     for r, c in zip(remain, conved):
         if r!=c:
@@ -107,7 +110,7 @@ def update_drugdict():
     res = pd.DataFrame({"key":base_dic.keys(), "value":base_dic.values()})
     res.loc[:, "representative"] = 0
     res.loc[res["key"].isin(rep), "representative"] = 1
-    res.to_csv(args.workdir + SEP + f"Drug_dict_updated_{now}.txt", sep="\t")
+    res.to_csv(outdir + SEP + f"Drug_dict_updated_{now}.txt", sep="\t")
     print("> completed")
 
 
@@ -116,6 +119,11 @@ def prep_drug_rxn():
     prepare drug-rxn table
     Due to memory restriction, data is exported by each stored_year
     Note time-consuming
+
+    Returns
+    -------
+    - tsv files, drug-rxn tables for each stored_year, pached in drug_rxn dir
+    - tsv, summarizing the number of records before and after conversion
     
     """
     # init
@@ -131,11 +139,13 @@ def prep_drug_rxn():
     for c in rxns.columns:
         rxns.loc[:, c] = rxns.loc[:, c].map(lambda x: x.lower())
     rxns.loc[:, "rxn_id"] = list(range(rxns.shape[0]))
+    rxns.to_csv(args.workdri + SEP + "curated" + f"/rxn_table_{now}.txt", sep="\t")
+    ## save w/ ID version
     dic_rxn = dict(zip(list(rxns["PT"]), list(rxns["rxn_id"])))
     print("DONE")
     # prep drug dict
     print("prepare drug dict", end="...")
-    path_ohdsi = glob.glob(args.workdir + SEP + "Drug_dict_updated_*.txt")
+    path_ohdsi = glob.glob(args.workdir + SEP + "curated" + SEP + "Drug_dict_updated_*.txt")
     if len(path_ohdsi)==0:
         raise ValueError("!! No Drug_dict_updated data: use 'update_drugdict' before this !!")
     else:
@@ -191,6 +201,7 @@ def prep_drug_rxn():
     summary.to_csv(outdir + SEP + f"count_drug_rxn_{now}.txt", sep="\t")
     print("> completed")
 
+
 def init_database():
     """
     initialize database from FAERS clean data
@@ -202,25 +213,34 @@ def init_database():
     dat = dh.DBhandler()
     dat.set_path(fileout)
     # prepare rxn_table
-    tmp_filein = glob.glob(__file__.replace("make_db.py", f"data{SEP}reaction{SEP}*.txt"))[0]
+    print("prepare rxn table", end="...")
+    tmp_filein = glob.glob(args.workdir + SEP + "curated" + SEP + f"rxn_table_*.txt")
     if len(tmp_filein)==0:
-        raise ValueError("!! No MedDRA data: check faersutil/data/reaction !!")
+        raise ValueError("!! No rxn_table: use 'prep_drug_rxn' before this !!")
     else:
         tmp_filein = sorted(tmp_filein, reverse=True)[0]
+    dtypes = {"rxn_id":int}
     df = pd.read_csv(tmp_filein, sep="\t", index_col=0)
     dat.make_rxn_table(df)
     del df
-    print("> rxn_table is ready")
-    # prepare 
-    tmp_filein = glob.glob(args.workdir + SEP + "clean_*.txt")
+    print("DONE")
+    # prepare case table
+    print("prepare case table", end="...")
+    tmp_filein = glob.glob(args.workdir + SEP + "clean" + SEP + "clean_*.txt")
     if len(tmp_filein)==0:
         raise ValueError("!! No clean FAERS data: use 'preprocess' before this !!")
     else:
         tmp_filein = sorted(tmp_filein, reverse=True)[0]
-    df = pd.read_csv(tmp_filein, sep="\t", index_col=0)
+    dtypes = {
+        "case_id":int, "active_substances":str, "reactions":str, "sex":str,
+        "event_date":int, "event_country":str, "patient_age":int, 
+        "qualification":int, "stored_year":float
+        }
+    df = pd.read_csv(tmp_filein, sep="\t", index_col=0, dtype=dtypes)
     dat.make_case_table(df)
     del df
-    print("> case_table is ready")
+    print("DONE")
+
 
 
 if __name__ == '__main__':

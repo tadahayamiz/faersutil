@@ -27,13 +27,7 @@ from .calculator import Calculator
 from .identifier.name_identifier import Chem
 from .plot import Plot
 
-if os.name == 'nt':
-    SEP = "\\"
-elif os.name == 'posix':
-    SEP = "/"
-else:
-    raise ValueError("!! Something wrong in OS detection !!")
-
+SEP = os.sep
 
 class FAERS():
     def __init__(self):

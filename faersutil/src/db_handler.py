@@ -13,21 +13,17 @@ import sqlite3
 from sqlite3.dbapi2 import OperationalError, ProgrammingError
 from contextlib import closing
 
-if os.name == 'nt':
-    SEP = "\\"
-elif os.name == 'posix':
-    SEP = "/"
-else:
-    raise ValueError("!! Something wrong in OS detection !!")
-
+SEP = os.sep
 
 class DBhandler():
     def __init__(self):
         self.path = ""
 
+
     def set_path(self, url:str):
         """ set DB path and load it """
         self.path = url
+
 
     def head(self, name:str="", n:int=5):
         """
@@ -51,7 +47,8 @@ class DBhandler():
             except OperationalError:
                 raise OperationalError(f"!! {name} table does not exist !!")
 
-    def make_case_table(self, df:pd.DataFrame):
+
+    def make_case_table(self, df:pd.DataFrame, if_exists:str=None):
         """
         case table
         - case_id
@@ -67,43 +64,46 @@ class DBhandler():
             - event_date: int (YYYYMMDD or 0)
             - event_country: str (like JP, or NaN as N)
             - patient_age: int (age or 0)
+            - qualification: float
             - stored_year: float, like 2014.3
+        
+        if_exists: str
+            indicates the order if the table already exists
 
         """
         # check
         if self.check_table("case_table"):
-            raise KeyError("!! case_table already exists !!")
-        # preparation
-        ci = "case_id INTEGER PRIMARY KEY"
-        se = "sex TEXT"
-        ed = "event_date INTEGER"
-        ec = "event_country TEXT"
-        pa = "patient_age INTEGER"
-        sy = "stored_year REAL"
-        constraint = f"{ci}, {se}, {ed}, {ec}, {pa}, {sy}"
-        # prepare table for indicating primary constraint
-        with closing(sqlite3.connect(self.path)) as conn:
-            cur = conn.cursor()
-            cur.execute(f"CREATE TABLE case_table ({constraint})")
-            conn.commit()
+            if if_exists is None:
+                raise KeyError(
+                    "!! case_table already exists or indicate 'if_exists' (append or replace) !!"
+                    )
+        else:
+            # preparation
+            ci = "case_id INTEGER PRIMARY KEY"
+            se = "sex TEXT"
+            ed = "event_date INTEGER"
+            ec = "event_country TEXT"
+            pa = "patient_age INTEGER"
+            ql = "qualification REAL"
+            sy = "stored_year REAL"
+            constraint = f"{ci}, {se}, {ed}, {ec}, {pa}, {ql}, {sy}"
+            # prepare table for indicating primary constraint
+            with closing(sqlite3.connect(self.path)) as conn:
+                cur = conn.cursor()
+                cur.execute(f"CREATE TABLE case_table ({constraint})")
+                conn.commit()
+            # update if_exists
+            if_exists = "append"
         # add record
-        focused = ["case_id", "sex", "event_date", "event_country", "patient_age", "stored_year"]
+        focused = [
+            "case_id", "sex", "event_date", "event_country",
+            "patient_age", "qualification", "stored_year"
+            ]
         with closing(sqlite3.connect(self.path)) as conn:
-            df[focused].to_sql("case_table", con=conn, index=False, if_exists="append")
+            df[focused].to_sql("case_table", con=conn, index=False, if_exists=if_exists)
 
-    def add_case_table(
-        self, df:pd.DataFrame, index_label:str="case_id", if_exists:str="append"
-        ):
-        """ add new records to the case table """
-        raise NotImplementedError
 
-    def update_case_table(
-        self, df:pd.DataFrame, index_label:str="case_id", if_exists:str="replace"
-        ):
-        """ update the case table """
-        raise NotImplementedError
-
-    def make_rxn_table(self, df:pd.DataFrame):
+    def make_rxn_table(self, df:pd.DataFrame, if_exists:str=None):
         """
         make reaction table
         Note this is not used for update the table
@@ -112,64 +112,131 @@ class DBhandler():
         ----------
         df: pd.DataFrame
             table data that contains below fields:
+            - rxn_id, int
             - PT, str
             - HLT, str
             - HLGT, str
             - SOC, str
 
+        if_exists: str
+            indicates the order if the table already exists
+
         """
         # check
         if self.check_table("rxn_table"):
-            raise KeyError("!! rxn_table already exists !!")
-        # preparation
-        col = [v.lower() for v in df.columns]
-        df.columns = col
-        df = df[["pt", "hlt", "hlgt", "soc"]]
-        ri = "rxn_id INTEGER PRIMARY KEY AUTOINCREMENT"
-        pt = "pt TEXT"
-        hlt = "hlt TEXT"
-        hlgt = "hlgt"
-        soc = "soc TEXT"
-        constraint = f"{ri}, {pt}, {hlt}, {hlgt}, {soc}"
-        # prepare table for indicating primary constraint
-        with closing(sqlite3.connect(self.path)) as conn:
-            cur = conn.cursor()
-            cur.execute(f"CREATE TABLE rxn_table ({constraint})")
-            conn.commit()
+            if if_exists is None:
+                raise KeyError(
+                    "!! rxn_table already exists or indicate 'if_exists' (append or replace) !!"
+                    )
+        else:
+            # preparation
+            col = [v.lower() for v in df.columns]
+            df.columns = col
+            df = df[["rxn_id", "pt", "hlt", "hlgt", "soc"]]
+            ri = "rxn_id INTEGER PRIMARY KEY"
+            pt = "pt TEXT"
+            hlt = "hlt TEXT"
+            hlgt = "hlgt TEXT"
+            soc = "soc TEXT"
+            constraint = f"{ri}, {pt}, {hlt}, {hlgt}, {soc}"
+            # prepare table for indicating primary constraint
+            with closing(sqlite3.connect(self.path)) as conn:
+                cur = conn.cursor()
+                cur.execute(f"CREATE TABLE rxn_table ({constraint})")
+                conn.commit()
+            # update if_exists
+            if_exists = "append"            
         # add record
         with closing(sqlite3.connect(self.path)) as conn:
-            df.to_sql("rxn_table", con=conn, index=False, if_exists="append")
+            df.to_sql("rxn_table", con=conn, index=False, if_exists=if_exists)
 
 
-    def make_drug_table(self, df:pd.DataFrame):
+    def make_drug_dict(self, df:pd.DataFrame, if_exists:str=None):
         """
-        drug table
-        - drug_id
-        - drug_name
+        drug dict table
 
         Parameters
         ----------
+        df: pd.DataFrame
+            table data that containes below fields:
+            - drug_id (derived from concept_id of OHDSI)
+            - drug_name (derived from concept_name of OHDSI)
+            - representative (indicating whether it's representative compound name or not)
+
+        if_exists: str
+            indicates the order if the table already exists
 
         """
-        conn = sqlite3.connect(self.path)
+        # check
+        if self.check_table("drug_dict"):
+            if if_exists is None:
+                raise KeyError(
+                    "!! drug_dict already exists or indicate 'if_exists' (append or replace) !!"
+                    )
+        else:
+            # preparation
+            df.loc[:, "drug_dict_id"] = df.index
+            df = df[["drug_dict_id", "key", "value", "representative"]]
+            df.columns = ["drug_dict_id", "drug_name", "drug_id", "representative"]
+            dri = "drug_dict_id INTEGER PRIMARY KEY AUTOINCREMENT"
+            name = "drug_name TEXT"
+            did = "drug_id INTEGER"
+            rep = "representative INTEGER"
+            constraint = f"{dri}, {name}, {did}, {rep}"
+            # prepare table for indicating primary constraint
+            with closing(sqlite3.connect(self.path)) as conn:
+                cur = conn.cursor()
+                cur.execute(f"CREATE TABLE drug_dict ({constraint})")
+                conn.commit()
+            # update if_exists
+            if_exists = "append"  
+        # add record
+        with closing(sqlite3.connect(self.path)) as conn:
+            df.to_sql("drug_dict", con=conn, index=False, if_exists=if_exists)
 
-        conn.commit()
-        conn.close()
 
-
-    def drug_rxn_table(self):
+    def make_drug_rxn_table(self, df:pd.DataFrame, if_exists:str=None):
         """
-        reaction table
-        - unique_id
-        - record_id
-        - drug_id
-        - rxn_id
+        drug-reaction cross table
+
+        Parameters
+        ----------
+        df: pd.DataFrame
+            table data that containes below fields:
+            - active_substances
+            - reactions
+            - case_id
+            - stored_year
+
+        if_exists: str
+            indicates the order if the table already exists
 
         """
-        conn = sqlite3.connect(self.path)
+        # check
+        if self.check_table("drug_rxn_table"):
+            if if_exists is None:
+                raise KeyError(
+                    "!! drug_rxn_table already exists or indicate 'if_exists' (append or replace) !!"
+                    )
+        else:
+            # preparation
+            df = df[["case_id", "active_substances", "reactions"]]
+            ## stored_year is unnecessary
+            cid = "case_id INTEGER PRIMARY KEY AUTOINCREMENT"
+            did = "drug_id INTEGER"
+            rid = "rxn_id INTEGER"
+            constraint = f"{cid}, {did}, {rid}"
+            # prepare table for indicating primary constraint
+            with closing(sqlite3.connect(self.path)) as conn:
+                cur = conn.cursor()
+                cur.execute(f"CREATE TABLE drug_rxn_table ({constraint})")
+                conn.commit()
+        # update if_exists
+        if_exists = "append" 
+        # add record
+        with closing(sqlite3.connect(self.path)) as conn:
+            df.to_sql("drug_rxn_table", con=conn, index=False, if_exists=if_exists)
 
-        conn.commit()
-        conn.close()
 
     def check_table(self, name:str=""):
         """ whether the indicated table exists or not """
@@ -185,5 +252,5 @@ class DBhandler():
     
 
 # ToDo
-# - prepare drug table
-# - prepare drug x rxn table
+# update時はIDがユニークである必要があるため, 入力段階でその辺りコントロールできた方がよい
+# make_dbレベルでDBに向けてちょうどよいdfへと加工し, DBHandlerでは与えるだけにする

@@ -51,12 +51,7 @@ from .src import ohdsi_handler as oh
 from .src import synodict as sd
 
 ### setup ###
-if os.name == 'nt':
-    SEP = "\\"
-elif os.name == 'posix':
-    SEP = "/"
-else:
-    raise ValueError("!! Something wrong in OS detection !!")
+SEP = os.sep
 
 parser = argparse.ArgumentParser(description='preprocessing of FAERS raw data')
 parser.add_argument('--note', type=str, help='preprocessing FAERS raw data (xml, sgml)')
@@ -120,6 +115,11 @@ def parse_xml():
     parse xml files
     Note files before 2014Q2 and after it are different format
     and need different modules
+
+    Returns
+    -------
+    The parsed tsv files named like parsed_2014q3_1.txt
+    These will be packed into parsed directory
     
     """
     # url setting
@@ -195,10 +195,22 @@ def parse_xml():
 # cleansing
 
 def clean_and_merge():
-    """ cleansing parsed files """
+    """
+    cleansing parsed files
+    
+    Returns
+    -------
+    - tsv, a cleaned and combined tsv file named like clean_20230830.txt
+    - tsv, a table for qualificaion encoding
+    
+    """
+    # init
     path_list = glob.glob(args.workdir + SEP + "parsed" + SEP + "*.txt")
     now = datetime.datetime.now().strftime('%Y%m%d')
-    fileout = args.workdir + SEP + f"clean_{now}.txt"
+    outdir = args.workdir + SEP + "clean"
+    if not os.path.exists(outdir):
+        os.makedirs(outdir)
+    fileout = outdir + SEP + f"clean_{now}.txt"
     results = []
     for path in tqdm(path_list):
         fname = path.split("parsed_")[-1]
@@ -226,7 +238,7 @@ def clean_and_merge():
     df_qual = pd.DataFrame(dic, index=["qual_id"]).T
     df_qual.loc[:, "qual_name"] = df_qual.index
     df_qual = df_qual.reset_index(drop=True)
-    df_qual.to_csv(args.workdir + SEP + f"quality_table_{now}.txt", sep="\t")
+    df_qual.to_csv(outdir + SEP + f"qualification_table_{now}.txt", sep="\t")
     # care after concatenation
     ## check duplicates
     results = results.drop_duplicates(subset=["Case ID"], keep='first')
@@ -255,6 +267,17 @@ def curate_drug():
     """
     preprocessing OHDSI data
     Note this takes a long time because of traffic in pubchempy use
+
+    Returns
+    -------
+    - tsv, including ingredients
+    - tsv, summarizing PubChem search results
+    - tsv, combined information of the above two files
+        note we categorize the compounds as follows:
+        - 0: all compounds (OHDSI ingredients)
+        - 1: PubChem (positive in PubChem search, having SMILES)
+        - 2: small molecules (based on MW etc.)
+    - tsv, a table for synonym dict
     
     """
     # url setting
@@ -264,10 +287,13 @@ def curate_drug():
     else:
         path_list = path_list[0]
     now = datetime.datetime.now().strftime('%Y%m%d')
-    fileout0 = path_list.replace("CONCEPT.csv", f"CONCEPT_ingredient_{now}.txt")
-    fileout1 = path_list.replace("CONCEPT.csv", f"CONCEPT_PubChem_{now}.txt")
-    fileout2 = path_list.replace("CONCEPT.csv", f"Drug_curated_{now}.txt")
-    fileout3 = path_list.replace("CONCEPT.csv", f"Drug_dict_{now}.txt")
+    outdir = args.workdir + SEP + "curated"
+    if not os.path.exists(outdir):
+        os.makedirs(outdir)
+    fileout0 = outdir + SEP + f"CONCEPT_ingredient_{now}.txt"
+    fileout1 = outdir + SEP + f"CONCEPT_PubChem_{now}.txt"
+    fileout2 = outdir + SEP + f"Drug_curated_{now}.txt"
+    fileout3 = outdir + SEP + f"Drug_dict_{now}.txt"
     # curation
     dat = oh.OHDSIhandler()
     dat.set_path(path_list)
