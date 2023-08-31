@@ -372,7 +372,7 @@ class DBhandler():
         with closing(sqlite3.connect(self.path)) as conn:
             cur = conn.cursor()
             try:
-                cur.execute(f"SELECT * FROM {name}")
+                cur.execute(f'SELECT * FROM {name}')
                 # will fail if the table does not exist
                 flag = True
             except OperationalError:
@@ -397,7 +397,7 @@ class DBhandler():
             # prepare table for indicating primary constraint
             with closing(sqlite3.connect(self.path)) as conn:
                 cur = conn.cursor()
-                cur.execute("CREATE TABLE history " + f"({constraint})")
+                cur.execute(f"CREATE TABLE history ({constraint})")
                 conn.commit()
         # add record
         with closing(sqlite3.connect(self.path)) as conn:
