@@ -110,7 +110,11 @@ class OHDSIhandler():
         remains_id = [dic[v] for v in remains]
         tmp = pd.DataFrame({"concept_name":remains, "concept_id":remains_id})
         self.df = pd.concat([self.pubchem, tmp], axis=0, join="outer")
+        # check duplicates
+        self.df = self.df.drop_duplicates(subset=["concept_name"], keep="first")
+        self.df = self.df.drop_duplicates(subset=["concept_id"], keep="first")
         self.df = self.df.reset_index(drop=True)
+        # handle NaN
         self.df = self.df.fillna(
             {
                 "CID":0, "CanonicalSMILES":"N", "IUPACName":"N",

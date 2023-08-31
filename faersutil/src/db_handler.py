@@ -266,7 +266,7 @@ class DBhandler():
         df: pd.DataFrame
             table data that containes below fields:
             - concept_name (drug_name, str)
-            - concept_id (drug_id, unique int)
+            - concept_id (drug_id, int, unique)
             - CID (derived from PubChem, int)
             - CanonicalSMILES (derived from PubChem, str)
             - IUPACName (derived from PubChem, str)
