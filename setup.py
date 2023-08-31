@@ -19,11 +19,11 @@ setup(
             "faersutil.preprocess.parse=faersutil.preprocess:parse_xml",
             "faersutil.preprocess.clean=faersutil.preprocess:clean_and_merge",
             "faersutil.preprocess.curate=faersutil.preprocess:curate_drug",
-            "faersutil.make_db=faersutil.make_db:main",
-            "faersutil.make_db.drugdict=faersutil.make_db:update_drugdict",
-            "faersutil.make_db.drug_rxn=faersutil.make_db:prep_drug_rxn",
-            "faersutil.make_db.make_db=faersutil.make_db:make_database",
-            "faersutil.run=faersutil.run:main",
+            "faersutil.db=faersutil.database:main",
+            "faersutil.db.drugdict=faersutil.database:update_drugdict",
+            "faersutil.db.drug_rxn=faersutil.database:prep_drug_rxn",
+            "faersutil.db.make_db=faersutil.database:make_database",
+            "faersutil.calc=faersutil.calc:main",
         ]
     },
     classifiers=[
