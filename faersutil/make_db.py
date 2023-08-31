@@ -286,7 +286,7 @@ def make_database():
         }
     for t in tqdm(tmp_filein):
         df = pd.read_csv(t, sep="\t", index_col=0, dtype=dtypes)
-        dat.make_drug_rxn_table(df)
+        dat.make_drug_rxn_table(df, if_exists="append")
         del df
     print("DONE")
 
