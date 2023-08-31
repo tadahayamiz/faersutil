@@ -214,6 +214,18 @@ def make_database():
     fileout = args.workdir + SEP + f"sqlite_{now}.db"
     dat = dh.DBhandler()
     dat.set_path(fileout)
+    # qualification table
+    print("prepare qualification table", end="...")
+    tmp_filein = glob.glob(args.workdir + SEP + "clean" + SEP + "qualification_*.txt")
+    if len(tmp_filein)==0:
+        raise ValueError("!! No qualification table: use 'preprocess' before this !!")
+    else:
+        tmp_filein = sorted(tmp_filein, reverse=True)[0]
+    dtypes = {"qual_id":int, "qual_name":str}
+    df = pd.read_csv(tmp_filein, sep="\t", index_col=0, dtype=dtypes)
+    dat.make_qualification_table(df)
+    del df
+    print("DONE")
     # rxn_table
     print("prepare rxn table", end="...")
     tmp_filein = glob.glob(args.workdir + SEP + "curated" + SEP + f"rxn_table_*.txt")
@@ -224,23 +236,6 @@ def make_database():
     dtypes = {"rxn_id":int}
     df = pd.read_csv(tmp_filein, sep="\t", index_col=0)
     dat.make_rxn_table(df)
-    del df
-    print("DONE")
-    # case table
-    print("<< time-consuming step >>")
-    print("prepare case table", end="...")
-    tmp_filein = glob.glob(args.workdir + SEP + "clean" + SEP + "clean_*.txt")
-    if len(tmp_filein)==0:
-        raise ValueError("!! No clean FAERS data: use 'preprocess' before this !!")
-    else:
-        tmp_filein = sorted(tmp_filein, reverse=True)[0]
-    dtypes = {
-        "case_id":int, "active_substances":str, "reactions":str, "sex":str,
-        "event_date":int, "event_country":str, "patient_age":int, 
-        "qualification":int, "stored_year":float
-        }
-    df = pd.read_csv(tmp_filein, sep="\t", index_col=0, dtype=dtypes)
-    dat.make_case_table(df)
     del df
     print("DONE")
     # drug table
@@ -273,6 +268,23 @@ def make_database():
     dat.make_drug_dict(df)
     del df
     print("DONE")
+    # case table
+    print("<< time-consuming step >>")
+    print("prepare case table", end="...")
+    tmp_filein = glob.glob(args.workdir + SEP + "clean" + SEP + "clean_*.txt")
+    if len(tmp_filein)==0:
+        raise ValueError("!! No clean FAERS data: use 'preprocess' before this !!")
+    else:
+        tmp_filein = sorted(tmp_filein, reverse=True)[0]
+    dtypes = {
+        "case_id":int, "active_substances":str, "reactions":str, "sex":str,
+        "event_date":int, "event_country":str, "patient_age":int, 
+        "qualification":int, "stored_year":float
+        }
+    df = pd.read_csv(tmp_filein, sep="\t", index_col=0, dtype=dtypes)
+    dat.make_case_table(df)
+    del df
+    print("DONE")
     # drug_rxn_table
     print("<< time-consuming step >>")
     print("prepare drug-rxn table")
@@ -288,11 +300,11 @@ def make_database():
         df = pd.read_csv(t, sep="\t", index_col=0, dtype=dtypes)
         dat.make_drug_rxn_table(df, if_exists="append")
         del df
+    # logging
+    dat._to_history(target_table="drug_rxn_table", description="newly create")
+    dat.head("drug_rxn_table")
     print("DONE")
-
-    # qualification table
-
-
+    # summary
     print("> completed")
     elapsed = time.time() - start
     h, rem = divmod(elapsed, 3600)

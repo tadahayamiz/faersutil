@@ -369,7 +369,6 @@ class DBhandler():
             except KeyError:
                 raise KeyError(f"!! col of df should be {field} !!")
         # check existence
-        done = if_exists
         if self._check_table("drug_rxn_table"):
             if if_exists is None:
                 raise KeyError(
@@ -389,14 +388,10 @@ class DBhandler():
                 conn.commit()
         # update if_exists
         if_exists = "append"
-        done = "newly create"
         # add record
         with closing(sqlite3.connect(self.path)) as conn:
             df.to_sql("drug_rxn_table", con=conn, index=False, if_exists=if_exists)
-        # logging
-        desc = f"{done} table"
-        self._to_history(target_table="drug_rxn_table", description=desc)
-        self.head("drug_rxn_table")
+        # no logging because this is mainly subject to loop
 
 
     def make_qulification_table(self, df:pd.DataFrame, if_exists:str=None):
@@ -416,16 +411,9 @@ class DBhandler():
             indicates the order if the table already exists
 
         """
-
-
-
-        ################## under construction
-
-
-
         # check df
         col = list(df.columns)
-        field = ["case_id", "active_substances", "reactions"]
+        field = ["qual_id", "qual_name"]
         ## stored_year is unnecessary
         if col != field:
             try:
@@ -436,32 +424,31 @@ class DBhandler():
                 raise KeyError(f"!! col of df should be {field} !!")
         # check existence
         done = if_exists
-        if self._check_table("drug_rxn_table"):
+        if self._check_table("qualification_table"):
             if if_exists is None:
                 raise KeyError(
-                    "!! drug_rxn_table already exists or indicate 'if_exists' (append or replace) !!"
+                    "!! qualification_table already exists or indicate 'if_exists' (append or replace) !!"
                     )
         else:
             # preparation
-            cid = "case_id INTEGER PRIMARY KEY AUTOINCREMENT"
-            did = "drug_id INTEGER"
-            rid = "rxn_id INTEGER"
-            constraint = f"{cid}, {did}, {rid}"
+            qid = "qual_id INTEGER PRIMARY KEY"
+            qna = "qual_name TEXT"
+            constraint = f"{qid}, {qna}"
             # prepare table for indicating primary constraint
             with closing(sqlite3.connect(self.path)) as conn:
                 cur = conn.cursor()
-                cur.execute(f"CREATE TABLE drug_rxn_table ({constraint})")
+                cur.execute(f"CREATE TABLE qualification_table ({constraint})")
                 conn.commit()
         # update if_exists
         if_exists = "append"
         done = "newly create"
         # add record
         with closing(sqlite3.connect(self.path)) as conn:
-            df.to_sql("drug_rxn_table", con=conn, index=False, if_exists=if_exists)
+            df.to_sql("qualification_table", con=conn, index=False, if_exists=if_exists)
         # logging
         desc = f"{done} table"
-        self._to_history(target_table="drug_rxn_table", description=desc)
-        self.head("drug_rxn_table")
+        self._to_history(target_table="qualification_table", description=desc)
+        self.head("qualification_table")
 
 
     def _check_table(self, name:str=""):
