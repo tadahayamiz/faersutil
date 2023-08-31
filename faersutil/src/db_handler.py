@@ -234,11 +234,17 @@ class DBhandler():
                 "drug_id", "drug_name", "category", "cid", "smiles", "iupacname",
                 "molecular_formula", "mw", "tpsa", "xlogp"
                 ] # rename for DB
-            did = "drug_dict_id INTEGER PRIMARY KEY AUTOINCREMENT"
-            name = "drug_name TEXT"
-            cat = "drug_id INTEGER"
-            rep = "representative INTEGER"
-            constraint = f"{dri}, {name}, {did}, {rep}"
+            did = "drug_dict_id INTEGER PRIMARY KEY"
+            nam = "drug_name TEXT"
+            cat = "category INTEGER"
+            cid = "cid INTEGER"
+            smi = "smiles TEXT"
+            iup = "iupacname TEXT"
+            mfo = "molecular_formula TEXT"
+            mwe = "mw REAL"
+            tps = "tpsa REAL"
+            log = "xlogp REAL"
+            constraint = f"{did}, {nam}, {cat}, {cid}, {smi}, {iup}, {mfo}, {mwe}, {tps}, {log}"
             # prepare table for indicating primary constraint
             with closing(sqlite3.connect(self.path)) as conn:
                 cur = conn.cursor()
