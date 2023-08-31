@@ -50,8 +50,9 @@ from .src import cleanser as cl
 from .src import ohdsi_handler as oh
 from .src import synodict as sd
 
-### init ###
-SEP = os.path
+### setup ###
+SEP = os.sep
+
 parser = argparse.ArgumentParser(description='preprocessing of FAERS raw data')
 parser.add_argument('--note', type=str, help='preprocessing FAERS raw data (xml, sgml)')
 parser.add_argument(
@@ -91,6 +92,11 @@ def parse_xml(workdir:str=""):
     at the same layer with workdir
     Note files before 2014Q2 and after it are different format
     and need different modules
+
+    Returns
+    -------
+    The parsed tsv files named like parsed_2014q3_1.txt
+    These will be packed into parsed directory
     
     """
     # init
@@ -167,18 +173,20 @@ def parse_xml(workdir:str=""):
 
 # cleansing
 
-def clean_and_merge(workdir:str=""):
-    """ cleansing parsed files """
+def clean_and_merge():
+    """
+    cleansing parsed files
+    
+    Returns
+    -------
+    - tsv, a cleaned and combined tsv file named like clean_20230830.txt
+    - tsv, a table for qualificaion encoding
+    
+    """
     # init
-    if len(workdir)==0:
-        workdir = args.workdir
-    path_list = glob.glob(workdir + SEP + "parsed" + SEP + "*.txt")
-    if len(path_list)==0:
-        raise ValueError(
-            "!! Prepare parsed directory that contains parsed xml files like parsed_2015q1_0.txt !!"
-            )
+    path_list = glob.glob(args.workdir + SEP + "parsed" + SEP + "*.txt")
     now = datetime.datetime.now().strftime('%Y%m%d')
-    outdir = workdir + SEP + f"cleansed"
+    outdir = args.workdir + SEP + "clean"
     if not os.path.exists(outdir):
         os.makedirs(outdir)
     fileout = outdir + SEP + f"clean_{now}.txt"
@@ -219,9 +227,10 @@ def clean_and_merge(workdir:str=""):
     results = results.drop_duplicates(subset=["Case ID"], keep='first')
     results = results.reset_index(drop=True)    
     # export
-    col = [v.replace(" ", "_").lower() for v in list(results.columns)]
+    col = [v.replace(" ", "_").lower() for v in list(results.columns)] # to lower
     results.columns = col
     results.to_csv(fileout, sep="\t")
+
 
 def _concat(lst:list, gap:str="///"):
     """ concat the contents of a list with the indicated gap """
@@ -242,6 +251,17 @@ def curate_drug():
     """
     preprocessing OHDSI data
     Note this takes a long time because of traffic in pubchempy use
+
+    Returns
+    -------
+    - tsv, including ingredients
+    - tsv, summarizing PubChem search results
+    - tsv, combined information of the above two files
+        note we categorize the compounds as follows:
+        - 0: all compounds (OHDSI ingredients)
+        - 1: PubChem (positive in PubChem search, having SMILES)
+        - 2: small molecules (based on MW etc.)
+    - tsv, a table for synonym dict
     
     """
     # init
@@ -252,7 +272,13 @@ def curate_drug():
     else:
         path_list = path_list[0]
     now = datetime.datetime.now().strftime('%Y%m%d')
-    outdir = args.workdir + SEP + "ohdsi"
+    outdir = args.workdir + SEP + "curated"
+    if not os.path.exists(outdir):
+        os.makedirs(outdir)
+    fileout0 = outdir + SEP + f"CONCEPT_ingredient_{now}.txt"
+    fileout1 = outdir + SEP + f"CONCEPT_PubChem_{now}.txt"
+    fileout2 = outdir + SEP + f"Drug_curated_{now}.txt"
+    fileout3 = outdir + SEP + f"Drug_dict_{now}.txt"
     # curation
     dat = oh.OHDSIhandler()
     dat.set_path(path_list)

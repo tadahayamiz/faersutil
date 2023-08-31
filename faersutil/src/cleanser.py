@@ -13,12 +13,7 @@ import os
 import glob
 from itertools import chain
 
-if os.name == 'nt':
-    SEP = "\\"
-elif os.name == 'posix':
-    SEP = "/"
-else:
-    raise ValueError("!! Something wrong in OS detection !!")
+SEP = os.sep
 
 class Cleanser():
     def __init__(self):

@@ -17,12 +17,7 @@ from tqdm import tqdm
 
 FORMAT = ["2014Q3-","2012Q4-2014Q2"]
 
-if os.name == 'nt':
-    SEP = "\\"
-elif os.name == 'posix':
-    SEP = "/"
-else:
-    raise ValueError("!! Something wrong in OS detection !!")
+SEP = os.sep
 
 # abstract class
 class XMLoader():

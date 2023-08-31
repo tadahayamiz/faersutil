@@ -22,6 +22,7 @@ setup(
             "faersutil.make_db=faersutil.make_db:main",
             "faersutil.make_db.drugdict=faersutil.make_db:update_drugdict",
             "faersutil.make_db.drug_rxn=faersutil.make_db:prep_drug_rxn",
+            "faersutil.make_db.make_db=faersutil.make_db:make_database",
             "faersutil.run=faersutil.run:main",
         ]
     },

@@ -30,12 +30,7 @@ KEYS = [
     "XLogP"
     ]
 
-if os.name == 'nt':
-    SEP = "\\"
-elif os.name == 'posix':
-    SEP = "/"
-else:
-    raise ValueError("!! Something wrong in OS detection !!")
+SEP = os.sep
 
 def _del_key(lst:list):
     """ exclude elements indicated by the excluded set """
