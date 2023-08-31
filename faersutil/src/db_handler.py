@@ -178,7 +178,7 @@ class DBhandler():
             # preparation
             df = df[["drug_dict_id", "key", "value", "representative"]]
             df.columns = ["drug_dict_id", "drug_name", "drug_id", "representative"]
-            dri = "drug_dict_id INTEGER PRIMARY KEY AUTOINCREMENT"
+            dri = "drug_dict_id INTEGER PRIMARY KEY"
             name = "drug_name TEXT"
             did = "drug_id INTEGER"
             rep = "representative INTEGER"
@@ -193,6 +193,62 @@ class DBhandler():
         # add record
         with closing(sqlite3.connect(self.path)) as conn:
             df.to_sql("drug_dict", con=conn, index=False, if_exists=if_exists)
+
+
+    def make_drug_table(self, df:pd.DataFrame, if_exists:str=None):
+        """
+        drug table
+
+        Parameters
+        ----------
+        df: pd.DataFrame
+            table data that containes below fields:
+            - concept_name (drug_name, str)
+            - concept_id (drug_id, unique int)
+            - CID (derived from PubChem, int)
+            - CanonicalSMILES (derived from PubChem, str)
+            - IUPACName (derived from PubChem, str)
+            - MolecularFormula (derived from PubChem, str)
+            - MolecularWeight (derived from PubChem, float)
+            - TPSA (derived from PubChem, float)
+            - XLogP (derived from PubChem, float)
+            - category (int)            
+
+        if_exists: str
+            indicates the order if the table already exists
+
+        """
+        # check
+        if self.check_table("drug_table"):
+            if if_exists is None:
+                raise KeyError(
+                    "!! drug_table already exists or indicate 'if_exists' (append or replace) !!"
+                    )
+        else:
+            # preparation
+            df = df[[
+                "concept_id", "concept_name", "category", "CID", "CanonicalSMILES",
+                "IUPACName", "MolecularFormula", "MolecularWeight", "TPSA", "XLogP"
+                ]]
+            df.columns = [
+                "drug_id", "drug_name", "category", "cid", "smiles", "iupacname",
+                "molecular_formula", "mw", "tpsa", "xlogp"
+                ] # rename for DB
+            did = "drug_dict_id INTEGER PRIMARY KEY AUTOINCREMENT"
+            name = "drug_name TEXT"
+            cat = "drug_id INTEGER"
+            rep = "representative INTEGER"
+            constraint = f"{dri}, {name}, {did}, {rep}"
+            # prepare table for indicating primary constraint
+            with closing(sqlite3.connect(self.path)) as conn:
+                cur = conn.cursor()
+                cur.execute(f"CREATE TABLE drug_table ({constraint})")
+                conn.commit()
+            # update if_exists
+            if_exists = "append"  
+        # add record
+        with closing(sqlite3.connect(self.path)) as conn:
+            df.to_sql("drug_table", con=conn, index=False, if_exists=if_exists)
 
 
     def make_drug_rxn_table(self, df:pd.DataFrame, if_exists:str=None):

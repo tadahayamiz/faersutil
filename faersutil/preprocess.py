@@ -248,6 +248,7 @@ def clean_and_merge():
     results.columns = col
     results.to_csv(fileout, sep="\t")
 
+
 def _concat(lst:list, gap:str="///"):
     """ concat the contents of a list with the indicated gap """
     if len(lst) > 1:  
