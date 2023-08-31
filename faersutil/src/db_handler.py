@@ -308,7 +308,7 @@ class DBhandler():
                     )
         else:
             # preparation
-            did = "drug_dict_id INTEGER PRIMARY KEY"
+            did = "drug_id INTEGER PRIMARY KEY"
             nam = "drug_name TEXT"
             cat = "category INTEGER"
             cid = "cid INTEGER"
@@ -412,7 +412,45 @@ class DBhandler():
             indicates the order if the table already exists
 
         """
-        raise NotImplementedError
+        # check df
+        col = list(df.columns)
+        field = ["case_id", "active_substances", "reactions"]
+        ## stored_year is unnecessary
+        if col != field:
+            try:
+                col = [v.lower() for v in df.columns]
+                df.columns = col
+                df = df[field] # sorting
+            except KeyError:
+                raise KeyError(f"!! col of df should be {field} !!")
+        # check existence
+        done = if_exists
+        if self._check_table("drug_rxn_table"):
+            if if_exists is None:
+                raise KeyError(
+                    "!! drug_rxn_table already exists or indicate 'if_exists' (append or replace) !!"
+                    )
+        else:
+            # preparation
+            cid = "case_id INTEGER PRIMARY KEY AUTOINCREMENT"
+            did = "drug_id INTEGER"
+            rid = "rxn_id INTEGER"
+            constraint = f"{cid}, {did}, {rid}"
+            # prepare table for indicating primary constraint
+            with closing(sqlite3.connect(self.path)) as conn:
+                cur = conn.cursor()
+                cur.execute(f"CREATE TABLE drug_rxn_table ({constraint})")
+                conn.commit()
+        # update if_exists
+        if_exists = "append"
+        done = "newly create"
+        # add record
+        with closing(sqlite3.connect(self.path)) as conn:
+            df.to_sql("drug_rxn_table", con=conn, index=False, if_exists=if_exists)
+        # logging
+        desc = f"{done} table"
+        self._to_history(target_table="drug_rxn_table", description=desc)
+        self.head("drug_rxn_table")
 
 
     def _check_table(self, name:str=""):
