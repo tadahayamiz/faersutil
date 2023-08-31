@@ -59,10 +59,11 @@ class DBhandler():
                 cur.execute(f"SELECT * FROM {name}")
                 field = [f[0] for f in cur.description]
                 content = cur.fetchall() # list
-                focused = [c for c in content[:n]]
+                m = len(content)
+                focused = [c for c in content[:min(m, n)]]
                 tmp = pd.DataFrame(focused, columns=field)
                 print(tmp)                    
-                print(f">> total {len(content)} records in {name}")
+                print(f">> total {m} records in {name}")
             except OperationalError:
                 raise OperationalError(f"!! {name} table does not exist !!")
 
@@ -102,6 +103,7 @@ class DBhandler():
             except KeyError:
                 raise KeyError(f"!! col of df should be {field} !!")
         # check existence
+        done = if_exists
         if self._check_table("case_table"):
             if if_exists is None:
                 raise KeyError(
@@ -124,9 +126,14 @@ class DBhandler():
                 conn.commit()
             # update if_exists
             if_exists = "append"
+            done = "newly create"
         # add record
         with closing(sqlite3.connect(self.path)) as conn:
             df.to_sql("case_table", con=conn, index=False, if_exists=if_exists)
+        # logging
+        desc = f"{done} table"
+        self._to_history(target_table="case_table", description=desc)
+        self.head("case_table")
 
 
     def make_rxn_table(self, df:pd.DataFrame, if_exists:str=None):
@@ -159,6 +166,7 @@ class DBhandler():
             except KeyError:
                 raise KeyError(f"!! col of df should be {field} !!")
         # check existence
+        done = if_exists
         if self._check_table("rxn_table"):
             if if_exists is None:
                 raise KeyError(
@@ -178,10 +186,15 @@ class DBhandler():
                 cur.execute(f"CREATE TABLE rxn_table ({constraint})")
                 conn.commit()
             # update if_exists
-            if_exists = "append"            
+            if_exists = "append"
+            done = "newly create"            
         # add record
         with closing(sqlite3.connect(self.path)) as conn:
             df.to_sql("rxn_table", con=conn, index=False, if_exists=if_exists)
+        # logging
+        desc = f"{done} table"
+        self._to_history(target_table="rxn_table", description=desc)
+        self.head("rxn_table")
 
 
     def make_drug_dict(self, df:pd.DataFrame, if_exists:str=None):
@@ -214,6 +227,7 @@ class DBhandler():
             except KeyError:
                 raise KeyError(f"!! col of df should be {field} !!")
         # check existence
+        done = if_exists
         if self._check_table("drug_dict"):
             if if_exists is None:
                 raise KeyError(
@@ -232,10 +246,15 @@ class DBhandler():
                 cur.execute(f"CREATE TABLE drug_dict ({constraint})")
                 conn.commit()
             # update if_exists
-            if_exists = "append"  
+            if_exists = "append"
+            done = "newly create"  
         # add record
         with closing(sqlite3.connect(self.path)) as conn:
             df.to_sql("drug_dict", con=conn, index=False, if_exists=if_exists)
+        # logging
+        desc = f"{done} table"
+        self._to_history(target_table="drug_dict", description=desc)
+        self.head("drug_dict")
 
 
     def make_drug_table(self, df:pd.DataFrame, if_exists:str=None):
@@ -315,6 +334,7 @@ class DBhandler():
         # logging
         desc = f"{done} table"
         self._to_history(target_table="drug_table", description=desc)
+        self.head("drug_table")
 
 
     def make_drug_rxn_table(self, df:pd.DataFrame, if_exists:str=None):
@@ -346,6 +366,7 @@ class DBhandler():
             except KeyError:
                 raise KeyError(f"!! col of df should be {field} !!")
         # check existence
+        done = if_exists
         if self._check_table("drug_rxn_table"):
             if if_exists is None:
                 raise KeyError(
@@ -363,10 +384,15 @@ class DBhandler():
                 cur.execute(f"CREATE TABLE drug_rxn_table ({constraint})")
                 conn.commit()
         # update if_exists
-        if_exists = "append" 
+        if_exists = "append"
+        done = "newly create"
         # add record
         with closing(sqlite3.connect(self.path)) as conn:
             df.to_sql("drug_rxn_table", con=conn, index=False, if_exists=if_exists)
+        # logging
+        desc = f"{done} table"
+        self._to_history(target_table="drug_rxn_table", description=desc)
+        self.head("drug_rxn_table")
 
 
     def make_qulification_table(self, df:pd.DataFrame, if_exists:str=None):
@@ -415,7 +441,3 @@ class DBhandler():
             tmp = (int(now), target_table, description)
             cur.execute(order, tmp)
             conn.commit()
-
-
-# ToDo
-# - check_tableにfieldも表示する
