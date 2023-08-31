@@ -159,6 +159,7 @@ class DBhandler():
         ----------
         df: pd.DataFrame
             table data that containes below fields:
+            - drug_dict_id (unique)
             - drug_id (derived from concept_id of OHDSI)
             - drug_name (derived from concept_name of OHDSI)
             - representative (indicating whether it's representative compound name or not)
@@ -175,7 +176,6 @@ class DBhandler():
                     )
         else:
             # preparation
-            df.loc[:, "drug_dict_id"] = df.index
             df = df[["drug_dict_id", "key", "value", "representative"]]
             df.columns = ["drug_dict_id", "drug_name", "drug_id", "representative"]
             dri = "drug_dict_id INTEGER PRIMARY KEY AUTOINCREMENT"

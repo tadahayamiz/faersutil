@@ -110,6 +110,7 @@ def update_drugdict():
     res = pd.DataFrame({"key":base_dic.keys(), "value":base_dic.values()})
     res.loc[:, "representative"] = 0
     res.loc[res["key"].isin(rep), "representative"] = 1
+    res.loc[:, "drug_dict_id"] = list(range(res.shape[0])) # add index for DB construction
     res.to_csv(outdir + SEP + f"Drug_dict_updated_{now}.txt", sep="\t")
     print("> completed")
 
@@ -240,7 +241,6 @@ def init_database():
     dat.make_case_table(df)
     del df
     print("DONE")
-
 
 
 if __name__ == '__main__':
