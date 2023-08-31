@@ -260,6 +260,9 @@ class DBhandler():
                     "molecularweight":"mw"
                     }
                 col = [dic.get(c, c) for c in col]
+
+                print(col)
+
                 df.columns = col
                 df = df[field] # sorting
             except KeyError:
