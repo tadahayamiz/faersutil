@@ -340,6 +340,7 @@ class DBhandler():
     def make_drug_rxn_table(self, df:pd.DataFrame, if_exists:str=None):
         """
         make drug-reaction cross table from drug_rxn_XXX.txt
+        note unique key is autoincrement
 
         Parameters
         ----------
@@ -356,11 +357,13 @@ class DBhandler():
         """
         # check df
         col = list(df.columns)
-        field = ["case_id", "active_substances", "reactions"]
+        field = ["case_id", "drug_id", "rxn_id"]
         ## stored_year is unnecessary
         if col != field:
             try:
                 col = [v.lower() for v in df.columns]
+                dic = {"active_substances":"drug_id", "reactions":"rxn_id"}
+                col = [dic.get(c, c) for c in col] # convert
                 df.columns = col
                 df = df[field] # sorting
             except KeyError:
@@ -374,10 +377,11 @@ class DBhandler():
                     )
         else:
             # preparation
-            cid = "case_id INTEGER PRIMARY KEY AUTOINCREMENT"
+            dri = "drug_rxn_id INTEGER PRIMARY KEY AUTOINCREMENT"
+            cid = "case_id INTEGER"
             did = "drug_id INTEGER"
             rid = "rxn_id INTEGER"
-            constraint = f"{cid}, {did}, {rid}"
+            constraint = f"{dri}, {cid}, {did}, {rid}"
             # prepare table for indicating primary constraint
             with closing(sqlite3.connect(self.path)) as conn:
                 cur = conn.cursor()
@@ -412,6 +416,13 @@ class DBhandler():
             indicates the order if the table already exists
 
         """
+
+
+
+        ################## under construction
+
+
+
         # check df
         col = list(df.columns)
         field = ["case_id", "active_substances", "reactions"]

@@ -14,6 +14,7 @@ make sqlite3 database by integrating FAERS and other data
 """
 import os
 import datetime
+import time
 import argparse
 import numpy as np
 import pandas as pd
@@ -46,9 +47,8 @@ def main():
     update_drugdict()
     # prepare drug-rxn data
     prep_drug_rxn()
-    # initialize database
-    init_database()
-    # update dabase
+    # generate database
+    make_database()
 
 
 ### prepare database ###
@@ -209,6 +209,7 @@ def make_database():
     
     """
     # init
+    start = time.time()
     now = datetime.datetime.now().strftime('%Y%m%d')
     fileout = args.workdir + SEP + f"sqlite_{now}.db"
     dat = dh.DBhandler()
@@ -226,6 +227,7 @@ def make_database():
     del df
     print("DONE")
     # case table
+    print("<< time-consuming step >>")
     print("prepare case table", end="...")
     tmp_filein = glob.glob(args.workdir + SEP + "clean" + SEP + "clean_*.txt")
     if len(tmp_filein)==0:
@@ -257,18 +259,45 @@ def make_database():
     dat.make_drug_table(df)
     del df
     print("DONE")
-
     # drug_dict
-
-
-
-
-
-
+    print("prepare drug dict", end="...")
+    tmp_filein = glob.glob(args.workdir + SEP + "curated" + SEP + "Drug_dict_updated_*.txt")
+    if len(tmp_filein)==0:
+        raise ValueError("!! No updated drug dict information: use 'preprocess' before this !!")
+    else:
+        tmp_filein = sorted(tmp_filein, reverse=True)[0]
+    dtypes = {
+        "drug_dict_id":int, "key":str, "value":int, "representative":int,
+        }
+    df = pd.read_csv(tmp_filein, sep="\t", index_col=0, dtype=dtypes)
+    dat.make_drug_dict(df)
+    del df
+    print("DONE")
     # drug_rxn_table
+    print("<< time-consuming step >>")
+    print("prepare drug-rxn table")
+    tmp_filein = glob.glob(args.workdir + SEP + "drug_rxn" + SEP + "drug_rxn_*.txt")
+    if len(tmp_filein)==0:
+        raise ValueError("!! No updated drug-rxn relationship: use 'preprocess' before this !!")
+    else:
+        tmp_filein = sorted(tmp_filein, reverse=False)
+    dtypes = {
+        "drug_rxn_id":int, "case_id":int, "drug_id":int, "rxn_id":int,
+        }
+    for t in tqdm(tmp_filein):
+        df = pd.read_csv(t, sep="\t", index_col=0, dtype=dtypes)
+        dat.make_drug_rxn_table(df)
+        del df
+    print("DONE")
+
+    # qualification table
 
 
-
+    print("> completed")
+    elapsed = time.time() - start
+    h, rem = divmod(elapsed, 3600)
+    m, s = divmod(rem, 60)
+    print(f"elapsed time: {h} hr {m} min {s} sec")
 
 if __name__ == '__main__':
     main()     
