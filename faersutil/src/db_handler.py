@@ -25,7 +25,7 @@ class DBhandler():
         """ set DB path and load it """
         assert len(url) > 0
         self.path = url
-        self._logging(table="history", note="init")
+        self._logging(table="history_table", note="init")
 
 
     def head(self, name:str="", n:int=5):
@@ -385,7 +385,7 @@ class DBhandler():
         save history
         
         """
-        if self._check_table("history"):
+        if self._check_table("history_table"):
             pass
         else:
             # preparation
@@ -397,13 +397,13 @@ class DBhandler():
             # prepare table for indicating primary constraint
             with closing(sqlite3.connect(self.path)) as conn:
                 cur = conn.cursor()
-                cur.execute(f"CREATE TABLE history ({constraint})")
+                cur.execute(f"CREATE TABLE history_table ({constraint})")
                 conn.commit()
         # add record
         with closing(sqlite3.connect(self.path)) as conn:
             now = datetime.datetime.now().strftime('%Y%m%d')
             cur = conn.cursor()
-            order = "INSERT INTO history (date, table, description) VALUES (?, ?, ?)"
+            order = "INSERT INTO history_table (date, table, description) VALUES (?, ?, ?)"
             tmp = (int(now), table, note)
             cur.execute(order, tmp)
             conn.commit()
