@@ -25,7 +25,7 @@ class DBhandler():
         """ set DB path and load it """
         assert len(url) > 0
         self.path = url
-        self._logging(table="history", note="init")
+        self._logging(target_table="history", description="init")
 
 
     def head(self, name:str="", n:int=5):
@@ -380,7 +380,7 @@ class DBhandler():
         return flag
     
 
-    def _logging(self, table:str="", note:str=""):
+    def _logging(self, target_table:str="", description:str=""):
         """
         save history
         
@@ -391,7 +391,7 @@ class DBhandler():
             # preparation
             hid = "history_id INTEGER PRIMARY KEY AUTOINCREMENT"
             dat = "date INTEGER"
-            nam = "table TEXT"
+            nam = "name_table TEXT"
             des = "description TEXT"
             constraint = f"{hid}, {dat}, {nam}, {des}"
             # prepare table for indicating primary constraint
@@ -403,8 +403,8 @@ class DBhandler():
         with closing(sqlite3.connect(self.path)) as conn:
             now = datetime.datetime.now().strftime('%Y%m%d')
             cur = conn.cursor()
-            order = "INSERT INTO history (date, table, description) VALUES (?, ?, ?)"
-            tmp = (int(now), table, note)
+            order = "INSERT INTO history (date, name_table, description) VALUES (?, ?, ?)"
+            tmp = (int(now), target_table, description)
             cur.execute(order, tmp)
             conn.commit()
 
