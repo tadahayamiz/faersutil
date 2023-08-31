@@ -341,7 +341,7 @@ def make_database():
     elapsed = time.time() - start
     h, rem = divmod(elapsed, 3600)
     m, s = divmod(rem, 60)
-    print(f"elapsed time: {h} hr {m} min {s:.1f} sec")
+    print(f"elapsed time: {int(h)} hr {int(m)} min {s:.1f} sec")
 
 if __name__ == '__main__':
     main()     
