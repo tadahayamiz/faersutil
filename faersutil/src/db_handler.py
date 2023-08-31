@@ -394,7 +394,7 @@ class DBhandler():
         # no logging because this is mainly subject to loop
 
 
-    def make_qulification_table(self, df:pd.DataFrame, if_exists:str=None):
+    def make_qualification_table(self, df:pd.DataFrame, if_exists:str=None):
         """
         make drug-reaction cross table from drug_rxn_XXX.txt
 
