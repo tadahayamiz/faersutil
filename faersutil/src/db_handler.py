@@ -25,7 +25,21 @@ class DBhandler():
         """ set DB path and load it """
         assert len(url) > 0
         self.path = url
-        self._logging(target_table="history", description="init")
+        if self._check_table("history"):
+            pass
+        else:
+            # preparation
+            hid = "history_id INTEGER PRIMARY KEY AUTOINCREMENT"
+            dat = "date INTEGER"
+            nam = "name_table TEXT"
+            des = "description TEXT"
+            constraint = f"{hid}, {dat}, {nam}, {des}"
+            # prepare table for indicating primary constraint
+            with closing(sqlite3.connect(self.path)) as conn:
+                cur = conn.cursor()
+                cur.execute(f"CREATE TABLE history ({constraint})")
+                conn.commit()
+            self._logging(target_table="history", description="init")
 
 
     def head(self, name:str="", n:int=5):
@@ -43,9 +57,11 @@ class DBhandler():
             cur = conn.cursor()
             try:
                 cur.execute(f"SELECT * FROM {name}")
+                field = [f[0] for f in cur.description]
                 content = cur.fetchall() # list
-                for c in content[:n]:
-                    print(c)
+                focused = [c for c in content[:n]]
+                tmp = pd.DataFrame(focused, columns=field)
+                print(tmp)                    
                 print(f">> total {len(content)} records in {name}")
             except OperationalError:
                 raise OperationalError(f"!! {name} table does not exist !!")
@@ -385,20 +401,6 @@ class DBhandler():
         save history
         
         """
-        if self._check_table("history"):
-            pass
-        else:
-            # preparation
-            hid = "history_id INTEGER PRIMARY KEY AUTOINCREMENT"
-            dat = "date INTEGER"
-            nam = "name_table TEXT"
-            des = "description TEXT"
-            constraint = f"{hid}, {dat}, {nam}, {des}"
-            # prepare table for indicating primary constraint
-            with closing(sqlite3.connect(self.path)) as conn:
-                cur = conn.cursor()
-                cur.execute(f"CREATE TABLE history ({constraint})")
-                conn.commit()
         # add record
         with closing(sqlite3.connect(self.path)) as conn:
             now = datetime.datetime.now().strftime('%Y%m%d')
@@ -410,4 +412,3 @@ class DBhandler():
 
 # ToDo
 # - check_tableにfieldも表示する
-# 更新のtableを入れたい
