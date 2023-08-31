@@ -39,7 +39,7 @@ class DBhandler():
                 cur = conn.cursor()
                 cur.execute(f"CREATE TABLE history ({constraint})")
                 conn.commit()
-            self._logging(target_table="history", description="init")
+            self._to_history(target_table="history", description="init")
 
 
     def head(self, name:str="", n:int=5):
@@ -281,6 +281,7 @@ class DBhandler():
             except KeyError:
                 raise KeyError(f"!! col of df should be {field} !!")
         # check existence
+        done = if_exists
         if self._check_table("drug_table"):
             if if_exists is None:
                 raise KeyError(
@@ -305,10 +306,15 @@ class DBhandler():
                 cur.execute(f"CREATE TABLE drug_table ({constraint})")
                 conn.commit()
             # update if_exists
-            if_exists = "append"  
+            if_exists = "append"
+            # for logging
+            done = "newly create"
         # add record
         with closing(sqlite3.connect(self.path)) as conn:
             df.to_sql("drug_table", con=conn, index=False, if_exists=if_exists)
+        # logging
+        desc = f"{done} table"
+        self._to_history(target_table="drug_table", description=desc)
 
 
     def make_drug_rxn_table(self, df:pd.DataFrame, if_exists:str=None):
@@ -396,7 +402,7 @@ class DBhandler():
         return flag
     
 
-    def _logging(self, target_table:str="", description:str=""):
+    def _to_history(self, target_table:str="", description:str=""):
         """
         save history
         
@@ -409,6 +415,7 @@ class DBhandler():
             tmp = (int(now), target_table, description)
             cur.execute(order, tmp)
             conn.commit()
+
 
 # ToDo
 # - check_tableにfieldも表示する
