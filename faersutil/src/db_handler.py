@@ -25,7 +25,7 @@ class DBhandler():
         """ set DB path and load it """
         assert len(url) > 0
         self.path = url
-        self.logging(table="history", note="init")
+        self._logging(table="history", note="init")
 
 
     def head(self, name:str="", n:int=5):
@@ -260,9 +260,6 @@ class DBhandler():
                     "molecularweight":"mw"
                     }
                 col = [dic.get(c, c) for c in col]
-
-                print(col)
-
                 df.columns = col
                 df = df[field] # sorting
             except KeyError:
