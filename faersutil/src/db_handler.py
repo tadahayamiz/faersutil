@@ -397,7 +397,7 @@ class DBhandler():
             # prepare table for indicating primary constraint
             with closing(sqlite3.connect(self.path)) as conn:
                 cur = conn.cursor()
-                cur.execute(f"CREATE TABLE history ({constraint})")
+                cur.execute("CREATE TABLE history " + f"({constraint})")
                 conn.commit()
         # add record
         with closing(sqlite3.connect(self.path)) as conn:
