@@ -71,7 +71,18 @@ class DBhandler():
             indicates the order if the table already exists
 
         """
-        # check
+        # check df
+        col = list(df.columns)
+        field = [
+            "case_id", "sex", "event_date", "event_country",
+            "patient_age", "qualification", "stored_year"
+            ]
+        if col != field:
+            try:
+                df = df[field]
+            except KeyError:
+                raise KeyError(f"!! col of df should be {field} !!")
+        # check existence
         if self.check_table("case_table"):
             if if_exists is None:
                 raise KeyError(
@@ -95,12 +106,8 @@ class DBhandler():
             # update if_exists
             if_exists = "append"
         # add record
-        focused = [
-            "case_id", "sex", "event_date", "event_country",
-            "patient_age", "qualification", "stored_year"
-            ]
         with closing(sqlite3.connect(self.path)) as conn:
-            df[focused].to_sql("case_table", con=conn, index=False, if_exists=if_exists)
+            df.to_sql("case_table", con=conn, index=False, if_exists=if_exists)
 
 
     def make_rxn_table(self, df:pd.DataFrame, if_exists:str=None):
@@ -122,7 +129,17 @@ class DBhandler():
             indicates the order if the table already exists
 
         """
-        # check
+        # check df
+        col = list(df.columns)
+        field = ["rxn_id", "pt", "hlt", "hlgt", "soc"]
+        if col != field:
+            try:
+                col = [v.lower() for v in df.columns]
+                df.columns = col
+                df = df[field]
+            except KeyError:
+                raise KeyError(f"!! col of df should be {field} !!")
+        # check existence
         if self.check_table("rxn_table"):
             if if_exists is None:
                 raise KeyError(
@@ -130,9 +147,6 @@ class DBhandler():
                     )
         else:
             # preparation
-            col = [v.lower() for v in df.columns]
-            df.columns = col
-            df = df[["rxn_id", "pt", "hlt", "hlgt", "soc"]]
             ri = "rxn_id INTEGER PRIMARY KEY"
             pt = "pt TEXT"
             hlt = "hlt TEXT"
@@ -168,7 +182,19 @@ class DBhandler():
             indicates the order if the table already exists
 
         """
-        # check
+        # check df
+        col = list(df.columns)
+        field = ["drug_dict_id", "drug_name", "drug_id", "representative"]
+        if col != field:
+            try:
+                col = [v.lower() for v in df.columns]
+                dic = {"key":"drug_name", "value":"drug_id"}
+                col = [dic.get(c, c) for c in col]
+                df.columns = col
+                df = df[field] # sorting
+            except KeyError:
+                raise KeyError(f"!! col of df should be {field} !!")
+        # check existence
         if self.check_table("drug_dict"):
             if if_exists is None:
                 raise KeyError(
@@ -176,8 +202,6 @@ class DBhandler():
                     )
         else:
             # preparation
-            df = df[["drug_dict_id", "key", "value", "representative"]]
-            df.columns = ["drug_dict_id", "drug_name", "drug_id", "representative"]
             dri = "drug_dict_id INTEGER PRIMARY KEY"
             name = "drug_name TEXT"
             did = "drug_id INTEGER"
@@ -218,7 +242,25 @@ class DBhandler():
             indicates the order if the table already exists
 
         """
-        # check
+        # check df
+        col = list(df.columns)
+        field = [
+            "drug_id", "drug_name", "category", "cid", "smiles", "iupacname",
+                "molecular_formula", "mw", "tpsa", "xlogp"
+            ]
+        if col != field:
+            try:
+                col = [v.lower() for v in df.columns]
+                dic = {
+                    "canonicalsmiles":"smiles", "molecularformula":"molecular_formula",
+                    "molecularweight":"mw"
+                    }
+                col = [dic.get(c, c) for c in col]
+                df.columns = col
+                df = df[field] # sorting
+            except KeyError:
+                raise KeyError(f"!! col of df should be {field} !!")
+        # check existence
         if self.check_table("drug_table"):
             if if_exists is None:
                 raise KeyError(
@@ -226,14 +268,6 @@ class DBhandler():
                     )
         else:
             # preparation
-            df = df[[
-                "concept_id", "concept_name", "category", "CID", "CanonicalSMILES",
-                "IUPACName", "MolecularFormula", "MolecularWeight", "TPSA", "XLogP"
-                ]]
-            df.columns = [
-                "drug_id", "drug_name", "category", "cid", "smiles", "iupacname",
-                "molecular_formula", "mw", "tpsa", "xlogp"
-                ] # rename for DB
             did = "drug_dict_id INTEGER PRIMARY KEY"
             nam = "drug_name TEXT"
             cat = "category INTEGER"
@@ -274,7 +308,18 @@ class DBhandler():
             indicates the order if the table already exists
 
         """
-        # check
+        # check df
+        col = list(df.columns)
+        field = ["case_id", "active_substances", "reactions"]
+        ## stored_year is unnecessary
+        if col != field:
+            try:
+                col = [v.lower() for v in df.columns]
+                df.columns = col
+                df = df[field] # sorting
+            except KeyError:
+                raise KeyError(f"!! col of df should be {field} !!")
+        # check existence
         if self.check_table("drug_rxn_table"):
             if if_exists is None:
                 raise KeyError(
@@ -282,8 +327,6 @@ class DBhandler():
                     )
         else:
             # preparation
-            df = df[["case_id", "active_substances", "reactions"]]
-            ## stored_year is unnecessary
             cid = "case_id INTEGER PRIMARY KEY AUTOINCREMENT"
             did = "drug_id INTEGER"
             rid = "rxn_id INTEGER"
@@ -331,4 +374,3 @@ class DBhandler():
             except OperationalError:
                 flag = False
         return flag
-    
