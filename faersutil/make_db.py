@@ -213,7 +213,7 @@ def make_database():
     dat = dh.DBhandler()
     dat.set_path(fileout)
     # qualification table
-    print("prepare qualification table", end="...")
+    print("prepare qualification table")
     tmp_filein = glob.glob(args.workdir + SEP + "clean" + SEP + "qualification_*.txt")
     if len(tmp_filein)==0:
         raise ValueError("!! No qualification table: use 'preprocess' before this !!")
@@ -225,7 +225,7 @@ def make_database():
     del df
     print("DONE")
     # rxn_table
-    print("prepare rxn table", end="...")
+    print("prepare rxn table")
     tmp_filein = glob.glob(args.workdir + SEP + "curated" + SEP + f"rxn_table_*.txt")
     if len(tmp_filein)==0:
         raise ValueError("!! No rxn_table: use 'prep_drug_rxn' before this !!")
@@ -237,7 +237,7 @@ def make_database():
     del df
     print("DONE")
     # drug table
-    print("prepare drug table", end="...")
+    print("prepare drug table")
     tmp_filein = glob.glob(args.workdir + SEP + "curated" + SEP + "Drug_curated_*.txt")
     if len(tmp_filein)==0:
         raise ValueError("!! No curated drug information: use 'preprocess' before this !!")
@@ -253,7 +253,7 @@ def make_database():
     del df
     print("DONE")
     # drug_dict
-    print("prepare drug dict", end="...")
+    print("prepare drug dict")
     tmp_filein = glob.glob(args.workdir + SEP + "curated" + SEP + "Drug_dict_updated_*.txt")
     if len(tmp_filein)==0:
         raise ValueError("!! No updated drug dict information: use 'preprocess' before this !!")
@@ -268,7 +268,7 @@ def make_database():
     print("DONE")
     # case table
     print("<< time-consuming step >>")
-    print("prepare case table", end="...")
+    print("prepare case table")
     tmp_filein = glob.glob(args.workdir + SEP + "clean" + SEP + "clean_*.txt")
     if len(tmp_filein)==0:
         raise ValueError("!! No clean FAERS data: use 'preprocess' before this !!")
@@ -307,7 +307,7 @@ def make_database():
     elapsed = time.time() - start
     h, rem = divmod(elapsed, 3600)
     m, s = divmod(rem, 60)
-    print(f"elapsed time: {h} hr {m} min {s} sec")
+    print(f"elapsed time: {h} hr {m} min {s:.1f} sec")
 
 if __name__ == '__main__':
     main()     

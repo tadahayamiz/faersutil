@@ -138,7 +138,7 @@ class DBhandler():
 
     def make_rxn_table(self, df:pd.DataFrame, if_exists:str=None):
         """
-        make reaction table from MedDRA_X_X.txt
+        make reaction table from rxn_table_xxx.txt
         Note this is not used for update the table
 
         Parameters
