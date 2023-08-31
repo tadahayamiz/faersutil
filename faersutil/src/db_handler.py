@@ -9,6 +9,7 @@ handle sqlite
 
 import pandas as pd
 import os
+import datetime
 import sqlite3
 from sqlite3.dbapi2 import OperationalError, ProgrammingError
 from contextlib import closing
@@ -20,9 +21,11 @@ class DBhandler():
         self.path = ""
 
 
-    def set_path(self, url:str):
+    def set_path(self, url:str=""):
         """ set DB path and load it """
+        assert len(url) > 0
         self.path = url
+        self.logging(table="history", note="init")
 
 
     def head(self, name:str="", n:int=5):
@@ -83,7 +86,7 @@ class DBhandler():
             except KeyError:
                 raise KeyError(f"!! col of df should be {field} !!")
         # check existence
-        if self.check_table("case_table"):
+        if self._check_table("case_table"):
             if if_exists is None:
                 raise KeyError(
                     "!! case_table already exists or indicate 'if_exists' (append or replace) !!"
@@ -95,7 +98,7 @@ class DBhandler():
             ed = "event_date INTEGER"
             ec = "event_country TEXT"
             pa = "patient_age INTEGER"
-            ql = "qualification REAL"
+            ql = "qualification INT"
             sy = "stored_year REAL"
             constraint = f"{ci}, {se}, {ed}, {ec}, {pa}, {ql}, {sy}"
             # prepare table for indicating primary constraint
@@ -140,7 +143,7 @@ class DBhandler():
             except KeyError:
                 raise KeyError(f"!! col of df should be {field} !!")
         # check existence
-        if self.check_table("rxn_table"):
+        if self._check_table("rxn_table"):
             if if_exists is None:
                 raise KeyError(
                     "!! rxn_table already exists or indicate 'if_exists' (append or replace) !!"
@@ -195,7 +198,7 @@ class DBhandler():
             except KeyError:
                 raise KeyError(f"!! col of df should be {field} !!")
         # check existence
-        if self.check_table("drug_dict"):
+        if self._check_table("drug_dict"):
             if if_exists is None:
                 raise KeyError(
                     "!! drug_dict already exists or indicate 'if_exists' (append or replace) !!"
@@ -252,6 +255,7 @@ class DBhandler():
             try:
                 col = [v.lower() for v in df.columns]
                 dic = {
+                    "concept_name":"drug_name", "concept_id":"drug_id",
                     "canonicalsmiles":"smiles", "molecularformula":"molecular_formula",
                     "molecularweight":"mw"
                     }
@@ -261,7 +265,7 @@ class DBhandler():
             except KeyError:
                 raise KeyError(f"!! col of df should be {field} !!")
         # check existence
-        if self.check_table("drug_table"):
+        if self._check_table("drug_table"):
             if if_exists is None:
                 raise KeyError(
                     "!! drug_table already exists or indicate 'if_exists' (append or replace) !!"
@@ -320,7 +324,7 @@ class DBhandler():
             except KeyError:
                 raise KeyError(f"!! col of df should be {field} !!")
         # check existence
-        if self.check_table("drug_rxn_table"):
+        if self._check_table("drug_rxn_table"):
             if if_exists is None:
                 raise KeyError(
                     "!! drug_rxn_table already exists or indicate 'if_exists' (append or replace) !!"
@@ -363,7 +367,7 @@ class DBhandler():
         raise NotImplementedError
 
 
-    def check_table(self, name:str=""):
+    def _check_table(self, name:str=""):
         """ whether the indicated table exists or not """
         with closing(sqlite3.connect(self.path)) as conn:
             cur = conn.cursor()
@@ -374,3 +378,36 @@ class DBhandler():
             except OperationalError:
                 flag = False
         return flag
+    
+
+    def _logging(self, table:str="", note:str=""):
+        """
+        save history
+        
+        """
+        if self._check_table("history"):
+            pass
+        else:
+            # preparation
+            hid = "history_id INTEGER PRIMARY KEY AUTOINCREMENT"
+            dat = "date INTEGER"
+            nam = "table TEXT"
+            des = "description TEXT"
+            constraint = f"{hid}, {dat}, {nam}, {des}"
+            # prepare table for indicating primary constraint
+            with closing(sqlite3.connect(self.path)) as conn:
+                cur = conn.cursor()
+                cur.execute(f"CREATE TABLE history ({constraint})")
+                conn.commit()
+        # add record
+        with closing(sqlite3.connect(self.path)) as conn:
+            now = datetime.datetime.now().strftime('%Y%m%d')
+            cur = conn.cursor()
+            order = "INSERT INTO history (date, table, description) VALUES (?, ?, ?)"
+            tmp = (int(now), table, note)
+            cur.execute(order, tmp)
+            conn.commit()
+
+# ToDo
+# - check_tableにfieldも表示する
+# 更新のtableを入れたい
