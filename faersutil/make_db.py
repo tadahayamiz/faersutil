@@ -223,7 +223,7 @@ def make_database():
     df = pd.read_csv(tmp_filein, sep="\t", index_col=0, dtype=dtypes)
     dat.make_qualification_table(df)
     del df
-    print("DONE")
+    print("> DONE")
     # rxn_table
     print("prepare rxn table")
     tmp_filein = glob.glob(args.workdir + SEP + "curated" + SEP + f"rxn_table_*.txt")
@@ -235,7 +235,7 @@ def make_database():
     df = pd.read_csv(tmp_filein, sep="\t", index_col=0)
     dat.make_rxn_table(df)
     del df
-    print("DONE")
+    print("> DONE")
     # drug table
     print("prepare drug table")
     tmp_filein = glob.glob(args.workdir + SEP + "curated" + SEP + "Drug_curated_*.txt")
@@ -251,7 +251,7 @@ def make_database():
     df = pd.read_csv(tmp_filein, sep="\t", index_col=0, dtype=dtypes)
     dat.make_drug_table(df)
     del df
-    print("DONE")
+    print("> DONE")
     # drug_dict
     print("prepare drug dict")
     tmp_filein = glob.glob(args.workdir + SEP + "curated" + SEP + "Drug_dict_updated_*.txt")
@@ -265,10 +265,10 @@ def make_database():
     df = pd.read_csv(tmp_filein, sep="\t", index_col=0, dtype=dtypes)
     dat.make_drug_dict(df)
     del df
-    print("DONE")
+    print("> DONE")
     # case table
-    print("<< time-consuming step >>")
     print("prepare case table")
+    print("<< time-consuming step >>")
     tmp_filein = glob.glob(args.workdir + SEP + "clean" + SEP + "clean_*.txt")
     if len(tmp_filein)==0:
         raise ValueError("!! No clean FAERS data: use 'preprocess' before this !!")
@@ -282,10 +282,10 @@ def make_database():
     df = pd.read_csv(tmp_filein, sep="\t", index_col=0, dtype=dtypes)
     dat.make_case_table(df)
     del df
-    print("DONE")
+    print("> DONE")
     # drug_rxn_table
-    print("<< time-consuming step >>")
     print("prepare drug-rxn table")
+    print("<< time-consuming step >>")
     tmp_filein = glob.glob(args.workdir + SEP + "drug_rxn" + SEP + "drug_rxn_*.txt")
     if len(tmp_filein)==0:
         raise ValueError("!! No updated drug-rxn relationship: use 'preprocess' before this !!")
@@ -301,7 +301,7 @@ def make_database():
     # logging
     dat._to_history(target_table="drug_rxn_table", description="newly create")
     dat.head("drug_rxn_table")
-    print("DONE")
+    print("> DONE")
     # summary
     print("> completed")
     elapsed = time.time() - start
