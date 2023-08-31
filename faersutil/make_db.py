@@ -24,6 +24,7 @@ import itertools
 from tqdm.auto import trange, tqdm
 
 # original packages in src
+from .src import chem_editor as ce
 from .src import db_handler as dh
 
 ### setup ###
