@@ -203,9 +203,9 @@ def prep_drug_rxn():
     print("> completed")
 
 
-def init_database():
+def make_database():
     """
-    initialize database from FAERS clean data
+    generate database from FAERS clean data
     
     """
     # init
@@ -213,7 +213,7 @@ def init_database():
     fileout = args.workdir + SEP + f"sqlite_{now}.db"
     dat = dh.DBhandler()
     dat.set_path(fileout)
-    # prepare rxn_table
+    # rxn_table
     print("prepare rxn table", end="...")
     tmp_filein = glob.glob(args.workdir + SEP + "curated" + SEP + f"rxn_table_*.txt")
     if len(tmp_filein)==0:
@@ -225,7 +225,7 @@ def init_database():
     dat.make_rxn_table(df)
     del df
     print("DONE")
-    # prepare case table
+    # case table
     print("prepare case table", end="...")
     tmp_filein = glob.glob(args.workdir + SEP + "clean" + SEP + "clean_*.txt")
     if len(tmp_filein)==0:
@@ -241,6 +241,33 @@ def init_database():
     dat.make_case_table(df)
     del df
     print("DONE")
+    # drug table
+    print("prepare drug table", end="...")
+    tmp_filein = glob.glob(args.workdir + SEP + "curated" + SEP + "Drug_curated_*.txt")
+    if len(tmp_filein)==0:
+        raise ValueError("!! No curated drug information: use 'preprocess' before this !!")
+    else:
+        tmp_filein = sorted(tmp_filein, reverse=True)[0]
+    dtypes = {
+        "concept_name":str, "concept_id":int, "CID":int, "CanonicalSMILES":str,
+        "IUPACName":str, "MolecularFormula":str, "MolecularWeight":float, 
+        "TPSA":float, "XLogP":float, "category":int,
+        }
+    df = pd.read_csv(tmp_filein, sep="\t", index_col=0, dtype=dtypes)
+    dat.make_drug_table(df)
+    del df
+    print("DONE")
+
+    # drug_dict
+
+
+
+
+
+
+    # drug_rxn_table
+
+
 
 
 if __name__ == '__main__':

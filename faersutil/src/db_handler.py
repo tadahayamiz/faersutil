@@ -50,7 +50,7 @@ class DBhandler():
 
     def make_case_table(self, df:pd.DataFrame, if_exists:str=None):
         """
-        case table
+        generate case table from clean_xxx.txt
         - case_id
         - age
         - qualification, etc.
@@ -105,7 +105,7 @@ class DBhandler():
 
     def make_rxn_table(self, df:pd.DataFrame, if_exists:str=None):
         """
-        make reaction table
+        make reaction table from MedDRA_X_X.txt
         Note this is not used for update the table
 
         Parameters
@@ -153,7 +153,7 @@ class DBhandler():
 
     def make_drug_dict(self, df:pd.DataFrame, if_exists:str=None):
         """
-        drug dict table
+        make drug dict table from Drug_dict_updated_xxx.txt
 
         Parameters
         ----------
@@ -197,7 +197,7 @@ class DBhandler():
 
     def make_drug_table(self, df:pd.DataFrame, if_exists:str=None):
         """
-        drug table
+        make drug table from Drug_curated_xxx.txt
 
         Parameters
         ----------
@@ -259,7 +259,7 @@ class DBhandler():
 
     def make_drug_rxn_table(self, df:pd.DataFrame, if_exists:str=None):
         """
-        drug-reaction cross table
+        make drug-reaction cross table from drug_rxn_XXX.txt
 
         Parameters
         ----------
@@ -300,6 +300,26 @@ class DBhandler():
             df.to_sql("drug_rxn_table", con=conn, index=False, if_exists=if_exists)
 
 
+    def make_qulification_table(self, df:pd.DataFrame, if_exists:str=None):
+        """
+        make drug-reaction cross table from drug_rxn_XXX.txt
+
+        Parameters
+        ----------
+        df: pd.DataFrame
+            table data that containes below fields:
+            - active_substances
+            - reactions
+            - case_id
+            - stored_year
+
+        if_exists: str
+            indicates the order if the table already exists
+
+        """
+        raise NotImplementedError
+
+
     def check_table(self, name:str=""):
         """ whether the indicated table exists or not """
         with closing(sqlite3.connect(self.path)) as conn:
@@ -312,7 +332,3 @@ class DBhandler():
                 flag = False
         return flag
     
-
-# ToDo
-# update時はIDがユニークである必要があるため, 入力段階でその辺りコントロールできた方がよい
-# make_dbレベルでDBに向けてちょうどよいdfへと加工し, DBHandlerでは与えるだけにする
