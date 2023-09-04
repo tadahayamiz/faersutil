@@ -104,6 +104,8 @@ class OHDSIhandler():
                 raise ValueError(
                     "!! Provide pubchem result as an argument or run get_pubchem before this !!"
                     )
+            else:
+                self.pubchem = pubchem
         # integration
         self.pubchem.loc[:, "concept_id"] = self.pubchem.loc[:, "concept_name"].map(lambda x: dic[x])
         remains = [v for v in chem_list if v not in list(self.pubchem["concept_name"])]
