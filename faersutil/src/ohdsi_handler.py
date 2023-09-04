@@ -133,7 +133,7 @@ class OHDSIhandler():
         self.df.loc[:, "CID"] = self.df.loc[:, "CID"].astype(int)
         self.df.loc[:, "MolecularWeight"] = self.df.loc[:, "MolecularWeight"].astype(float)
         self.df.loc[:, "TPSA"] = self.df.loc[:, "TPSA"].astype(float)
-        self.df.loc[:, "XLogP"] = self.df.loc[:, "MolecularWeight"].astype(float)
+        self.df.loc[:, "XLogP"] = self.df.loc[:, "XLogP"].astype(float)
         self.df.loc[:, "concept_name"] = self.df.loc[:, "concept_name"].map(lambda x: x.lower())
         # add category
         ## all compounds
