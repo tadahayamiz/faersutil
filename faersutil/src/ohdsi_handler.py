@@ -40,7 +40,7 @@ class OHDSIhandler():
     def set_df(self, df:pd.DataFrame=None):
         """ load CONCEPT.csv as a df """
         if df is None:
-            self.df = pd.read_csv(self.url, sep="\t", index_col=0)
+            self.df = pd.read_csv(self.url, sep="\t")
         else:
             self.df = df
 
@@ -104,6 +104,8 @@ class OHDSIhandler():
                 raise ValueError(
                     "!! Provide pubchem result as an argument or run get_pubchem before this !!"
                     )
+            else:
+                self.pubchem = pubchem
         # integration
         self.pubchem.loc[:, "concept_id"] = self.pubchem.loc[:, "concept_name"].map(lambda x: dic[x])
         remains = [v for v in chem_list if v not in list(self.pubchem["concept_name"])]
@@ -131,7 +133,7 @@ class OHDSIhandler():
         self.df.loc[:, "CID"] = self.df.loc[:, "CID"].astype(int)
         self.df.loc[:, "MolecularWeight"] = self.df.loc[:, "MolecularWeight"].astype(float)
         self.df.loc[:, "TPSA"] = self.df.loc[:, "TPSA"].astype(float)
-        self.df.loc[:, "XLogP"] = self.df.loc[:, "MolecularWeight"].astype(float)
+        self.df.loc[:, "XLogP"] = self.df.loc[:, "XLogP"].astype(float)
         self.df.loc[:, "concept_name"] = self.df.loc[:, "concept_name"].map(lambda x: x.lower())
         # add category
         ## all compounds

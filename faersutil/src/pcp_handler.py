@@ -93,7 +93,7 @@ def pull_info(
                     syno = {w} | syno
                     syno = {s.lower() for s in syno}
                 tmp["Synonym"] = syno
-                if "XLogp" not in set(tmp.keys()):
+                if "XLogP" not in set(tmp.keys()):
                     tmp["XLogP"] = np.nan
                 res.append(tmp) # add a dict
                 posi.append(w)
