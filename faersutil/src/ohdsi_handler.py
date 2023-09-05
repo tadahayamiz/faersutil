@@ -40,7 +40,7 @@ class OHDSIhandler():
     def set_df(self, df:pd.DataFrame=None):
         """ load CONCEPT.csv as a df """
         if df is None:
-            self.df = pd.read_csv(self.url, sep="\t", index_col=0)
+            self.df = pd.read_csv(self.url, sep="\t")
         else:
             self.df = df
 
