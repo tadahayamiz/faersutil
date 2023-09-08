@@ -145,6 +145,7 @@ class DBhandler():
         ----------
         df: pd.DataFrame
             table data that contains below fields:
+            - unique_rxn_id, int
             - rxn_id, int
             - PT, str
             - HLT, str
@@ -157,7 +158,7 @@ class DBhandler():
         """
         # check df
         col = list(df.columns)
-        field = ["rxn_id", "pt", "hlt", "hlgt", "soc"]
+        field = ["unique_rxn_id", "rxn_id", "pt", "hlt", "hlgt", "soc"]
         if col != field:
             try:
                 col = [v.lower() for v in df.columns]
@@ -174,12 +175,13 @@ class DBhandler():
                     )
         else:
             # preparation
-            ri = "rxn_id INTEGER PRIMARY KEY"
+            ui = "unique_rxn_id INTEGER PRIMARY KEY"
+            ri = "rxn_id INTEGER"
             pt = "pt TEXT"
             hlt = "hlt TEXT"
             hlgt = "hlgt TEXT"
             soc = "soc TEXT"
-            constraint = f"{ri}, {pt}, {hlt}, {hlgt}, {soc}"
+            constraint = f"{ui}, {ri}, {pt}, {hlt}, {hlgt}, {soc}"
             # prepare table for indicating primary constraint
             with closing(sqlite3.connect(self.path)) as conn:
                 cur = conn.cursor()
