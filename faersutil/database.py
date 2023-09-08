@@ -138,10 +138,13 @@ def prep_drug_rxn():
     rxns = pd.read_csv(path_rxn, sep="\t", index_col=0)
     for c in rxns.columns:
         rxns.loc[:, c] = rxns.loc[:, c].map(lambda x: x.lower())
-    rxns.loc[:, "rxn_id"] = list(range(rxns.shape[0]))
+    ## prep rxn_id that corresponds to pt
+    pt = list(set(list(rxns["PT"])))
+    dic_rxn = dict(zip(pt, list(range(len(pt)))))
+    rxns.loc[:, "rxn_id"] = [dic_rxn[i] for i in list(rxns["PT"])]
+    rxns.loc[:, "unique_rxn_id"] = list(range(rxns.shape[0]))
     rxns.to_csv(args.workdri + SEP + "curated" + f"/rxn_table_{now}.txt", sep="\t")
     ## save w/ ID version
-    dic_rxn = dict(zip(list(rxns["PT"]), list(rxns["rxn_id"])))
     print("DONE")
     # prep drug dict
     print("prepare drug dict", end="...")
