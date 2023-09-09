@@ -20,6 +20,7 @@ import numpy as np
 import pandas as pd
 import glob
 import itertools
+import gc
 
 from tqdm.auto import trange, tqdm
 
@@ -228,6 +229,7 @@ def make_database():
     df = pd.read_csv(tmp_filein, sep="\t", index_col=0, dtype=dtypes)
     dat.make_qualification_table(df)
     del df
+    gc.collect()
     print("> DONE")
     # rxn_table
     print("prepare rxn table")
@@ -240,6 +242,7 @@ def make_database():
     df = pd.read_csv(tmp_filein, sep="\t", index_col=0)
     dat.make_rxn_table(df)
     del df
+    gc.collect()
     print("> DONE")
     # drug table
     print("prepare drug table")
@@ -256,6 +259,7 @@ def make_database():
     df = pd.read_csv(tmp_filein, sep="\t", index_col=0, dtype=dtypes)
     dat.make_drug_table(df)
     del df
+    gc.collect()
     print("> DONE")
     # drug_dict
     print("prepare drug dict")
@@ -270,6 +274,7 @@ def make_database():
     df = pd.read_csv(tmp_filein, sep="\t", index_col=0, dtype=dtypes)
     dat.make_drug_dict(df)
     del df
+    gc.collect()
     print("> DONE")
     # case table
     print("prepare case table")
@@ -287,6 +292,7 @@ def make_database():
     df = pd.read_csv(tmp_filein, sep="\t", index_col=0, dtype=dtypes)
     dat.make_case_table(df)
     del df
+    gc.collect()
     print("> DONE")
     # drug_rxn_table
     print("prepare drug-rxn table")
@@ -303,6 +309,7 @@ def make_database():
         df = pd.read_csv(t, sep="\t", index_col=0, dtype=dtypes)
         dat.make_drug_rxn_table(df, if_exists="append")
         del df
+        gc.collect()
     # logging
     dat._to_history(target_table="drug_rxn_table", description="newly create")
     dat.head("drug_rxn_table")
