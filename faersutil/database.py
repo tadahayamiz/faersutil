@@ -66,6 +66,7 @@ def update_drugdict():
     path_faers = glob.glob(args.workdir + SEP + "clean" + SEP + "clean_*.txt")
     outdir = args.workdir + SEP + "curated"
     path_ohdsi = glob.glob(outdir + SEP + "Drug_dict_*.txt")
+    path_ohdsi = [v for v in path_ohdsi if "Drug_dict_updated" not in v]
     if len(path_faers)==0:
         raise ValueError("!! No clean FAERS data: use 'preprocess' before this !!")
     else:
@@ -76,12 +77,6 @@ def update_drugdict():
         path_ohdsi = sorted(path_ohdsi, reverse=True)[0]
     # prep base dict
     ohdsi = pd.read_csv(path_ohdsi, sep="\t", index_col=0)
-
-
-    print(ohdsi.head())
-    print(path_ohdsi)
-
-
     base_dic = dict(zip(list(ohdsi["key"]), list(ohdsi["value"])))
     rep = list(ohdsi[ohdsi["representative"]==1]["key"])
     # load FAERS data
