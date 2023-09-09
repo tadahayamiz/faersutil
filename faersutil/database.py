@@ -76,6 +76,12 @@ def update_drugdict():
         path_ohdsi = sorted(path_ohdsi, reverse=True)[0]
     # prep base dict
     ohdsi = pd.read_csv(path_ohdsi, sep="\t", index_col=0)
+
+
+    print(ohdsi.head())
+    print(path_ohdsi)
+
+
     base_dic = dict(zip(list(ohdsi["key"]), list(ohdsi["value"])))
     rep = list(ohdsi[ohdsi["representative"]==1]["key"])
     # load FAERS data
@@ -133,7 +139,7 @@ def prep_drug_rxn():
         os.makedirs(outdir)
     # prep reaction dict
     print("prepare reaction dict", end="...")
-    path_rxn = glob.glob(__file__.replace("make_db.py", f"data{SEP}reaction{SEP}*.txt"))
+    path_rxn = glob.glob(__file__.replace("database.py", f"data{SEP}reaction{SEP}*.txt"))
     path_rxn = sorted(path_rxn, reverse=True)[0]
     rxns = pd.read_csv(path_rxn, sep="\t", index_col=0)
     for c in rxns.columns:
