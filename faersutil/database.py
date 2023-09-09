@@ -144,7 +144,7 @@ def prep_drug_rxn():
     dic_rxn = dict(zip(pt, list(range(len(pt)))))
     rxns.loc[:, "rxn_id"] = [dic_rxn[i] for i in list(rxns["PT"])]
     rxns.loc[:, "unique_rxn_id"] = list(range(rxns.shape[0]))
-    rxns.to_csv(args.workdri + SEP + "curated" + f"/rxn_table_{now}.txt", sep="\t")
+    rxns.to_csv(args.workdir + SEP + "curated" + f"/rxn_table_{now}.txt", sep="\t")
     ## save w/ ID version
     print("DONE")
     # prep drug dict
