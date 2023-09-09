@@ -19,7 +19,7 @@ setup(
             "faersutil.preprocess.parse=faersutil.preprocess:parse_xml",
             "faersutil.preprocess.clean=faersutil.preprocess:clean_and_merge",
             "faersutil.preprocess.curate=faersutil.preprocess:curate_drug",
-            "faersutil.db=faersutil.database:main",
+            "faersutil.database=faersutil.database:main",
             "faersutil.db.drugdict=faersutil.database:update_drugdict",
             "faersutil.db.drug_rxn=faersutil.database:prep_drug_rxn",
             "faersutil.db.make_db=faersutil.database:make_database",
