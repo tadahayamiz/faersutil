@@ -159,7 +159,7 @@ def prep_drug_rxn():
     print("DONE")
     # load FAERS data
     print("prepare FAERS data", end="...")
-    path_faers = glob.glob(args.workdir + SEP + "clean_*.txt")
+    path_faers = glob.glob(args.workdir + SEP + "clean" + SEP + "clean_*.txt")
     if len(path_faers)==0:
         raise ValueError("!! No clean FAERS data: use 'preprocess' before this !!")
     else:
