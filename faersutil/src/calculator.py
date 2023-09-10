@@ -123,7 +123,7 @@ class Calculator:
         
         """
         if table is None:
-            if self.res.empty:
+            if self.table.empty:
                 raise ValueError("!! Give table or run make_table() before this process !!")
             else:
                 table = self.table.copy()
@@ -140,6 +140,7 @@ class Calculator:
         table.loc[:, "p_value"] = p
         table = table.sort_values("lower_CI", ascending=False)
         self.table = table
+        return table
 
 
     def integrate_drug(self, name="", drugs=[]):
