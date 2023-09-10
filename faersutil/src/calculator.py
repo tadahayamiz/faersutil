@@ -107,6 +107,8 @@ class Calculator:
         ids = list(result.index)
         ids = [decoder[c] for c in ids]
         result.index = ids
+        ## ToDo: rxns are also decoded
+
         ## convert drug_id to drug_name
         self.table = result
         print("> completed")
@@ -237,7 +239,7 @@ class Calculator:
         else:
             condition = {"ctype":"in", "key":layer, "value":tuple(tmp)}
         tmp = self._select_any("rxn_table", "rxn_id", [condition])
-        assert len(tmp) == len(rxn_list)
+        assert len(tmp) >= len(rxn_list)
         if len(self.rxn_id) == 0:
             return tmp
         else:
