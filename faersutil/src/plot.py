@@ -30,9 +30,11 @@ class Plot():
                 self.data = pd.read_csv(url,index_col=0,sep="\t")
 
 
-    def forest_plot(self,data=None,figsize=(6,4),color="darkblue",title="Forest Plot",
-                    markersize=15, linewidth=2,fontsize=14,labelsize=14,
-                    fileout="",dpi=100,alpha=0.7,log=False,forced=False,xmin=1e-1,xmax=None):
+    def forest_plot(
+            self, data=None, figsize=(6,4), color="darkblue", title="Forest Plot",
+            markersize=15, linewidth=2, fontsize=14, labelsize=14,
+            fileout="", dpi=100, alpha=0.7, log=False, forced=False, xmin=1e-1, xmax=None
+            ):
         """
         visualize data with forest plot
         
@@ -68,16 +70,18 @@ class Plot():
         plt.xlim(left=xmin,right=xmax)
         if log:
             plt.xscale("log")
-        #plt.ylim(ymin, ymax)
         plt.xlabel('ROR (95% CI)',fontsize=fontsize)
         plt.title(title,fontsize=fontsize)
         plt.tick_params(labelsize=labelsize)
-        for sa,ro,lo,up in zipped:    
-            plt.plot([lo,up],[sa,sa],linewidth=linewidth,color=color)
-        plt.plot([1.0,1.0],[sample[0],sample[-1]],color='grey',linestyle="dashed")
-        plt.plot(ror,sample,linestyle='',linewidth=0,color=color,
-                marker='o',markersize=markersize,alpha=alpha)
+        plt.xticks(list(range(len(sample))), sample)
+        for sa, ro, lo, up in zipped:    
+            plt.plot([lo, up], [sa, sa], linewidth=linewidth, color=color)
+        plt.plot([1.0,1.0], [sample[0], sample[-1]], color='grey', linestyle="dashed")
+        plt.plot(
+            ror, sample, linestyle='', linewidth=0, color=color,
+                marker='o', markersize=markersize, alpha=alpha
+                )
         plt.tight_layout()
         if len(fileout) > 0:
-            plt.savefig(fileout,dpi=dpi)
+            plt.savefig(fileout, dpi=dpi, box_inches='tight')
         plt.show()
