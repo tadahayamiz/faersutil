@@ -83,5 +83,5 @@ class Plot():
                 )
         plt.tight_layout()
         if len(fileout) > 0:
-            plt.savefig(fileout, dpi=dpi, box_inches='tight')
+            plt.savefig(fileout, dpi=dpi, bbox_inches='tight')
         plt.show()
