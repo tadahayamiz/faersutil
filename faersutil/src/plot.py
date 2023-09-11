@@ -73,7 +73,7 @@ class Plot():
         plt.xlabel('ROR (95% CI)',fontsize=fontsize)
         plt.title(title,fontsize=fontsize)
         plt.tick_params(labelsize=labelsize)
-        plt.xticks(list(range(len(sample))), sample)
+        plt.yticks(list(range(len(sample))), sample)
         for sa, ro, lo, up in zipped:    
             plt.plot([lo, up], [sa, sa], linewidth=linewidth, color=color)
         plt.plot([1.0,1.0], [sample[0], sample[-1]], color='grey', linestyle="dashed")
