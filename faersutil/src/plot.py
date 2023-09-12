@@ -63,7 +63,7 @@ class Plot():
         zipped = zip(sample, ror, lower, upper)
         if xmax is None:
             temp = np.argmax(upper)
-            xmax = (upper[temp] + ror[temp]) * 1.1
+            xmax = upper[temp] * 1.1
 
         ### visualization
         plt.figure(figsize=figsize)
