@@ -20,14 +20,14 @@ class Plot():
         self.data = pd.DataFrame()
 
 
-    def set_data(self,data=None,url=""):
+    def set_data(self, data=None, url=""):
         """ setter """
         self.data = data
         if self.data is None:
             if len(url)==0:
                 raise ValueError("!! Give data or its url !!")
             else:
-                self.data = pd.read_csv(url,index_col=0,sep="\t")
+                self.data = pd.read_csv(url, index_col=0, sep="\t")
 
 
     def forest_plot(
@@ -51,26 +51,28 @@ class Plot():
                 data = self.data
         if data.shape[0] > 100:
             if not forced:
-                raise ValueError("!! data is too large: reduce the size or use forced option !!")
+                raise ValueError(
+                    "!! data is too large: reduce the size or use forced option !!"
+                    )
 
         ### data prep
         sample = list(data.index)
         ror = data["ROR"].values
         lower = data["lower_CI"].values
         upper = data["upper_CI"].values
-        zipped = zip(sample,ror,lower,upper)
+        zipped = zip(sample, ror, lower, upper)
         if xmax is None:
             temp = np.argmax(upper)
-            xmax = int((upper[temp] + ror[temp] - 1)*1.1)
+            xmax = (upper[temp] + ror[temp]) * 1.1
 
         ### visualization
         plt.figure(figsize=figsize)
         plt.gca().invert_xaxis()
         plt.gca().invert_yaxis()
-        plt.xlim(left=xmin,right=xmax)
+        plt.xlim(left=xmin, right=xmax)
         if log:
             plt.xscale("log")
-        plt.xlabel('ROR (95% CI)',fontsize=fontsize)
+        plt.xlabel('ROR (95% CI)', fontsize=fontsize)
         plt.title(title,fontsize=fontsize)
         plt.tick_params(labelsize=labelsize)
         plt.yticks(list(range(len(sample))), sample)
